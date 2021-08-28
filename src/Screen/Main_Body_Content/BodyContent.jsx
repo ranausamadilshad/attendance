@@ -1,5 +1,6 @@
 import React from 'react';
 import AdminDashboard from '../../Component/Admin_Dashboard/AdminDashboard';
+import BodyHaider from '../../Component/BodyHaider/BodyHaider';
 
 // sidebar_section responsive_nav_bar
 
@@ -11,7 +12,8 @@ const BodyContent = ({ sideBar}) => {
            <div class="content_body_wrapper_container">
               <div class="content_body_wrapper_main">
 
-              <AdminDashboard />  
+              {/* <AdminDashboard />  */}
+              <BodyHaider/>
 
               </div>    
             </div>

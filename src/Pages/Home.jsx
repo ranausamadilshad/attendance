@@ -11,7 +11,7 @@ const Home = () => {
         <>
             <Header sideBar={sideBar} setSideBar={setSideBar} />
             <BodyContent sideBar={sideBar} setSideBar={setSideBar} />
-            <SideBar sideBar={sideBar} setSideBar={setSideBar}/>
+            <SideBar sideBar={sideBar} setSideBar={setSideBar}  />
 
         </>
     )

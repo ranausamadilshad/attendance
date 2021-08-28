@@ -422,6 +422,11 @@ opacity: 1;
     height: 30px;
     margin: 0px;
 }
+
+
+
+
+
 .header_login_details figure img{
     width: 100%;
     border-radius: 50px;
@@ -521,6 +526,12 @@ gap: 15px 0px;
 .animated_icon{
 display: flex;
 align-items: center;
+transform: rotate(-90deg);
+
+}
+.animated_icon.animated_icon_responsive{
+    transition: 0.3s ease-in-out;
+    transform: rotate(0deg);
 }
 .sidebar_sub_menu a:hover{
     text-decoration: none;
@@ -579,21 +590,66 @@ margin-right: auto;
 margin-left: auto;
 }
 .content_body_page_title{
-display: flex;
-width: 100%;
-gap: 5px 0px;
-flex-direction: column;
-}
-.content_body_page_title h1{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    }
+    .body_page_title{
+        display: flex;
+        width: 100%;
+       flex-direction: column;
+       gap: 5px 0px;
+    }
+    .body_page_title h1{
+        color: #1f1f1f;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    }
+    .body_page_title .body_page_title_detail{
+    display: flex;
+    gap: 0px 8px;
+    }
+    .body_page_title .body_page_title_detail a{
     color: #1f1f1f;
-font-size: 26px;
-font-weight: 500;
-margin-bottom: 0px;
-}
-.content_body_page_title h5{
-    color: #6c757d;
-    font-size: 18px;
-}
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    }
+    .body_page_title .body_page_title_detail a:hover{
+        text-decoration: none;
+        color: #1f1f1f;
+    }
+    .body_page_title .body_page_title_detail span{
+    background-color: #6c757d;
+    height: 17px;
+        width: 2px;
+        transform: rotate(20deg);
+    }
+    .body_page_title .body_page_title_detail h6{
+        color: #6c757d;
+        font-size: 14px;
+        margin: 0px;
+        text-transform: capitalize;
+    }
+    .body_page_title_create_btn button{
+        background-color: #667eea;
+        border: 1px solid #667eea;
+        border-radius: 50px;
+        color: #fff;
+        float: right;
+        font-weight: 500;
+        min-width: 181px;
+        font-size: 16px;
+        padding: 8px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0px 8px;
+        cursor: pointer;
+    }
+    
 .content_body_page_card{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
