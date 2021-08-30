@@ -333,10 +333,9 @@ align-items: center;
     cursor: pointer;
 }
 .header_notification_btn > a{
-    color: #fff;
+    color: #fff !important;
     font-size: 15px;
     line-height: 60px;
-    color: #fff;
     font-size: 15px;
     line-height: 60px;
     height: 100%;
@@ -940,5 +939,7 @@ display: flex;
     .header_notification_click_detail {
         transform: translate3d(-225px, 60px, 0px);
     }
-
+    .responsive_header_search_field button .header_responsive_search_field {
+        right: -50px;
+    }
 }

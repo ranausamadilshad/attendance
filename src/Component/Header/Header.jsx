@@ -73,8 +73,8 @@ const Header = ({ sideBar, setSideBar }) => {
                 </button>
               </div>
               <div class="responsive_header_search_field">
-                   <button onClick={()=>{searchField ? setSearchField(false) : setSearchField(true)}}>
-                       <i class="fa fa-search"></i>
+                   <button>
+                       <i class="fa fa-search"  onClick={()=>{searchField ? setSearchField(false) : setSearchField(true)}}></i>
                      <div class={searchField ? "header_responsive_search_field toogle_responsive_search_field" : "header_responsive_search_field"}><input type="text" /><button>search</button></div>
                    </button>
                </div>
@@ -170,13 +170,7 @@ const Header = ({ sideBar, setSideBar }) => {
                 </div>
               </div>
               <div className="responsive_header_login_details">
-                <a
-                  onClick={() =>
-                    LoginProfileBtn
-                      ? setLoginProfileBtn(false)
-                      : setLoginProfileBtn(true)
-                  }
-                >
+                <a onClick={handleChangeAdmin}>
                   <i className="fa fa-ellipsis-v"></i>
                 </a>
                 <div

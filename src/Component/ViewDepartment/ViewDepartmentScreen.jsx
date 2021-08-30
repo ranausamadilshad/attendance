@@ -1,6 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import "./ViewDepartment.css";
 const ViewDepartmentScreen = () => {
+    const [toggle, settoggle] = useState(false);
+
     return (
         <>
 
@@ -14,12 +16,13 @@ const ViewDepartmentScreen = () => {
                 <th class="view_department_action">Actions</th>
             </tr>
            
+            {/* view_department_do_action  */}
             <tr class="table_body">
                
                 <td>Health Care Center</td>
                 <td>
                        <div class="view_department_action_btn view_department_action">
-                          <i class="fas fa-ellipsis-v"></i>
+                          <i class="fas fa-ellipsis-v" onClick={() => settoggle(true)}></i>
                           <div class="view_department_do_action">
                             <a href="#"><i class="fas fa-eye"></i><span>View</span></a>
                             <a href="#"><i class="fas fa-pen"></i><span>Edit</span></a>
