@@ -7,6 +7,7 @@ const Header = ({ sideBar, setSideBar }) => {
   const [Notification, setNotification] = useState(false);
 
   const [LoginProfileBtn, setLoginProfileBtn] = useState(false);
+  const [searchField, setSearchField] = useState(false);
 
   const handleChange = () => {
     if (Notification) {
@@ -71,14 +72,14 @@ const Header = ({ sideBar, setSideBar }) => {
                   <i className="fa fa-search"></i>
                 </button>
               </div>
-              <div className="responsive_header_search_field">
-                <button>
-                  <i className="fa fa-search"></i>
-                  <input type="text" />
-                </button>
-              </div>
+              <div class="responsive_header_search_field">
+                   <button onClick={()=>{searchField ? setSearchField(false) : setSearchField(true)}}>
+                       <i class="fa fa-search"></i>
+                     <div class={searchField ? "header_responsive_search_field toogle_responsive_search_field" : "header_responsive_search_field"}><input type="text" /><button>search</button></div>
+                   </button>
+               </div>
               <div className="header_notification_btn">
-                <a href="#" onClick={handleChange}>
+                <a  onClick={handleChange}>
                   <i className="far fa-bell"></i>
                   <span>50+</span>
                 </a>

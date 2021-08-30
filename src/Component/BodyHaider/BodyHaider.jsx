@@ -1,10 +1,10 @@
 import React from 'react';
 import BodyHaiderScreen from './BodyHaiderScreen';
 
-const BodyHaider = () => {
+const BodyHaider = (props) => {
     return (
         <>
-          <BodyHaiderScreen name="create Department"/>  
+          <BodyHaiderScreen main={props.main} cname={props.cname} btnName={props.btnName} btnlink={props.btnlink}/>  
         </>
     )
 }

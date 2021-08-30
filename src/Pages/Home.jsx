@@ -3,6 +3,7 @@ import Header from '../Component/Header/Header';
 import SideBar from '../Component/SideBar/SideBar';
 import BodyContent from '../Screen/Main_Body_Content/BodyContent';
 
+
 const Home = () => {
 
     const [sideBar, setSideBar] = useState(true);
@@ -12,7 +13,6 @@ const Home = () => {
             <Header sideBar={sideBar} setSideBar={setSideBar} />
             <BodyContent sideBar={sideBar} setSideBar={setSideBar} />
             <SideBar sideBar={sideBar} setSideBar={setSideBar}  />
-
         </>
     )
 }
