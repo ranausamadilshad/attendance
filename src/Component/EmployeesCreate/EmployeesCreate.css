@@ -115,3 +115,10 @@ background-color: #f7f7f7 !important;
          outline: none;
          width: 100%;
     }
+    @media (max-width: 400px) { 
+        .create_employee_field{
+            flex-direction: column;
+        }
+
+    
+    }
