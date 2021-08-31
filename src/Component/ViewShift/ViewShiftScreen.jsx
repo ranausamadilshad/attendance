@@ -3,8 +3,17 @@ import React,{useState} from 'react';
 import "../ViewDepartment/ViewDepartment.css";
 
 const ViewShiftScreen  = () => {
+    const [id, setId] = useState("");
+    const holidays = [
+        { id: 1, day: "Evening", from: "August,6,2021", to: "August,6,2021" },
+        { id: 2, day: "Morning", from: "August,6,2021", to: "August,6,2021" },
+        { id: 3, day: "Evening", from: "August,6,2021", to: "August,6,2021" },
+        { id: 4, day: "Morning", from: "August,6,2021", to: "August,6,2021" },
+        { id: 5, day: "Evening", from: "August,6,2021", to: "August,6,2021" },
+        { id: 6, day: "Morning", from: "August,6,2021", to: "August,6,2021" }
+      ];
  
-    const [toggle, settoggle] = useState(false);
+  
 
     // style={{ display: dropDown ? "block" : "none"}}
     return (
@@ -21,16 +30,17 @@ const ViewShiftScreen  = () => {
                        <th>End Time</th>
                        <th class="view_department_action">Actions</th>
                    </tr>
-                  
+                   {holidays.map((data) => (
+
                    <tr class="table_body">
                       
-                       <td>Evening</td>
-                       <td>09:30 Am</td>
-                       <td>06:30 pm</td>
+                       <td>{data.day}</td>
+                       <td>{data.from}</td>
+                       <td>{data.to}</td>
                        <td>
                               <div class="view_department_action_btn view_department_action">
-                                 <i class="fas fa-ellipsis-v" onClick={()=>{toggle?settoggle(false):settoggle(true)}}></i>
-                                 <div  style={{ display: toggle ? "block" : "none"}}>
+                                 <i class="fas fa-ellipsis-v" onClick={() => {id ? setId('') : setId(data.id)}}></i>
+                                 <div  style={{ display: data.id===id ? "block" : "none" }}>
                                  <div class="view_department_do_action"  >
                                    <a href="#"><i class="fas fa-pen"></i><span>Edit</span></a>
                                    <a href="#"><i class="fas fa-trash-alt"></i><span>Delete</span></a>
@@ -41,7 +51,8 @@ const ViewShiftScreen  = () => {
                               
                        </td>
                    </tr>
-                   
+                               ))}
+
                </table>   
             </div>
        

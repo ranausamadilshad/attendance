@@ -83,6 +83,10 @@
    display: flex;
    align-items: center;
    gap: 0px 10px;
+   cursor:pointer;
+}
+.view_department_do_action a {
+    cursor: pointer;
 }
 .view_created_employee_do_action a i{
     font-size: 12px;
