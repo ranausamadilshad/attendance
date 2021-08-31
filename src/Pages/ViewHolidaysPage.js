@@ -5,7 +5,7 @@ import ViewHolidays from '../Component/ViewHolidays/ViewHolidays';
 const ViewHolidaysPage = () => {
     return (
         <>
-      <BodyHaider main="Holidays"  cname="View Holidays" btnName="+ Create Holidays" btnlink='/createholidays' /> 
+      <BodyHaider main="Holidays"  cname="View Holidays" btnName="Create Holidays" btnlink='/createholidays' /> 
        <ViewHolidays/>
         </>
     )

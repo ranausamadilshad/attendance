@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 import "./ViewHoliday.css";
 const ViewHolidaysScreen = () => {
+    const [toggle, settoggle] = useState(false);
     return (
         <>
 
@@ -8,30 +9,34 @@ const ViewHolidaysScreen = () => {
        
            <div class="view_holiday_table"> 
                <table>
-                 
+              
                    <tr class="view_holiday_table_header">
                        <th>Holiday Name</th>
                        <th>From</th>
                        <th>To</th>
                        <th class="view_department_action">Actions</th>
                    </tr>
-                  
+              
                    <tr class="view_holiday_table_body">
-                      
-                       <td>Defence Day</td>
+                    
+                
+                     <td>Defence Day</td>
                        <td>August,6,2021</td>
                        <td>August,6,2021</td> 
                        <td>
                               <div class="view_holiday_action_btn view_holiday_action">
-                                 <i class="fas fa-ellipsis-v"></i>
+                                 <i class="fas fa-ellipsis-v"  onClick={()=>{toggle?settoggle(false):settoggle(true)}}></i>
+                                <div style={{display:toggle?'block':'none'}}>
                                  <div class="view_department_do_action">
                                    <a href="#"><i class="fas fa-pen"></i><span>Edit</span></a>
                                    <a href="#"><i class="fas fa-trash-alt"></i><span>Delete</span></a>
+                                  </div>
                                   </div> 
                                </div>
                           
-                              
+                                
                        </td>
+                    
                    </tr>
 
                    <tr class="view_holiday_table_body">

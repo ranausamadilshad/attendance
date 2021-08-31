@@ -5,7 +5,7 @@ import ViewShift from '../Component/ViewShift/ViewShift'
 const ViewShiftPage = () => {
     return (
         <>
-      <BodyHaider main="Shift Management"  cname="View Shift" btnName=" + Create Shift" btnlink='/createshift' /> 
+      <BodyHaider main="Shift Management"  cname="View Shift" btnName="Create Shift" btnlink='/createshift' /> 
       <ViewShift/>
         </>
     )

@@ -219,9 +219,9 @@ background-color: transparent;
    cursor: pointer;
 }
 .header_notification_click_detail.notificationpannel{
-    display: block;
+    display: flex;
     visibility: visible;
-    transition: 0.3s ease-in-out;
+    transition: 0.1s ease-in-out;
     opacity: 1;
 }
 .header_notification_click_detail{
@@ -237,7 +237,7 @@ background-color: transparent;
     transform: translate3d(-190px, 60px, 0px);
     top: 0px;
     left: 0px;
-    transition: 0.3s ease-in-out;
+    transition: 0.1s ease-in-out;
     cursor: default;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 3px;

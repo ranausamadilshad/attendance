@@ -9,12 +9,27 @@ const Header = ({ sideBar, setSideBar }) => {
   const [LoginProfileBtn, setLoginProfileBtn] = useState(false);
   const [searchField, setSearchField] = useState(false);
 
+
+const handleSidebar=()=>{
+  if (sideBar) {
+    setSideBar(false);
+    setLoginProfileBtn(false);
+    setSearchField(false);
+    setNotification(false);
+  } else {
+    setSideBar(true);
+  }
+}
+
+
+
   const handleChange = () => {
     if (Notification) {
       setNotification(false);
     } else {
       setNotification(true);
       setLoginProfileBtn(false);
+      setSearchField(false);
     }
   };
 
@@ -24,6 +39,17 @@ const Header = ({ sideBar, setSideBar }) => {
     } else {
       setLoginProfileBtn(true);
       setNotification(false);
+      setSearchField(false);
+    }
+  };
+
+  const handleSearchResponsive= () => {
+    if (searchField) {
+      setSearchField(false);
+    } else {
+      setSearchField(true);
+      setNotification(false);
+      setLoginProfileBtn(false);
     }
   };
 
@@ -51,8 +77,10 @@ const Header = ({ sideBar, setSideBar }) => {
             </div>
           </div>
 
+          {/* () => setSideBar(!sideBar) */}
+
           <div className="responsive_header_sidebar_control">
-            <div className="sidebar_controler_btn open_close_nav"   onClick={() => setSideBar(!sideBar)}>
+            <div className="sidebar_controler_btn open_close_nav"   onClick={handleSidebar}>
               <span></span>
               <span></span>
               <span></span>
@@ -74,7 +102,7 @@ const Header = ({ sideBar, setSideBar }) => {
               </div>
               <div class="responsive_header_search_field">
                    <button>
-                       <i class="fa fa-search"  onClick={()=>{searchField ? setSearchField(false) : setSearchField(true)}}></i>
+                       <i class="fa fa-search"  onClick={handleSearchResponsive}></i>
                      <div class={searchField ? "header_responsive_search_field toogle_responsive_search_field" : "header_responsive_search_field"}><input type="text" /><button>search</button></div>
                    </button>
                </div>

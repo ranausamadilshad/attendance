@@ -1,11 +1,12 @@
 import React from 'react'
-import BodyHaider from '../Component/BodyHaider/BodyHaider'
 import CreateHolidays from '../Component/CreateHolidays/CreateHolidays';
+import BodyHaiderPlus from '../Component/BodyHaiderPlus/BodyHaiderPlus';
 
 const CreateHolidaysPage = () => {
     return (
         <>
-      <BodyHaider main="Holidays"  cname="Create Holidays" btnName="View Holidays" btnlink='/viewholidays' /> 
+      <BodyHaiderPlus main="Holidays"  cname="Create Holidays" btnName="View Holidays" btnlink='/viewholidays' /> 
+
         <CreateHolidays/>
         </>
 

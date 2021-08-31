@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 
 
-const BodyHaiderScreen = (props) => {
+const BodyHaiderScreenPlus = (props) => {
     return (
         <>
             <div className="content_body_page_title">
@@ -13,11 +13,11 @@ const BodyHaiderScreen = (props) => {
               <span className="body_page_title_detail"><Link to='/'>Dashboard</Link><span></span><h6>{props.cname}</h6></span>
              </div>
              <div className="body_page_title_create_btn">
-             <Link to={props.btnlink} > <span><i class="fas fa-plus"></i> {props.btnName}</span></Link>
+             <Link to={props.btnlink} > <span> {props.btnName}</span></Link>
              </div> 
          </div>  
         </>
     )
 }
 
-export default BodyHaiderScreen;
+export default BodyHaiderScreenPlus;

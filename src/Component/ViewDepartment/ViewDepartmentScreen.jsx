@@ -22,12 +22,14 @@ const ViewDepartmentScreen = () => {
                 <td>Health Care Center</td>
                 <td>
                        <div class="view_department_action_btn view_department_action">
-                          <i class="fas fa-ellipsis-v" onClick={() => settoggle(true)}></i>
+                          <i class="fas fa-ellipsis-v" onClick={() => {toggle?settoggle(false):settoggle(true)}}></i>
+                          <div style={{display:toggle?'block':'none'}}>
                           <div class="view_department_do_action">
                             <a href="#"><i class="fas fa-eye"></i><span>View</span></a>
                             <a href="#"><i class="fas fa-pen"></i><span>Edit</span></a>
                             <a href="#"><i class="fas fa-trash-alt"></i><span>Delete</span></a>
                            </div> 
+                           </div>
                         </div>
                    
                        

@@ -1,0 +1,117 @@
+.create_employee_field{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.create_employee_field figure{
+height: 140px;
+position: relative;
+}
+.create_employee_field figure img{
+width: 140px;
+height: 140px;
+border-radius: 50%;
+}
+.create_employee_field figure .change_pic{
+position: absolute;
+bottom: 0px;
+text-align: center;
+align-items: center;
+display: flex;
+width: 140px;
+justify-content: center;
+background: #fff;
+height: 40px;
+overflow: hidden;
+opacity: 0.9;
+background-color: #f7f7f7 !important;
+
+}
+.create_employee_field figure .change_pic label{
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.create_employee_field figure .change_pic input[type="file"] {
+    display: none;
+}
+
+.create_department_form form .create_department_form_fields{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px 15px;
+    }
+    
+    .create_employee_section{
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0px;
+    }
+    .create_employee_section .profile_name{
+        display: flex;
+        flex-direction: column;
+        gap: 10px 0px;
+    }
+    
+    .create_employee_section .profile_name label{
+    width: 100%;
+    display: block;
+    font-size: 16px;
+    color: #232323;
+    font-weight: bold;
+    line-height: 16px;
+    text-align: left;
+    margin: 0px;
+    }
+    .create_employee_section .profile_name label .mandatory{
+        font-size: 16px;
+        color: red;
+        font-weight: bold;
+        line-height: 16px;
+        margin: 0px;
+        }
+        .create_employee_section .profile_name label .Optional{
+            font-size: 16px;
+            color: #232323;
+            font-weight: bold;
+            line-height: 16px;
+            margin: 0px;
+            }
+
+            .create_employee_section .profile_name input{
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+     outline: none;
+     width: 100%;
+    }
+   .create_employee_section .profile_name input:focus{
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 50%);
+    outline: 1px solid #5696dbd4;
+     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .create_department_form_fields .create_employee_border_bottom {
+        border-bottom: 1px solid #E3E3E3;
+        padding-bottom: 30px;
+    }
+    .create_department_form_fields .input_field select{
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+         outline: none;
+         width: 100%;
+    }

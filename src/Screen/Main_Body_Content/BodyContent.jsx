@@ -13,6 +13,8 @@ import CreateHolidaysPage from '../../Pages/CreateHolidaysPage';
 import ViewHolidaysPage from '../../Pages/ViewHolidaysPage';
 import AdminDashboardPage from '../../Pages/AdminDashboardPage';
 import LeaveSettingsPage from '../../Pages/LeaveSettingsPage';
+import CreateEmployeesPage from '../../Pages/CreateEmployeesPage';
+import ViewEmployeesPage from '../../Pages/ViewEmployeesPage';
 
 
 // sidebar_section responsive_nav_bar
@@ -69,6 +71,12 @@ const BodyContent = ({ sideBar}) => {
           </Route>
           <Route  path="/leavesetting">
             <LeaveSettingsPage/>
+          </Route>
+          <Route  path="/createemployees">
+           <CreateEmployeesPage/>
+          </Route>
+          <Route  path="/viewemployees">
+           <ViewEmployeesPage/>
           </Route>
          
         </Switch>
