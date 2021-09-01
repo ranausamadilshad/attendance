@@ -3,12 +3,12 @@ import React from 'react'
 const UpdateShift = () => {
     return (
         <>
-           <section className="Viwe_Department_edit_page">
-  <div className="modal fade"  id="UpdateDepartment" tabindex="-1" role="dialog" aria-labelledby="UpdateDepartmentTitle" aria-hidden="true">
+           <section className="View_shift_edit_page">
+  <div className="modal fade"  id="Updateshift" tabindex="-1" role="dialog" aria-labelledby="UpdateshiftTitle" aria-hidden="true">
     <div className="modal-dialog" role="document">
       <div className="modal-content">
         <div className="modal-header">
-          <h5 className="modal-title" id="UpdateDepartmentTitle">Update Department</h5>
+          <h5 className="modal-title" id="UpdateshiftTitle">Update Shift</h5>
           <button type="button" className="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -16,29 +16,44 @@ const UpdateShift = () => {
         <section className="create_department_form">
             <div className="create_department_container">
                   <form>
-                     <div className="create_department_form_fields"> 
-                         
-                      <div className="input_field">
-                      <label>Department Name <span className="mandatory"> *</span></label>
-                      <input type="text" placeholder=""/>
-                      </div>
-                      <div className="input_field">
-                      <label>Phone <span className="mandatory"> * </span></label>
-                      <input type="number" placeholder="" required/>
-                      </div>
-                      <div className="input_field">
-                        <label>Department Email <span className="Optional">(Optional)</span></label>
-                        <input type="email" placeholder=""/>
-                        </div>
-                        <div className="input_field">
-                        <label>Departmant Address <span className="Optional">(Optional)</span></label>
-                        <textarea></textarea>
-                        </div>
-                      <div className="submit_btn">
+                  <div class="create_department_form_fields">
+                    <div class="input_field">
+                      <label>
+                        Shift Name <span class="mandatory"> *</span>
+                      </label>
+                      {/* <FormikControl
+                        control="input"
+                        type="text"
+                        name="shiftName"
+                      /> */}
+                      <input type="text" placeholder="" required />
+                    </div>
+                    <div class="input_field">
+                      <label>
+                        Start Time <span class="mandatory"> *</span>
+                      </label>
+                      {/* <FormikControl
+                        control="input"
+                        type="date"
+                        name="startTime"
+                      /> */}
+                      <input type="time" placeholder="" />
+                    </div>
+                    <div class="input_field">
+                      <label>
+                        End Time <span class="mandatory"> *</span>
+                      </label>
+                      {/* <FormikControl
+                        control="input"
+                        type="date"
+                        name="endTime"
+                      /> */}
+                      <input type="time" placeholder="" />
+                    </div>
+                    <div class="submit_btn">
                       <button type="submit">Update</button>
-                      </div>
-                  
-                     </div> 
+                    </div>
+                  </div>
                   </form>
             </div>
         </section>

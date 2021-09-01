@@ -82,6 +82,7 @@
    display: flex;
    align-items: center;
    gap: 0px 10px;
+   cursor: pointer;
 }
 .view_Job_Tilte_do_action a i{
     font-size: 12px;

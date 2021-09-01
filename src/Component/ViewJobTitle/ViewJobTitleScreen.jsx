@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./ViewJobTitle.css";
 import UpdateJobTitle from './UpdateJobTitle';
+import DeleteJobTitle from './DeleteJobTitle';
 
 
 const ViewJobTitleScreen= () => {
@@ -36,8 +37,8 @@ const ViewJobTitleScreen= () => {
                           <i class="fas fa-ellipsis-v" onClick={() => {id ? setId('') : setId(data.id)}}></i>
                           <div style={{ display: data.id===id ? "block" : "none" }}>
                           <div class="view_Job_Tilte_do_action">
-                            <a data-toggle="modal" data-target="#UpdateDepartment"><i class="fas fa-pen"></i><span>Edit</span></a>
-                            <a href="#"><i class="fas fa-trash-alt"></i><span>Delete</span></a>
+                            <a data-toggle="modal" data-target="#UpdateJobTitle"><i class="fas fa-pen"></i><span>Edit</span></a>
+                            <a data-toggle="modal" data-target="#DeleteJobTitle"><i class="fas fa-trash-alt"></i><span>Delete</span></a>
                            </div> 
                            </div>
                         </div>
@@ -53,7 +54,8 @@ const ViewJobTitleScreen= () => {
 </section> 
 
 <UpdateJobTitle/>
-        </>
+<DeleteJobTitle/>
+       </>
     )
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ViewHoliday.css";
 import UpdateHolidays from './UpdateHolidays';
+import DeleteHolidays from "./DeleteHolidays";
 
 
 const ViewHolidaysScreen = () => {
@@ -40,11 +41,11 @@ const ViewHolidaysScreen = () => {
                     ></i>
                     <div style={{ display: data.id===id ? "block" : "none" }}>
                       <div class="view_department_do_action">
-                        <a data-toggle="modal" data-target="#UpdateDepartment">
+                        <a data-toggle="modal" data-target="#UpdateHolidays">
                           <i class="fas fa-pen"></i>
                           <span>Edit</span>
                         </a>
-                        <a href="#">
+                        <a data-toggle="modal" data-target="#DeleteHolidays">
                           <i class="fas fa-trash-alt"></i>
                           <span>Delete</span>
                         </a>
@@ -58,6 +59,7 @@ const ViewHolidaysScreen = () => {
         </div>
       </section>
       <UpdateHolidays/>
+      <DeleteHolidays/>
     </>
   );
 };
