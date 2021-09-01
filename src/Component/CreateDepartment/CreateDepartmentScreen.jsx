@@ -17,7 +17,6 @@ const CreateDepartmentScreen = () => {
     Phone: Yup.number()
     .positive("A phone number can't start with a minus")
     .integer("A phone number can't include a decimal point")
-    .max(11)
     .required("Required"),
   });
 

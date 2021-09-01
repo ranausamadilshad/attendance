@@ -6,7 +6,7 @@ const CreateDepartmentPage = () => {
     return (
         <>
           
-          <BodyHaiderPlus main="Department"  cname="Create Department" btnName="View Department" btnlink='/viewdepartment' /> 
+        <BodyHaiderPlus main="Department"  cname="Create Department" btnName="View Department" btnlink='/viewdepartment' /> 
         <CreateDepartment/>
         </>
     )

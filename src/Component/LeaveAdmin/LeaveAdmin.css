@@ -38,6 +38,72 @@
     color: #1f1f1f;
     }
     
+    .employee_leave_filter{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: ". . . . . .";
+        gap: 15px 15px;
+        align-items: center;
+        padding-top: 30px;
+    }
+    
+    .leave_filter_detail{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 4px;
+        gap: 10px;
+        
+    }
+    .employee_name_filter {
+        width: 100%;
+        display: block;
+        position: relative;
+        height: 63px;
+    }
+    .employee_name_filter label{
+        position: absolute;
+        margin: 0px;
+        font-size: 14px;
+        left: 10px;
+        color: #495057;
+        top: 10px;
+        /* text-shadow: 0 0 0 #495057; */
+    }
+    .employee_name_filter input {
+        padding: 33px 10px 5px 10px;
+        border: none;
+        color: #495057;
+        outline:#495057;
+        text-shadow: 0 0 0 #495057;
+    }
+    .employee_name_filter select{
+        padding: 33px 10px 5px 10px;
+        border: none;
+        color: #495057;
+        outline:#495057;
+        text-shadow: 0 0 0 #495057;
+        width: 100%;
+    }
+    .employee_name_filter button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    height: 100%;
+    background-color: #55ce63;
+    border: 1px solid #55ce63;
+    text-transform: uppercase;
+    cursor: pointer;
+    }
     .view_Employee_Leave_table{
         float: left;
         width: 100%;
@@ -148,6 +214,11 @@
             min-width: 160px;
     
         }
+        .employee_leave_filter{
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: ". . .";
+        }
+
     }
     
     /* /Tablet/ */
@@ -167,10 +238,31 @@
     grid-template-areas: ". .";
         }
     
+        .employee_leave_filter{
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: ". . .";
+        }
+
+
     }
     @media (max-width: 540px) {
         .employee_leave_calculation_box {
             grid-template-columns: 1fr;
     grid-template-areas: ".";
         }
+        .employee_leave_filter{
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: ". .";
+        }
+
+    
+    }
+    @media (max-width: 400px) {
+      
+        .employee_leave_filter{
+            grid-template-columns: 1fr;
+            grid-template-areas: ".";
+        }
+
+    
     }

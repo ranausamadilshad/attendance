@@ -28,8 +28,46 @@ const LeaveAdminScreen = () => {
 <div className="employee_leave_calculation_box_detail">
    
     <span>Leave History</span>
-    <small><i class="fas fa-filter"></i></small>
+    <small><i className="fas fa-filter"></i></small>
 </div>
+</div>
+<div className="employee_leave_filter">
+<div className="leave_filter_detail">
+    <div className="employee_name_filter">
+        <label>Employee Name</label>
+        <input type="text" />
+    </div>
+</div>
+<div className="leave_filter_detail">
+    <div className="employee_name_filter">
+        <label>Leave Type</label>
+       <select><option value="_Select" selected disabled>Select_</option></select>
+    </div>
+</div>
+<div className="leave_filter_detail">
+    <div className="employee_name_filter">
+        <label>Leave Status</label>
+       <select><option value="_Select" selected disabled>Select_</option></select>
+    </div>
+</div>
+<div className="leave_filter_detail">
+    <div className="employee_name_filter">
+        <label>From</label>
+        <input type="date" />
+    </div>
+</div>
+<div className="leave_filter_detail">
+    <div className="employee_name_filter">
+        <label>To</label>
+        <input type="date" />
+    </div>
+</div>
+<div className="leave_filter_detail">
+    <div className="employee_name_filter">
+        <button>Search</button>
+    </div>
+</div>
+
 </div>
 
 <div className="view_Employee_Leave_table"> 

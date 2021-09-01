@@ -16,7 +16,7 @@ const CreateHolidaysScreen = () => {
     endTime: Yup.date().required("Required"),
   });
   const onSubmit = (values) => {
-    console.log("Create Shift data", values);
+    console.log("Create Holidays data", values);
   };
   return (
     <>
@@ -55,7 +55,7 @@ const CreateHolidaysScreen = () => {
                     </div>
                     <div class="input_field">
                       <label>
-                        Start Date <span class="mandatory"> *</span>
+                        End Date <span class="mandatory"> *</span>
                       </label>
                       <FormikControl
                         control="input"

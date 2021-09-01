@@ -13,15 +13,11 @@ const UpdateDepartment = () => {
 
   const validationSchema = Yup.object({
     dName: Yup.string().required("Required"),
-    Phone: Yup.number()
-      .positive("A phone number can't start with a minus")
-      .integer("A phone number can't include a decimal point")
-      .max(11)
-      .required("Required"),
+    Phone: Yup.number() .required("Required"),
   });
 
   const onSubmit = (values) => {
-    console.log("Create Department data", values);
+    console.log("Update Department data", values);
   };
   return (
     <>

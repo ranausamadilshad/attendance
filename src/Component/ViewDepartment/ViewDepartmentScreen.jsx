@@ -3,6 +3,8 @@ import DeleteDepartment from './DeleteDepartment';
 import UpdateDepartment from './UpdateDepartment';
 import "./ViewDepartment.css";
 const ViewDepartmentScreen = () => {
+   
+    
     const [id, setId] = useState("");
     const department = [
       { id: 1, name: "Health care"},
@@ -15,7 +17,7 @@ const ViewDepartmentScreen = () => {
 
     return (
         <>
-
+c
  <section class="view_department_section">
 
     <div class="view_department_table"> 
@@ -34,8 +36,8 @@ const ViewDepartmentScreen = () => {
                 <td>{data.name}</td>
                 <td>
                        <div class="view_department_action_btn view_department_action">
-                          <i class="fas fa-ellipsis-v" onClick={() => {id ? setId('') : setId(data.id)}}></i>
-                          <div style={{ display: data.id===id ? "block" : "none" }}>
+                          <i class="fas fa-ellipsis-v" onClick={() => {id ? setId('') : setId(data.id)}}  ></i>
+                          <div  style={{ display: data.id===id ? "block" : "none" }} >
                           <div class="view_department_do_action">
                             {/* <a href="#"><i class="fas fa-eye"></i><span>View</span></a> */}
                             <a data-toggle="modal" data-target="#UpdateDepartment"><i class="fas fa-pen"></i><span>Edit</span></a>
@@ -44,7 +46,7 @@ const ViewDepartmentScreen = () => {
                            </div>
                         </div>
                    
-                       
+                   
                 </td>
             </tr>
             ))} 

@@ -6,7 +6,7 @@ const UpdateEmployees = () => {
           <section className="Viwe_employee_edit_page">
   <div className="modal fade"  id="UpdateEmployee" tabindex="-1" role="dialog" aria-labelledby="UpdatEmployeeTitle" aria-hidden="true">
     <div className="modal-dialog" role="document">
-      <div className="modal-content">
+      <div className="modal-content" style={{ padding: "0px 10px" }}>
         <div className="modal-header">
           <h5 className="modal-title" id="UpdateEmployeeTitle">Update Employee</h5>
           <button type="button" className="close" data-dismiss="modal" aria-label="Close">
