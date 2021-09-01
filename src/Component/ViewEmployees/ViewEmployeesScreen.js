@@ -3,6 +3,7 @@ import './ViewEmployees.css'
 import '../CreateDepartment/CreateDepartment.css';
 import UpdateEmployees from './UpdateEmployees';
 import DeleteEmployees from './DeleteEmployees';
+import ViewEmplyeeDetails from './ViewEmplyeeDetails';
 
 
 const ViewEmployeesScreen = () => {
@@ -55,7 +56,7 @@ const ViewEmployeesScreen = () => {
                       <i class="fas fa-ellipsis-v"     onClick={() => {id ? setId('') : setId(data.id)}}></i>
                       <div  style={{ display: data.id===id ? "block" : "none" }}>
                       <div class="view_created_employee_do_action">
-                      <a data-toggle="modal" data-target="#ViewDetail"><i class="fas fa-pen"></i><span>Detail</span></a>
+                      <a data-toggle="modal" data-target="#singleEmployeedetail"><i class="fas fa-eye"></i><span>Detail</span></a>
                         <a data-toggle="modal" data-target="#UpdateEmployee"><i class="fas fa-pen"></i><span>Edit</span></a>
                         <a data-toggle="modal" data-target="#DeleteEmployee"><i class="fas fa-trash-alt"></i><span>Delete</span></a>
                        </div> 
@@ -73,6 +74,7 @@ const ViewEmployeesScreen = () => {
 </section> 
 <UpdateEmployees/>
 <DeleteEmployees/>
+<ViewEmplyeeDetails/>
         </>
     )
 }
