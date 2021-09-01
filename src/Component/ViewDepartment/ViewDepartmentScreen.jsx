@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import DeleteDepartment from './DeleteDepartment';
 import UpdateDepartment from './UpdateDepartment';
 import "./ViewDepartment.css";
 const ViewDepartmentScreen = () => {
@@ -36,9 +37,9 @@ const ViewDepartmentScreen = () => {
                           <i class="fas fa-ellipsis-v" onClick={() => {id ? setId('') : setId(data.id)}}></i>
                           <div style={{ display: data.id===id ? "block" : "none" }}>
                           <div class="view_department_do_action">
-                            <a href="#"><i class="fas fa-eye"></i><span>View</span></a>
+                            {/* <a href="#"><i class="fas fa-eye"></i><span>View</span></a> */}
                             <a data-toggle="modal" data-target="#UpdateDepartment"><i class="fas fa-pen"></i><span>Edit</span></a>
-                            <a href="#"><i class="fas fa-trash-alt"></i><span>Delete</span></a>
+                            <a data-toggle="modal" data-target="#DeleteDepartment"><i class="fas fa-trash-alt"></i><span>Delete</span></a>
                            </div> 
                            </div>
                         </div>
@@ -53,6 +54,7 @@ const ViewDepartmentScreen = () => {
 </section> 
 
 <UpdateDepartment/>
+<DeleteDepartment/>
         </>
     )
 }

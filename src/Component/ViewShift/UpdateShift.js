@@ -1,13 +1,13 @@
 import React from 'react'
 
-const UpdateDepartment = () => {
+const UpdateShift = () => {
     return (
         <>
-<section className="Viwe_Department_edit_page">
+           <section className="Viwe_Department_edit_page">
   <div className="modal fade"  id="UpdateDepartment" tabindex="-1" role="dialog" aria-labelledby="UpdateDepartmentTitle" aria-hidden="true">
     <div className="modal-dialog" role="document">
-      <div className="modal-content" style={{padding:"0px 10px"}}>
-        <div className="modal-header" style={{padding:"1rm 5px !important"}}>
+      <div className="modal-content">
+        <div className="modal-header">
           <h5 className="modal-title" id="UpdateDepartmentTitle">Update Department</h5>
           <button type="button" className="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -47,9 +47,9 @@ const UpdateDepartment = () => {
       </div>
     </div>
   </div>
-</section>
+</section> 
         </>
     )
 }
 
-export default UpdateDepartment
+export default UpdateShift

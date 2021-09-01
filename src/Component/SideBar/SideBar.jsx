@@ -395,8 +395,8 @@ const SideBar = ({sideBar}) => {
                   <object style={{ display: dropDown9 ? "block" : "none"}}>
                      <div className="sidebar_sub_child_menu">
                          <div className="sidebar_sub_child_menu_list">
-                             <Link to="#">Leave(Admin)</Link>
-                             <Link to="#">Leave(Employee)</Link>
+                             <Link to="/leaveadmin">Leave(Admin)</Link>
+                             <Link to="/leaveemployees">Leave(Employee)</Link>
                          </div>   
                      </div>
                      </object>

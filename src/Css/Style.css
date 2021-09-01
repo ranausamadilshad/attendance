@@ -683,20 +683,21 @@ margin-left: auto;
         text-transform: capitalize;
     }
     .body_page_title_create_btn a{
-        background-color: #667eea;
-        border: 1px solid #667eea;
+        background-color: #667eea !important;
+        border: none;
         border-radius: 50px;
         color: #fff;
-        float: right;
         font-weight: 500;
-        min-width: 181px;
         font-size: 16px;
-        padding: 8px 0px;
+        padding: 8px 21px;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0px 8px;
         cursor: pointer;
+    }
+    .body_page_title_create_btn a:hover{
+        text-decoration: none;
     }
     
 .content_body_page_card{

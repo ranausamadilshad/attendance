@@ -13,7 +13,7 @@ const BodyHaiderScreenPlus = (props) => {
               <span className="body_page_title_detail"><Link to='/'>Dashboard</Link><span></span><h6>{props.cname}</h6></span>
              </div>
              <div className="body_page_title_create_btn">
-             <Link to={props.btnlink} > <span> {props.btnName}</span></Link>
+             <Link to={props.btnlink} className="btn btn-primary"> <span> {props.btnName}</span></Link>
              </div> 
          </div>  
         </>

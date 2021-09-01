@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./ViewHoliday.css";
+import UpdateHolidays from './UpdateHolidays';
+
+
 const ViewHolidaysScreen = () => {
   const [id, setId] = useState("");
   const holidays = [
@@ -37,7 +40,7 @@ const ViewHolidaysScreen = () => {
                     ></i>
                     <div style={{ display: data.id===id ? "block" : "none" }}>
                       <div class="view_department_do_action">
-                        <a href="#">
+                        <a data-toggle="modal" data-target="#UpdateDepartment">
                           <i class="fas fa-pen"></i>
                           <span>Edit</span>
                         </a>
@@ -54,6 +57,7 @@ const ViewHolidaysScreen = () => {
           </table>
         </div>
       </section>
+      <UpdateHolidays/>
     </>
   );
 };

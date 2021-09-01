@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-
+import UpdateShift from './UpdateShift';
 import "../ViewDepartment/ViewDepartment.css";
 
 const ViewShiftScreen  = () => {
@@ -42,7 +42,7 @@ const ViewShiftScreen  = () => {
                                  <i class="fas fa-ellipsis-v" onClick={() => {id ? setId('') : setId(data.id)}}></i>
                                  <div  style={{ display: data.id===id ? "block" : "none" }}>
                                  <div class="view_department_do_action"  >
-                                   <a href="#"><i class="fas fa-pen"></i><span>Edit</span></a>
+                                   <a data-toggle="modal" data-target="#UpdateDepartment"><i class="fas fa-pen"></i><span>Edit</span></a>
                                    <a href="#"><i class="fas fa-trash-alt"></i><span>Delete</span></a>
                                   </div>
                                   </div> 
@@ -58,7 +58,7 @@ const ViewShiftScreen  = () => {
        
        </section> 
        
-       
+       <UpdateShift/>
                </>
     )
 }
