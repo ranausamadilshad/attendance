@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import DeleteDepartment from './DeleteDepartment';
 import UpdateDepartment from './UpdateDepartment';
+// import UpdateDepartmentScreen from './UpdateDepartmentScreen';
 import "./ViewDepartment.css";
 const ViewDepartmentScreen = () => {
    
@@ -55,6 +56,7 @@ const ViewDepartmentScreen = () => {
 
 </section> 
 
+{/* <UpdateDepartmentScreen /> */}
 <UpdateDepartment/>
 <DeleteDepartment/>
         </>
