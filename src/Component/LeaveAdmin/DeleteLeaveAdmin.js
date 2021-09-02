@@ -4,11 +4,11 @@ const DeleteLeaveAdmin = () => {
     return (
         <>
 <section className="Viwe_Employee_delete_page">
-  <div className="modal fade"  id="DeleteDepartment" tabindex="-1" role="dialog" aria-labelledby="DeleteDepartmentTitle" aria-hidden="true">
+  <div className="modal fade"  id="DeleteAdmin" tabindex="-1" role="dialog" aria-labelledby="DeleteAdminTitle" aria-hidden="true">
     <div className="modal-dialog" role="document">
       <div className="modal-content" style={{padding:"0px 10px"}}>
         <div className="modal-header" style={{padding:"1rm 5px !important"}}>
-          <h5 className="modal-title" id="DeleteDepartmentTitle">Delete Employee</h5>
+          <h5 className="modal-title" id="DeleteAdminTitle">Delete Employee</h5>
           <button type="button" className="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

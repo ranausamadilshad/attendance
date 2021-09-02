@@ -115,7 +115,7 @@ const LeaveAdminScreen = () => {
                       <div className="view_admin_Leave_do_action">
                         {/* <a href="#"><i className="fas fa-eye"></i><span>View</span></a>
                         <a data-toggle="modal" data-target="#123"><i className="fas fa-pen"></i><span>Edit</span></a> */}
-                        <a data-toggle="modal" data-target="#DeleteDepartment"><i className="fas fa-trash-alt"></i><span>Delete</span></a>
+                        <a data-toggle="modal" data-target="#DeleteAdmin"><i className="fas fa-trash-alt"></i><span>Delete</span></a>
                        </div> 
                        </div>
                     </div>
