@@ -1,9 +1,11 @@
 import React from 'react'
+import AdminHeader from '../Component/AdminHeader/AdminHeader';
+
 
 const ReportEmployeePage = () => {
     return (
         <>
-            HHHJJJHJJ
+                  <AdminHeader main='Report' cname="Employee"/>
         </>
     )
 }

@@ -26,6 +26,9 @@ const ViewDepartmentScreen = () => {
           
             <tr class="table_header">
                 <th>Department Name</th>
+                <th>Phone No</th>
+                <th>Email </th>
+                <th>Address</th>
                 <th class="view_department_action">Actions</th>
             </tr>
            
@@ -34,6 +37,9 @@ const ViewDepartmentScreen = () => {
 
             <tr class="table_body">
                
+                <td>{data.name}</td>
+                <td>{data.name}</td>
+                <td>{data.name}</td>
                 <td>{data.name}</td>
                 <td>
                        <div class="view_department_action_btn view_department_action">

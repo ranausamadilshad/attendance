@@ -1,10 +1,14 @@
 import React from 'react'
+import AdminHeader from '../Component/AdminHeader/AdminHeader';
+import ReportAdmin from '../Component/ReportAdmin/ReportAdmin';
+
 
 const ReportAdminPage = () => {
     return (
-        <div>
-            Repojdncjwn
-        </div>
+        <>
+       <AdminHeader main='Report' cname="Admin"/>
+       <ReportAdmin/>
+        </>
     )
 }
 

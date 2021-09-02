@@ -22,12 +22,11 @@ import AttendanceEmployeePage from '../../Pages/AttendanceEmployeePage';
 import ProfilePage from '../../Pages/ProfilePage';
 import ReportAdminPage from '../../Pages/ReportAdminPage';
 import ReportEmployeePage from '../../Pages/ReportEmployeePage';
+import LoginPage from '../../Pages/LoginPage';
 
 
-// AttendenceAdminPage
-// AttendanceEmployeePage
 
-// sidebar_section responsive_nav_bar
+
 
 const BodyContent = ({ sideBar}) => {
     return (
@@ -109,6 +108,9 @@ const BodyContent = ({ sideBar}) => {
           </Route>
           <Route path="/reportemployee">
             <ReportEmployeePage/>
+          </Route>
+          <Route path="/login">
+            <LoginPage/>
           </Route>
               </div>    
             </div>

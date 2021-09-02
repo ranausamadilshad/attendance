@@ -11,6 +11,7 @@
         padding: 30px 15px;
         grid-template-columns: 1fr 1fr;
         gap: 25px 40px;
+        margin-top: 30px;
     }
     .Profile_page_box{
         display: flex;
