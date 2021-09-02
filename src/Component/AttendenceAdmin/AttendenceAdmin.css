@@ -1,0 +1,209 @@
+.daily_attendence_activity_section{
+    float: left;
+    width: 100%;
+    padding-top: 30px;
+}
+.daily_attendence_activity_employee_filter{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: ". . .";
+    grid-template-rows: auto;
+    gap: 15px 60px;
+}
+.attendence_activity_employee_filter_box{
+display: flex;
+width: 100%;
+position: relative;
+height: 75px;
+}
+.attendence_activity_employee_filter_box label{
+    font-size: 14px;
+    margin: 0px;
+    color: #979797;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.attendence_activity_employee_filter_box select{
+    border: 1px solid #ededed;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
+    padding: 34px 10px 5px 10px;
+   background-color: #fff;
+   color: #1f1f1f;
+   cursor: pointer;
+   width: 100%;
+}
+.attendence_activity_employee_filter_box button{
+    border: 1px solid #ededed;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
+   background-color: #fff;
+   color: #1f1f1f;
+   cursor: pointer;
+   width: 100%;
+   font-size: 22px
+}
+.daily_attendence_activity_employee{
+    display: block;
+    width: 100%;
+    padding-top: 30px;
+}
+.daily_attendence_activity_employee_name{
+display: flex;
+flex-direction: column;
+gap:4px 0px;
+}
+.daily_attendence_activity_employee_name h1{
+font-size: 22px;
+color:#1f1f1f ;
+margin: 0px;
+}
+.daily_attendence_activity_employee_name span{
+    margin: 0px;
+    font-size: 14px;
+}
+
+.daily_attendence_activity_box{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: auto;
+grid-template-columns: ". . .";
+gap: 15px 15px;
+padding-top: 30px;
+}
+.daily_attendence_activity_box_detail{
+    border: 1px solid #ededed;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
+    padding: 1.25rem;
+   background-color: #fff;
+}
+.daily_attendence_activity_box_header{
+    display: flex;
+    gap: 5px 15px;
+    align-items: center;
+   margin-bottom: 40px;
+}
+.daily_attendence_activity_box_header h4{
+    margin: 0px;
+    color: #1f1f1f;
+    font-size: 20px;
+    font-weight: 500;
+}
+.daily_attendence_activity_box_header h5{
+    margin: 0px;
+    color: #8e8e8e !important;
+    font-size: 14px;
+}
+
+.daily_attendence_activity_punch_btn{
+    display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: auto;
+grid-template-areas: ". .";
+width: 100%;
+gap: 15px 15px;
+margin-bottom: 40px;
+}
+.daily_attendence_activity_punch_btn button{
+    background-color: #667eea;
+    border: 1px solid #667eea;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    max-width: 100%;
+    padding: 5px 0px;
+    cursor: pointer;
+    color: #fff;
+    
+}
+
+.daily_attendence_activity_punch_btn button:hover{
+    background-color: #4b68e7;
+    border: 1px solid #4b68e7;
+}
+.daily_attendence_activity_box_footer{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: auto;
+grid-template-areas: ". .";
+width: 100%;
+gap: 15px 15px;
+}
+
+.daily_attendence_break_overtime_box{
+    display: flex;
+    flex-direction: column;
+    gap: 5px 0px;
+    background-color: #ededed;
+    padding: 6px 0px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #ededed;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
+}
+.daily_attendence_break_overtime_box span{
+    margin: 0px;
+   font-size: 14px;
+   color: #1f1f1f;
+}
+
+.daily_attendence_activity_module{
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0px;
+}
+.daily_attendence_activity_single_module{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ededed;
+    padding: 10px 10px;
+    border-radius: 4px;
+    border: 1px solid #ededed;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);   
+    align-items: center;
+}
+.daily_attendence_activity_single_module span{
+    margin: 0px;
+    font-size: 14px;
+    color: #1f1f1f;   
+}
+
+/* /Tablet/ */
+@media (min-width: 768px) and (max-width: 1024px) {
+    
+    .daily_attendence_activity_box_header {
+        align-items: unset;
+        margin-bottom: 40px;
+        flex-direction: column;
+    }
+    .daily_attendence_activity_employee_filter {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: ". . .";
+        gap: 15px 15px;
+    }
+
+
+}
+@media (max-width: 767px){
+    .daily_attendence_activity_employee_filter {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: ". .";
+        gap: 15px 30px;
+    }
+    .daily_attendence_activity_box {
+        grid-template-columns: 1fr 1fr;
+        grid-template-columns: ". .";
+    }
+}
+@media (max-width: 540px){
+    .daily_attendence_activity_employee_filter {
+        grid-template-columns: 1fr;
+        grid-template-areas: ".";
+        gap: 15px 30px;
+    }
+
+    .daily_attendence_activity_box {
+        grid-template-columns: 1fr;
+        grid-template-columns: ".";
+    }
+}

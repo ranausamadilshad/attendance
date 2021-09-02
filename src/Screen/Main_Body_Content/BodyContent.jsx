@@ -17,8 +17,13 @@ import CreateEmployeesPage from '../../Pages/CreateEmployeesPage';
 import ViewEmployeesPage from '../../Pages/ViewEmployeesPage';
 import LeaveAdminPage from '../../Pages/LeaveAdminPage';
 import LeaveEmployeePage from '../../Pages/LeaveEmployeePage';
+import AttendenceAdminPage from '../../Pages/AttendenceAdminPage';
+import AttendanceEmployeePage from '../../Pages/AttendanceEmployeePage';
+import ProfilePage from '../../Pages/ProfilePage';
 
 
+// AttendenceAdminPage
+// AttendanceEmployeePage
 
 // sidebar_section responsive_nav_bar
 
@@ -88,10 +93,15 @@ const BodyContent = ({ sideBar}) => {
            <LeaveEmployeePage/>
           </Route>
         </Switch>
-      
-
-
-
+        <Route path="/attendenceadmin">
+           <AttendenceAdminPage/>
+          </Route>
+          <Route path="/attendenceemployee">
+          <AttendanceEmployeePage/>
+          </Route>
+          <Route path="/profile">
+            <ProfilePage/>
+          </Route>
               </div>    
             </div>
       </section>

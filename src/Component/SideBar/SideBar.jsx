@@ -204,7 +204,7 @@ const SideBar = ({sideBar}) => {
         if(dropDown10){
             setdropdown10(false);
         }else{
-            setdropdown(true);
+            setdropdown10(true);
             setdropdown1(false);
             setdropdown2(false);
             setdropdown3(false);
@@ -418,9 +418,9 @@ const SideBar = ({sideBar}) => {
               <object style={{ display: dropDown10 ? "block" : "none"}}>
               <div className="sidebar_sub_child_menu">
                   <div className="sidebar_sub_child_menu_list">
-                      <Link to="#">Mark Attendence</Link>
-                      <Link to="#"> Attendence(Admin)</Link>
-                      <Link to="#"> Attendence(Employee)</Link>
+                      {/* <Link to="#">Mark Attendence</Link> */}
+                      <Link to="/attendenceadmin"> Attendence(Admin)</Link>
+                      <Link to="/attendenceemployee"> Attendence(Employee)</Link>
                   </div>   
               </div>
               </object>
