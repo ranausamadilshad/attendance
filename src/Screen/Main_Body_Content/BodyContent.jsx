@@ -20,6 +20,8 @@ import LeaveEmployeePage from '../../Pages/LeaveEmployeePage';
 import AttendenceAdminPage from '../../Pages/AttendenceAdminPage';
 import AttendanceEmployeePage from '../../Pages/AttendanceEmployeePage';
 import ProfilePage from '../../Pages/ProfilePage';
+import ReportAdminPage from '../../Pages/ReportAdminPage';
+import ReportEmployeePage from '../../Pages/ReportEmployeePage';
 
 
 // AttendenceAdminPage
@@ -101,6 +103,12 @@ const BodyContent = ({ sideBar}) => {
           </Route>
           <Route path="/profile">
             <ProfilePage/>
+          </Route>
+          <Route path="/reportadmin">
+            <ReportAdminPage/>
+          </Route>
+          <Route path="/reportemployee">
+            <ReportEmployeePage/>
           </Route>
               </div>    
             </div>

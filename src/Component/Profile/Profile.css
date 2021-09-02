@@ -1,0 +1,110 @@
+.Profile_page_section{
+    float: left;
+    width: 100%;
+    }
+    .Profile_page_body{
+        display: grid;
+        width: 100%;
+        border: 1px solid #ededed;
+        box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
+        background-color: #fff;
+        padding: 30px 15px;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 40px;
+    }
+    .Profile_page_box{
+        display: flex;
+        gap: 15px 15px;
+        border-right: 2px dashed #ccc;
+    }
+    .Profile_page_box figure{
+        margin: 0px;
+        width: 80px;
+        height: 80px;
+        border: 2px solid #fff;
+    }
+    .Profile_page_box figure img{
+        width: 100%;
+        border-radius: 50%;
+    }
+    .Profile_page_inner_box{
+        display: flex;
+        flex-direction: column;
+        gap: 15px 0px;
+    }
+    .Profile_page_box_detail{
+        display: flex;
+        flex-direction: column;
+        gap: 2px 0px;
+    }
+    .Profile_page_box_detail h3{
+        margin: 0px;
+        font-size: 20px;
+        word-spacing: 4px;
+        color: black;
+        font-weight: 400;
+    }
+    .Profile_page_box_detail span{
+        margin: 0px;
+        font-size: 12px;
+        color: #8e8e8e !important;
+    }
+    .Profile_page_box_detail h4{
+        margin: 0px;
+        color: black;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    
+    .Profile_page_box_two{
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0px;
+    width: 100%;
+    }
+    .Profile_page_box_two_detail{
+    display: flex;
+    gap: 5px 30px;
+    width: 100%;
+    }
+    .Profile_page_box_two_detail h5{
+        color: #4f4f4f;
+        font-weight: 500;
+        margin:0px;
+        font-size: 16px;
+        min-width: 100px;
+    }
+    .Profile_page_box_two_detail > span{
+        margin: 0px;
+        font-size: 14px;
+        color: #8e8e8e;
+        line-height: 20px;
+    
+    }
+    
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+    }
+    
+    @media (max-width: 767px){
+    
+        .Profile_page_body {
+         
+            grid-template-columns: 1fr;
+            grid-template-areas: ".";
+        }
+        .Profile_page_box {
+           
+            border-bottom: 2px dashed #ccc;
+            padding-bottom: 40px;
+            border-right: none;
+        }
+    
+    }
+    
+    @media (max-width: 350px){
+    
+        .Profile_page_box_two_detail {
+            flex-direction: column;
+        }
+    }

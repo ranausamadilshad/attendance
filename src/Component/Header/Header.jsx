@@ -193,9 +193,9 @@ const handleSidebar=()=>{
                       : "header_login_details_section_click_data"
                   }
                 >
-                  <a href="/profile">My profile</a>
-                  <a href="#">setting</a>
-                  <a href="#">logout</a>
+                  <Link to="/profile">My profile</Link>
+                  <Link to="#">setting</Link>
+                  <Link to="#">logout</Link>
                 </div>
               </div>
               <div className="responsive_header_login_details">
