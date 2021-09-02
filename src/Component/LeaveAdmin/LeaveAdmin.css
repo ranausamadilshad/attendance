@@ -1,9 +1,9 @@
-.view_Employee_Leave_section{
+.view_admin_Leave_section{
     float: left;
     width: 100%;
     }
     
-    .employee_leave_calculation_box{
+    .admin_leave_calculation_box{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: auto;
@@ -12,7 +12,7 @@
         align-items: center;
         padding-top: 30px;
     }
-    .employee_leave_calculation_box_detail{
+    .admin_leave_calculation_box_detail{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -25,20 +25,20 @@
         gap: 10px;
         
     }
-    .employee_leave_calculation_box_detail span{
+    .admin_leave_calculation_box_detail span{
         margin: 0px;
         color: #1f1f1f;
     font-size: 16px;
     font-weight: normal;
     line-height: 18px
     }
-    .employee_leave_calculation_box_detail small{
+    .admin_leave_calculation_box_detail small{
         font-size: 24px;
     margin-bottom: 0;
     color: #1f1f1f;
     }
     
-    .employee_leave_filter{
+    .admin_leave_filter{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: auto;
@@ -60,13 +60,13 @@
         gap: 10px;
         
     }
-    .employee_name_filter {
+    .admin_name_filter {
         width: 100%;
         display: block;
         position: relative;
         height: 63px;
     }
-    .employee_name_filter label{
+    .admin_name_filter label{
         position: absolute;
         margin: 0px;
         font-size: 14px;
@@ -75,14 +75,14 @@
         top: 10px;
         /* text-shadow: 0 0 0 #495057; */
     }
-    .employee_name_filter input {
+    .admin_name_filter input {
         padding: 33px 10px 5px 10px;
         border: none;
         color: #495057;
         outline:#495057;
         text-shadow: 0 0 0 #495057;
     }
-    .employee_name_filter select{
+    .admin_name_filter select{
         padding: 33px 10px 5px 10px;
         border: none;
         color: #495057;
@@ -90,7 +90,7 @@
         text-shadow: 0 0 0 #495057;
         width: 100%;
     }
-    .employee_name_filter button{
+    .admin_name_filter button{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -104,21 +104,21 @@
     text-transform: uppercase;
     cursor: pointer;
     }
-    .view_Employee_Leave_table{
+    .view_admin_Leave_table{
         float: left;
         width: 100%;
         padding-top: 30px;
     }
     
     
-    .view_Employee_Leave_table table{
+    .view_admin_Leave_table table{
         width: 100%;
       margin-bottom: 15px;
       table-layout: auto;
       border-collapse: collapse;
     
       }
-      .view_Employee_Leave_table table .Employee_Leave_table_header{
+      .view_admin_Leave_table table .admin_Leave_table_header{
         box-shadow: 0 0 3px #e5e5e5;
         color: rgb(51, 51, 51) !important;
         background: #fff;
@@ -126,14 +126,14 @@
       .view_department_table table tr{
         box-shadow: 0 0 3px #e5e5e5;
     }
-    .view_Employee_Leave_table table .Employee_Leave_table_body{
+    .view_admin_Leave_table table .admin_Leave_table_body{
         background: #fff;
     }
-    .view_Employee_Leave_table table .Employee_Leave_table_body:nth-of-type(even) {
+    .view_admin_Leave_table table .admin_Leave_table_body:nth-of-type(even) {
         background-color: rgba(0,0,0,.05);
     }
       
-      .view_Employee_Leave_table table tr th{
+      .view_admin_Leave_table table tr th{
         align-items: center;
         text-align:left;
         color: #232323;
@@ -141,7 +141,7 @@
         padding: 10px 15px 10px 15px;
     }
     
-    .view_Employee_Leave_table table tr td{
+    .view_admin_Leave_table table tr td{
          
         align-items: center;
         text-align: left;
@@ -154,24 +154,23 @@
        text-transform: capitalize;
     }
     
-    .view_Employee_Leave_action{
+    .view_admin_Leave_action{
         text-align: right !important;
     }
     
     
-    .view_Employee_Leave_action_btn i{
+    .view_admin_Leave_action_btn i{
        cursor: pointer;
       font-size:16px ;
     }
-    .view_Employee_Leave_table table tr .view_Employee_Leave_action_btn{
+    .view_admin_Leave_table table tr .view_admin_Leave_action_btn{
         position: relative;
         float: right; 
     }
     
-    .view_Employee_Leave_do_action{
+    .view_admin_Leave_do_action{
         position: absolute;
         width: 115px;
-        height: 96px;
         background: #FFFFFF;
         right: 12px;
         top: 18px;
@@ -179,11 +178,11 @@
         display: flex;
         flex-direction: column;
         text-align: left;
-        padding: 0px 10px;
+        padding: 12px 10px;
         justify-content: center;
         gap: 10px 0px;  
     }
-    .view_Employee_Leave_do_action a{
+    .view_admin_Leave_do_action a{
        font-size: 14px;
        text-decoration: none;
        font-weight: 400;
@@ -194,27 +193,27 @@
        gap: 0px 10px;
        cursor: pointer;
     }
-    .view_Employee_Leave_do_action a i{
+    .view_admin_Leave_do_action a i{
         font-size: 12px;
     }
-    .view_Employee_Leave_do_action a:hover{
+    .view_admin_Leave_do_action a:hover{
         color: #252525;
         text-decoration: none;
     }
     
     /* /Tablet/ */
     @media (min-width: 768px) and (max-width: 1024px) {
-        .view_Employee_Leave_table table {
+        .view_admin_Leave_table table {
             display: block;
             overflow: scroll;
             position: relative;
             z-index: 1;
         }
-        .view_Employee_Leave_table table tr th {
+        .view_admin_Leave_table table tr th {
             min-width: 160px;
     
         }
-        .employee_leave_filter{
+        .admin_leave_filter{
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: ". . .";
         }
@@ -223,22 +222,22 @@
     
     /* /Tablet/ */
     @media (max-width: 767px) {
-        .view_Employee_Leave_table table {
+        .view_admin_Leave_table table {
             display: block;
             overflow: scroll;
             position: relative;
             z-index: 1;
         }
-        .view_Employee_Leave_table table tr th {
+        .view_admin_Leave_table table tr th {
             min-width: 160px;
     
         }
-        .employee_leave_calculation_box {
+        .admin_leave_calculation_box {
             grid-template-columns: 1fr 1fr;
     grid-template-areas: ". .";
         }
     
-        .employee_leave_filter{
+        .admin_leave_filter{
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: ". . .";
         }
@@ -246,11 +245,11 @@
 
     }
     @media (max-width: 540px) {
-        .employee_leave_calculation_box {
+        .admin_leave_calculation_box {
             grid-template-columns: 1fr;
     grid-template-areas: ".";
         }
-        .employee_leave_filter{
+        .admin_leave_filter{
             grid-template-columns: 1fr 1fr;
             grid-template-areas: ". .";
         }
@@ -259,10 +258,37 @@
     }
     @media (max-width: 400px) {
       
-        .employee_leave_filter{
+        .admin_leave_filter{
             grid-template-columns: 1fr;
             grid-template-areas: ".";
         }
 
     
+    }
+
+    .status_selection{
+position: relative;
+    }
+    .status_selection .status_active{
+display: flex;
+width: 100%;
+gap: 0px 10px;
+align-items: center;
+cursor: pointer;
+    
+}
+    .status_selection .status_active small{
+      font-size: 16px;
+    }
+    .status_selection_list{
+        display: flex;
+        width: 100%;
+        grid-gap: 10px 0px;
+        gap: 10px 0px;
+        flex-direction: column;
+        position: absolute;
+        background: #fff;
+        padding: 10px 10px;
+        border: 1px solid gray;
+         border-radius: 4px;
     }

@@ -17,7 +17,7 @@ const ViewDepartmentScreen = () => {
 
     return (
         <>
-c
+
  <section class="view_department_section">
 
     <div class="view_department_table"> 
