@@ -1,29 +1,9 @@
 import React from "react";
 import "./CreateDepartment.css";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 import FormikControl from "../FormControl/FormikControl";
 
-const CreateDepartmentScreen = () => {
-  const initialValues = {
-    email: "",
-    dName: "",
-    dAddress: "",
-    Phone: "",
-  };
-
-  const validationSchema = Yup.object({
-    dName: Yup.string().required("Required"),
-    Phone: Yup.number()
-    .positive("A phone number can't start with a minus")
-    .integer("A phone number can't include a decimal point")
-    .required("Required"),
-  });
-
-  const onSubmit = (values) => {
-    console.log("Create Department data", values);
-  };
-
+const CreateDepartmentScreen = ({ onSubmit,validationSchema ,initialValues }) => {
   return (
     <>
       <Formik

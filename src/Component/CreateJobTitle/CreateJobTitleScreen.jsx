@@ -1,23 +1,22 @@
 import React from "react";
 import "../CreateDepartment/CreateDepartment.css";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 import FormikControl from "../FormControl/FormikControl";
 
-const CreateJobTitleScreen = () => {
-  const initialValues = {
-    jobTitle: "",
-    allowedLeaves: "",
-  };
+const CreateJobTitleScreen = ({ onSubmit,validationSchema ,initialValues }) => {
+  // const initialValues = {
+  //   jobTitle: "",
+  //   allowedLeaves: "",
+  // };
 
-  const validationSchema = Yup.object({
-    jobTitle: Yup.string().required("Required"),
-    allowedLeaves: Yup.number().required("Required"),
-  });
+  // const validationSchema = Yup.object({
+  //   jobTitle: Yup.string().required("Required"),
+  //   allowedLeaves: Yup.number().required("Required"),
+  // });
 
-  const onSubmit = (values) => {
-    console.log("Create Job Title data", values);
-  };
+  // const onSubmit = (values) => {
+  //   console.log("Create Job Title data", values);
+  // };
 
   return (
     <>
