@@ -4,20 +4,13 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "../FormControl/FormikControl";
 
-const CreateHolidaysScreen = () => {
-  const initialValues = {
-    holidayName: "",
-    startTime: "",
-    endTime: "",
-  };
-  const validationSchema = Yup.object({
-    holidayName: Yup.string().required("Required"),
-    startTime: Yup.date().required("Required"),
-    endTime: Yup.date().required("Required"),
-  });
-  const onSubmit = (values) => {
-    console.log("Create Holidays data", values);
-  };
+const CreateHolidaysScreen = ({
+  initialValues,
+  onSubmit,
+  validationSchema,
+  data,
+  error,
+}) => {
   return (
     <>
       <Formik

@@ -1,12 +1,38 @@
-import React from 'react'
-import CreateHolidaysScreen from './CreateHolidaysScreen'
+import React from "react";
+import CreateHolidaysScreen from "./CreateHolidaysScreen";
+import * as Yup from "yup";
+import useApi from "../../hooks/useApi";
+import * as api from "../../apis/holiday";
 
+const initialValues = {
+  holidayName: "",
+  startTime: "",
+  endTime: "",
+};
 const CreateHolidays = () => {
-    return (
-        <>
-         <CreateHolidaysScreen/>   
-        </>
-    )
-}
+  const { request, data, error } = useApi(api.addHoliday);
+  const validationSchema = Yup.object({
+    holidayName: Yup.string().required("Required"),
+    startTime: Yup.date().required("Required"),
+    endTime: Yup.date().required("Required"),
+  });
+  const onSubmit = async (values) => {
+    console.log("Create Holidays data", values);
+    try {
+      await request(values);
+    } catch (_) {}
+  };
+  return (
+    <>
+      <CreateHolidaysScreen
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+        data={data}
+        error={error}
+      />
+    </>
+  );
+};
 
-export default CreateHolidays
+export default CreateHolidays;

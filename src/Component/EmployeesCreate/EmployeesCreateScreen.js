@@ -1,63 +1,22 @@
 import React from "react";
 import "./EmployeesCreate.css";
 import "../CreateDepartment/CreateDepartment.css";
-import loginimg from "../../Assets/image/login_img.png";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import FormikControl from "../FormControl/FormikControl";
 
-const EmployeesCreateScreen = () => {
-  const department = [
-    { key: "Department", value: "" },
-    { key: "Option 1", value: "HR" },
-    { key: "Option 2", value: "Development" },
-    { key: "Option 3", value: "Marketing" },
-  ];
-  const jobTitle = [
-    { key: "Job Title", value: "" },
-    { key: "Option 1", value: "Sweaper" },
-  ];
-  const jobShift = [
-    { key: "Job Shift", value: "" },
-    { key: "Option 1", value: " Morning" },
-    { key: "Option 2", value: "Evening" },
-  ];
+const EmployeesCreateScreen = ({
+  initialValues,
+  onSubmit,
+  validationSchema,
+  shifts,
+  depts,
+  jobs,
+  data,
+}) => {
   const gender = [
-    { key: "Gender", value: "" },
-    { key: "Option 1", value: "Male" },
-    { key: "Option 2", value: "Female" },
+    { key: "MALE", value: "MALE" },
+    { key: "FEMALE", value: "FEMALE" },
   ];
-
-  const initialValues = {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    joinDate: "",
-    department: "",
-    jobTitle: "",
-    jobShift: "",
-    dateOfBirth: "",
-    gender: "",
-    address: "",
-  };
-  const validationSchema = Yup.object({
-    firstName: Yup.string().required("Required"),
-    lastName: Yup.string().required("Required"),
-    phone: Yup.number().required("Required"),
-    email: Yup.string().required("Required"),
-    joinDate: Yup.date().required("Required").nullable(),
-    department: Yup.string().required("Required"),
-    jobTitle: Yup.string().required("Required"),
-    jobShift: Yup.string().required("Required"),
-    dateOfBirth: Yup.date().required("Required").nullable(),
-    gender: Yup.string().required("Required"),
-    address: Yup.string().required("Required"),
-  });
-
-  const onSubmit = (values) => {
-    console.log("Create Employees data", values);
-  };
 
   return (
     <>
@@ -66,12 +25,12 @@ const EmployeesCreateScreen = () => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {(formik) => (
+        {() => (
           <section class="create_department_form">
             <div class="create_department_container">
               <Form>
                 <div class="create_department_form_fields">
-                  <div class="create_employee_field">
+                  {/* <div class="create_employee_field">
                     <figure>
                       <img src={loginimg} />
                       <div class="change_pic">
@@ -93,7 +52,6 @@ const EmployeesCreateScreen = () => {
                           type="text"
                           name="firstName"
                         />
-                        {/* <input type="text" placeholder=""/> */}
                       </div>
                       <div class="profile_name">
                         <label>
@@ -104,24 +62,40 @@ const EmployeesCreateScreen = () => {
                           type="text"
                           name="lastName"
                         />
-                        {/* <input type="text" placeholder=""/> */}
                       </div>
                     </div>
+                  </div> */}
+                  <div class="input_field">
+                    <label>
+                      Name <span class="mandatory"> * </span>
+                    </label>
+                    <FormikControl control="input" name="name" />
                   </div>
-
                   <div class="input_field">
                     <label>
                       Phone <span class="mandatory"> * </span>
                     </label>
-                    <FormikControl control="input" type="number" name="phone" />
-                    {/* <input type="number" placeholder=""/> */}
+                    <FormikControl
+                      control="input"
+                      type="number"
+                      name="phoneNo"
+                    />
                   </div>
                   <div class="input_field create_employee_border_bottom">
                     <label>
                       Email <span class="mandatory"> *</span>
                     </label>
                     <FormikControl control="input" type="email" name="email" />
-                    {/* <input type="email" placeholder=""/> */}
+                  </div>
+                  <div class="input_field">
+                    <label>
+                      Password <span class="mandatory"> * </span>
+                    </label>
+                    <FormikControl
+                      control="input"
+                      type="password"
+                      name="password"
+                    />
                   </div>
                   <div class="input_field">
                     <label>
@@ -130,50 +104,84 @@ const EmployeesCreateScreen = () => {
                     <FormikControl
                       control="input"
                       type="date"
-                      name="joinDate"
+                      name="joiningDate"
                     />
-                    {/* <input type="date" placeholder=""/> */}
                   </div>
                   <div class="input_field">
                     <label>
                       Department <span class="mandatory"> *</span>
                     </label>
-                    <FormikControl
-                      control="select"
+
+                    <Field as="select" name="department">
+                      <>
+                        <option selected disabled value="">
+                          Select
+                        </option>
+                        {depts &&
+                          depts.departments.map((option) => {
+                            return (
+                              <option key={option.id} value={option.id}>
+                                {option.name}
+                              </option>
+                            );
+                          })}
+                      </>
+                    </Field>
+                    <ErrorMessage
+                      style={{ color: "red" }}
+                      component="div"
                       name="department"
-                      options={department}
                     />
-                    {/* <select><option selected="" disabled="">select Department</option></select> */}
                   </div>
                   <div class="input_field">
                     <label>
                       Job Title <span class="mandatory"> *</span>
                     </label>
-                    <FormikControl
-                      control="select"
+                    <Field as="select" name="jobTitle">
+                      <>
+                        <option selected disabled value="">
+                          Select
+                        </option>
+                        {jobs &&
+                          jobs.jobTitles.map((option) => {
+                            return (
+                              <option key={option.id} value={option.id}>
+                                {option.name}
+                              </option>
+                            );
+                          })}
+                      </>
+                    </Field>
+                    <ErrorMessage
+                      style={{ color: "red" }}
+                      component="div"
                       name="jobTitle"
-                      options={jobTitle}
                     />
-                    {/* <select>
-                      <option selected="" disabled="">
-                        select Job Title
-                      </option>
-                    </select> */}
                   </div>
                   <div class="input_field create_employee_border_bottom">
                     <label>
                       Job Shift <span class="mandatory"> *</span>
                     </label>
-                    <FormikControl
-                      control="select"
-                      name="jobShift"
-                      options={jobShift}
+                    <Field as="select" name="shift">
+                      <>
+                        <option selected disabled value="">
+                          Select
+                        </option>
+                        {shifts &&
+                          shifts.shifts.map((option) => {
+                            return (
+                              <option key={option.id} value={option.id}>
+                                {option.name}
+                              </option>
+                            );
+                          })}
+                      </>
+                    </Field>
+                    <ErrorMessage
+                      style={{ color: "red" }}
+                      component="div"
+                      name="shift"
                     />
-                    {/* <select>
-                      <option selected="" disabled="">
-                        select Shift
-                      </option>
-                    </select> */}
                   </div>
                   <div class="input_field">
                     <label>
@@ -184,22 +192,16 @@ const EmployeesCreateScreen = () => {
                       type="date"
                       name="dateOfBirth"
                     />
-                    {/* <input type="date" placeholder=""/> */}
                   </div>
                   <div class="input_field">
                     <label>
                       Gender <span class="mandatory"> *</span>
                     </label>
-                     <FormikControl
+                    <FormikControl
                       control="select"
                       name="gender"
                       options={gender}
                     />
-                    {/* <select>
-                      <option selected="" disabled="">
-                        select Gender
-                      </option>
-                    </select> */}
                   </div>
                   <div class="input_field">
                     <label>
@@ -211,8 +213,10 @@ const EmployeesCreateScreen = () => {
                       type="textarea"
                       name="address"
                     />
-                    {/* <textarea></textarea> */}
                   </div>
+                  {data && (
+                    <p style={{ color: "green" }}>Staff Created Successfully</p>
+                  )}
                   <div class="submit_btn">
                     <button type="submit">Create</button>
                   </div>
