@@ -23,6 +23,7 @@ import ProfilePage from '../../Pages/ProfilePage';
 import ReportAdminPage from '../../Pages/ReportAdminPage';
 import ReportEmployeePage from '../../Pages/ReportEmployeePage';
 import LoginPage from '../../Pages/LoginPage';
+import AddLeavePage from '../../Pages/AddLeavePage';
 
 
 
@@ -111,6 +112,9 @@ const BodyContent = ({ sideBar}) => {
           </Route>
           <Route path="/login">
             <LoginPage/>
+          </Route>
+          <Route path="/addleave">
+            <AddLeavePage/>
           </Route>
               </div>    
             </div>

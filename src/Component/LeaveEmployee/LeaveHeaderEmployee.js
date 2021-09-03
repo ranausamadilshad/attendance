@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LeaveHeader = () => {
     return (
@@ -9,7 +10,7 @@ const LeaveHeader = () => {
               <span className="body_page_title_detail"><a to='/'>Dashboard</a><span></span><h6>Leave</h6></span>
              </div>
              <div className="body_page_title_create_btn">
-             <a   className="btn btn-primary"> <i class="fas fa-plus"></i> <span> Add Leave</span></a>
+             <Link   className="btn btn-primary" to='/addleave'> <i class="fas fa-plus"></i> <span> Add Leave</span></Link>
              </div> 
          </div>  
         </>
