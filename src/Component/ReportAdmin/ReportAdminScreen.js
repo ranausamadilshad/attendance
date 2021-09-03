@@ -2,6 +2,19 @@ import React from 'react'
 import './ReportAdmin.css'
 
 const ReportAdminScreen = () => {
+  const report = [
+    { id: 1, name: "Health care",date:'26/7/21',department:'HR',Shift:'E',OnDuty:'9 am',OffDuty:'5 am',ClockIn:'2',ClockOut:'4',Absent:'N'},
+    { id: 2, name: "Surgery",date:'26/7/21',department:'HR',Shift:'E',OnDuty:'9 am',OffDuty:'5 am',ClockIn:'2',ClockOut:'4',Absent:'N'},
+    { id: 3, name: "Gynacologist",date:'26/7/21',department:'HR',Shift:'E',OnDuty:'9 am',OffDuty:'5 am',ClockIn:'2',ClockOut:'4',Absent:'N'},
+    { id: 4, name: "Surgery",date:'26/7/21',department:'HR',Shift:'E',OnDuty:'9 am',OffDuty:'5 am',ClockIn:'2',ClockOut:'4',Absent:'N'},
+    { id: 5, name: "Pathetic",date:'26/7/21',department:'HR',Shift:'E',OnDuty:'9 am',OffDuty:'5 am',ClockIn:'2',ClockOut:'4',Absent:'N'},
+    { id: 6, name: "Surgery",date:'26/7/21',department:'HR',Shift:'E',OnDuty:'9 am',OffDuty:'5 am',ClockIn:'2',ClockOut:'4',Absent:'N'}
+  ];
+
+
+
+
+
     return (
         <>
             <section className="admin_report_section">
@@ -65,19 +78,20 @@ const ReportAdminScreen = () => {
 
               <th className="view_department_action">Actions</th>
             </tr>
+            {report.map((data)=>(
               <tr className="admin_report_table_body">
-                <td>Fahad Mustafa</td>
-                <td>18/08/21</td>
-                <td>Faisal</td>
-                <td>E</td>
-                <td>09:30</td>
-                <td>06:00</td>
-                <td>11:00</td>
-                <td>6:00</td>
-                <td>Yes</td>
-                <td>11:00</td>
-                <td>6:00</td>
-                <td>Yes</td>
+                <td>{data.name}</td>
+                <td>{data.date}</td>
+                <td>{data.department}</td>
+                <td>{data.Shift}</td>
+                <td>{data.OnDuty}</td>
+                <td>{data.OffDuty}</td>
+                <td>{data.Absent}</td>
+                <td>{data.Absent}</td>
+                <td>{data.Absent}</td>
+                <td>{data.Absent}</td>
+                <td>{data.OffDuty}</td>
+                <td>{data.Absent}</td>
                 <td> <div className="view_admin_Leave_action_btn view_admin_Leave_action">
                     <i className="fas fa-ellipsis-v"></i>
                       {/* <div className="view_admin_Leave_do_action">
@@ -88,7 +102,7 @@ const ReportAdminScreen = () => {
                     </div>
                 </td>
               </tr>
-      
+      ))}
           </table>
         </div>
 
