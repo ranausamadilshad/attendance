@@ -1,116 +1,59 @@
-import React from "react";
-import { Formik, Form } from "formik";
+import React, { useEffect, useState } from "react";
+import UpdateDepartmentScreen from "./UpdateDepartmentScreen";
 import * as Yup from "yup";
-import FormikControl from "../FormControl/FormikControl";
+import useApi from "../../hooks/useApi";
+import * as deptApi from "../../apis/department";
 
-const UpdateDepartment = () => {
-  const initialValues = {
-    email: "",
-    dName: "",
-    dAddress: "",
-    Phone: "",
-  };
+let initialValues = {
+  email: "",
+  name: "",
+  address: "",
+  phone: "",
+};
 
+const UpdateDepartment = ({ id }) => {
+  const [, setValues] = useState({});
+  const updateDept = useApi(deptApi.updateDepartment);
+  const { request, data } = useApi(deptApi.getSingleDepartment);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const { data } = await request(id);
+        initialValues = data.department;
+        setValues((prev) => ({ ...prev, ...data }));
+      } catch (_) {}
+    }
+    fetchData();
+  }, [id]);
   const validationSchema = Yup.object({
-    dName: Yup.string().required("Required"),
-    Phone: Yup.number() .required("Required"),
+    name: Yup.string().required("Required"),
+    phone: Yup.number()
+      .positive("A phone number can't start with a minus")
+      .integer("A phone number can't include a decimal point")
+      .required("Required"),
+    address: Yup.string().required("Required"),
+    email: Yup.string().required("Required"),
   });
 
-  const onSubmit = (values) => {
-    console.log("Update Department data", values);
+  const onSubmit = async (values) => {
+    try {
+      await updateDept.request({ id, ...values, phoneNo: values.phone });
+    } catch (_) {}
   };
+  console.log("uopdated data", updateDept.data);
   return (
-    <>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
-        {(formik) => (
-          <section className="Viwe_Department_edit_page">
-            <div
-              className="modal fade"
-              id="UpdateDepartment"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="UpdateDepartmentTitle"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog" role="document">
-                <div className="modal-content" style={{ padding: "0px 10px" }}>
-                  <div
-                    className="modal-header"
-                    style={{ padding: "1rm 5px !important" }}
-                  >
-                    <h5 className="modal-title" id="UpdateDepartmentTitle">
-                      Update Department
-                    </h5>
-                    <button
-                      type="button"
-                      className="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <section className="create_department_form">
-                    <div className="create_department_container">
-                      <Form>
-                        <div className="create_department_form_fields">
-                          <div className="input_field">
-                            <label>
-                              Department Name{" "}
-                              <span className="mandatory"> *</span>
-                            </label>
-                            <FormikControl control="input" type="text" name="dName" />
-                            {/* <input type="text" placeholder="" /> */}
-                          </div>
-                          <div className="input_field">
-                            <label>
-                              Phone <span className="mandatory"> * </span>
-                            </label>
-                            <FormikControl
-                        control="input"
-                        type="number"
-                        name="Phone"
-                      />
-                            {/* <input type="number" placeholder="" required /> */}
-                          </div>
-                          <div className="input_field">
-                            <label>
-                              Department Email{" "}
-                              <span className="Optional">(Optional)</span>
-                            </label>
-                            <FormikControl
-                        control="input"
-                        type="email"
-                        name="email"
-                      />
-                            {/* <input type="email" placeholder="" /> */}
-                          </div>
-                          <div className="input_field">
-                            <label>
-                              Departmant Address{" "}
-                              <span className="Optional">(Optional)</span>
-                            </label>
-                            <FormikControl control="textarea" name="dAddress" />
-                            {/* <textarea></textarea> */}
-                          </div>
-                          <div className="submit_btn">
-                            <button type="submit">Update</button>
-                          </div>
-                        </div>
-                      </Form>
-                    </div>
-                  </section>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-      </Formik>
-    </>
+    <div>
+      {data && (
+        <UpdateDepartmentScreen
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          validationSchema={validationSchema}
+          data={data.department}
+          updatedData={updateDept.data}
+        />
+      )}
+    </div>
   );
 };
 

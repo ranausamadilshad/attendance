@@ -1,24 +1,16 @@
 import React from "react";
 import "../CreateDepartment/CreateDepartment.css";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 import FormikControl from "../FormControl/FormikControl";
 
-const CreateShiftScreen = () => {
-  const initialValues = {
-    shiftName: "",
-    startTime: "",
-    endTime: "",
-  };
-  const validationSchema = Yup.object({
-   shiftName: Yup.string().required("Required"),
-   startTime: Yup.date().required("Required"),
-   endTime: Yup.date().required("Required")
-  });
-  const onSubmit = (values) => {
-    console.log("Create Shift data", values);
-  };
-
+const CreateShiftScreen = ({
+  initialValues,
+  onSubmit,
+  validationSchema,
+  data,
+  error,
+}) => {
+  console.log("error", error);
   return (
     <>
       <Formik
@@ -26,7 +18,7 @@ const CreateShiftScreen = () => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {(formik) => (
+        {() => (
           <section class="create_department_section">
             <section class="create_department_form">
               <div class="create_department_container">
@@ -49,7 +41,7 @@ const CreateShiftScreen = () => {
                       </label>
                       <FormikControl
                         control="input"
-                        type="date"
+                        type="time"
                         name="startTime"
                       />
                       {/* <input type="time" placeholder="" /> */}
@@ -60,10 +52,15 @@ const CreateShiftScreen = () => {
                       </label>
                       <FormikControl
                         control="input"
-                        type="date"
+                        type="time"
                         name="endTime"
                       />
-                      {/* <input type="time" placeholder="" /> */}
+                      <p style={{ color: "green" }}>
+                        {data && "Shift Created Successfully."}
+                      </p>
+                      {error.data && (
+                        <p style={{ color: "red" }}>{error.data.message}</p>
+                      )}
                     </div>
                     <div class="submit_btn">
                       <button type="submit">Create</button>

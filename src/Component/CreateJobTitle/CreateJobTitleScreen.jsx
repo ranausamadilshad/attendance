@@ -1,24 +1,14 @@
 import React from "react";
 import "../CreateDepartment/CreateDepartment.css";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 import FormikControl from "../FormControl/FormikControl";
 
-const CreateJobTitleScreen = () => {
-  const initialValues = {
-    jobTitle: "",
-    allowedLeaves: "",
-  };
-
-  const validationSchema = Yup.object({
-    jobTitle: Yup.string().required("Required"),
-    allowedLeaves: Yup.number().required("Required"),
-  });
-
-  const onSubmit = (values) => {
-    console.log("Create Job Title data", values);
-  };
-
+const CreateJobTitleScreen = ({
+  initialValues,
+  onSubmit,
+  validationSchema,
+  data,
+}) => {
   return (
     <>
       <Formik
@@ -26,15 +16,15 @@ const CreateJobTitleScreen = () => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {(formik) => (
-          <section class="create_department_section">
-            <section class="create_department_form">
-              <div class="create_department_container">
+        {() => (
+          <section className="create_department_section">
+            <section className="create_department_form">
+              <div className="create_department_container">
                 <Form>
-                  <div class="create_department_form_fields">
-                    <div class="input_field">
+                  <div className="create_department_form_fields">
+                    <div className="input_field">
                       <label>
-                        Job Title <span class="mandatory"> *</span>
+                        Job Title <span className="mandatory"> *</span>
                       </label>
                       <FormikControl
                         control="input"
@@ -43,9 +33,9 @@ const CreateJobTitleScreen = () => {
                       />
                       {/* <input type="text" placeholder="" required /> */}
                     </div>
-                    <div class="input_field">
+                    <div className="input_field">
                       <label>
-                        Allowed Leaves <span class="mandatory"> * </span>
+                        Allowed Leaves <span className="mandatory"> * </span>
                       </label>
                       <FormikControl
                         control="input"
@@ -54,7 +44,12 @@ const CreateJobTitleScreen = () => {
                       />
                       {/* <input type="number" placeholder="" required /> */}
                     </div>
-                    <div class="submit_btn">
+                    {data && (
+                      <p style={{ color: "green" }}>
+                        Successfully Created Job Title
+                      </p>
+                    )}
+                    <div className="submit_btn">
                       <button type="submit">Create</button>
                     </div>
                   </div>

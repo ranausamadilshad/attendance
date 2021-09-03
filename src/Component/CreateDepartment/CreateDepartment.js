@@ -1,12 +1,44 @@
-import React from 'react'
-import CreateDepartmentScreen from './CreateDepartmentScreen'
+import React from "react";
+import CreateDepartmentScreen from "./CreateDepartmentScreen";
+import * as Yup from "yup";
+import * as deptApi from "../../apis/department";
+import useApi from "../../hooks/useApi";
 
+const initialValues = {
+  email: "",
+  name: "",
+  address: "",
+  phoneNo: "",
+};
 const CreateDepartment = () => {
-    return (
-        <>
-          <CreateDepartmentScreen/>  
-        </>
-    )
-}
+  const { request, data, error } = useApi(deptApi.addDepartment);
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Required"),
+    phoneNo: Yup.number()
+      .positive("A phone number can't start with a minus")
+      .integer("A phone number can't include a decimal point")
+      .required("Required"),
+    address: Yup.string().required("Required"),
+    email: Yup.string().required("Required"),
+  });
 
-export default CreateDepartment
+  const onSubmit = async (values) => {
+    console.log("Create Department data", values);
+    try {
+      const data = await request({ ...values });
+      console.log("returned", data);
+    } catch (_) {}
+  };
+  return (
+    <>
+      <CreateDepartmentScreen
+        onSubmit={onSubmit}
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        data={data}
+      />
+    </>
+  );
+};
+
+export default CreateDepartment;

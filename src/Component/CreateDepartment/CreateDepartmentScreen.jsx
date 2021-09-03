@@ -1,29 +1,14 @@
 import React from "react";
 import "./CreateDepartment.css";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 import FormikControl from "../FormControl/FormikControl";
 
-const CreateDepartmentScreen = () => {
-  const initialValues = {
-    email: "",
-    dName: "",
-    dAddress: "",
-    Phone: "",
-  };
-
-  const validationSchema = Yup.object({
-    dName: Yup.string().required("Required"),
-    Phone: Yup.number()
-    .positive("A phone number can't start with a minus")
-    .integer("A phone number can't include a decimal point")
-    .required("Required"),
-  });
-
-  const onSubmit = (values) => {
-    console.log("Create Department data", values);
-  };
-
+const CreateDepartmentScreen = ({
+  initialValues,
+  onSubmit,
+  validationSchema,
+  data,
+}) => {
   return (
     <>
       <Formik
@@ -31,52 +16,49 @@ const CreateDepartmentScreen = () => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {(formik) => (
-          <section class="create_department_section">
-            <section class="create_department_form">
-              <div class="create_department_container">
+        {() => (
+          <section className="create_department_section">
+            <section className="create_department_form">
+              <div className="create_department_container">
                 <Form>
-                  <div class="create_department_form_fields">
-                    <div class="input_field">
+                  <div className="create_department_form_fields">
+                    <div className="input_field">
                       <label>
-                        Department Name <span class="mandatory"> *</span>
+                        Department Name <span className="mandatory"> *</span>
                       </label>
-                      <FormikControl control="input" type="text" name="dName" />
-                      
-                      {/* <input type="text" placeholder="" required /> */}
+                      <FormikControl control="input" type="text" name="name" />
                     </div>
-                    <div class="input_field">
+                    <div className="input_field">
                       <label>
-                        Phone <span class="mandatory"> * </span>
+                        Phone <span className="mandatory"> * </span>
                       </label>
                       <FormikControl
                         control="input"
                         type="number"
-                        name="Phone"
+                        name="phoneNo"
                       />
-                      {/* <input type="number" placeholder="" required /> */}
                     </div>
-                    <div class="input_field">
+                    <div className="input_field">
                       <label>
-                        Department Email{" "}
-                        <span class="Optional">(Optional)</span>
+                        Department Email <span className="mandatory"> * </span>
                       </label>
                       <FormikControl
                         control="input"
                         type="email"
                         name="email"
                       />
-                      {/* <input type="email" placeholder="" /> */}
                     </div>
-                    <div class="input_field">
+                    <div className="input_field">
                       <label>
                         Departmant Address{" "}
-                        <span class="Optional">(Optional)</span>
+                        <span className="mandatory"> * </span>
                       </label>
-                      <FormikControl control="textarea" name="dAddress" />
-                      {/* <textarea></textarea> */}
+                      <FormikControl control="textarea" name="address" />
                     </div>
-                    <div class="submit_btn">
+                    <p style={{ color: "green" }}>
+                      {data && "Department Created Successfully."}
+                    </p>
+                    <div className="submit_btn">
                       <button type="submit">Create</button>
                     </div>
                   </div>

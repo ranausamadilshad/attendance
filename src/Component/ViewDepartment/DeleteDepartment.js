@@ -1,32 +1,67 @@
-import React from 'react';
+import React from "react";
+import useApi from "../../hooks/useApi";
+import * as deptApi from "../../apis/department";
+const DeleteDepartment = ({ id }) => {
+  const { request } = useApi(deptApi.deleteDepartment);
 
-const DeleteDepartment = () => {
+  const handleDelete = async () => {
+    try {
+      await request(id);
+      window.location.reload();
+    } catch (_) {}
+  };
 
-
-    return (
-        <>
-         <section className="Viwe_Department_delete_page">
-  <div className="modal fade"  id="DeleteDepartment" tabindex="-1" role="dialog" aria-labelledby="DeleteDepartmentTitle" aria-hidden="true">
-    <div className="modal-dialog" role="document">
-      <div className="modal-content" style={{padding:"0px 10px"}}>
-        <div className="modal-header" style={{padding:"1rm 5px !important"}}>
-          <h5 className="modal-title" id="DeleteDepartmentTitle">Delete Department</h5>
-          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+  return (
+    <>
+      <section className="Viwe_Department_delete_page">
+        <div
+          className="modal fade"
+          id="DeleteDepartment"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="DeleteDepartmentTitle"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog" role="document">
+            <div className="modal-content" style={{ padding: "0px 10px" }}>
+              <div
+                className="modal-header"
+                style={{ padding: "1rm 5px !important" }}
+              >
+                <h5 className="modal-title" id="DeleteDepartmentTitle">
+                  Delete Department
+                </h5>
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <section
+                className="Delete_Department_department_form"
+                style={{
+                  display: " flex",
+                  flexDirection: "column",
+                  gap: "10px 0px",
+                  padding: "10px 10px",
+                }}
+              >
+                <p style={{ color: "#6c757d", fontSize: "16px" }}>
+                  Are you Sure you want to delete this department?
+                </p>
+                <button className="btn btn-primary" onClick={handleDelete}>
+                  Delete
+                </button>
+              </section>
+            </div>
+          </div>
         </div>
-        <section className="Delete_Department_department_form" style={{ display:" flex",flexDirection:'column',gap: "10px 0px",padding: "10px 10px"}}>
-           <p style={{color:"#6c757d",fontSize:"16px",}}>Are you Sure ?</p>
-           <button className="btn btn-primary">Delete</button>
-        </section>
+      </section>
+    </>
+  );
+};
 
-        
-      </div>
-    </div>
-  </div>
-</section>   
-        </>
-    )
-}
-
-export default DeleteDepartment
+export default DeleteDepartment;
