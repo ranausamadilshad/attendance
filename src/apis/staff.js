@@ -11,7 +11,6 @@ export function getStaff() {
   return api.get("/staff");
 }
 export function getSingleStaff(data) {
-  console.log("ok", data);
   return api.get(`/staff/${data}`);
 }
 export function deleteStaff(data) {

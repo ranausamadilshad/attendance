@@ -10,7 +10,6 @@ export function getDepartments() {
   return api.get("/department");
 }
 export function getSingleDepartment(data) {
-  console.log("ok", data);
   return api.get(`/department/${data}`);
 }
 export function deleteDepartment(data) {

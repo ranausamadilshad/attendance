@@ -1,243 +1,111 @@
-import React from 'react'
-import loginimg from '../../Assets/image/login_img.png';
-import { Formik, Form } from "formik";
+import { setNestedObjectValues } from "formik";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
-import FormikControl from "../FormControl/FormikControl";
+import * as deptApi from "../../apis/department";
+import * as jobApi from "../../apis/jobTitle";
+import * as shiftApi from "../../apis/shift";
+import * as api from "../../apis/staff";
+import useApi from "../../hooks/useApi";
+import UpdateEmployeeScreen from "./UpdateEmployeeScreen";
 
-const UpdateEmployees = () => {
-  const department = [
-    { key: "Department", value: "" },
-    { key: "Option 1", value: "HR" },
-    { key: "Option 2", value: "Development" },
-    { key: "Option 3", value: "Marketing" },
-  ];
-  const jobTitle = [
-    { key: "Job Title", value: "" },
-    { key: "Option 1", value: "Sweaper" },
-  ];
-  const jobShift = [
-    { key: "Job Shift", value: "" },
-    { key: "Option 1", value: " Morning" },
-    { key: "Option 2", value: "Evening" },
-  ];
-  const gender = [
-    { key: "Gender", value: "" },
-    { key: "Option 1", value: "Male" },
-    { key: "Option 2", value: "Female" },
-  ];
+let initialValues = {
+  name: "",
+  phoneNo: "",
+  email: "",
+  joiningDate: "",
+  departmentId: "",
+  jobTitleId: "",
+  shiftId: "",
+  dateOfBirth: "",
+  gender: "",
+  address: "",
+};
 
-  const initialValues = {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    joinDate: "",
-    department: "",
-    jobTitle: "",
-    jobShift: "",
-    dateOfBirth: "",
-    gender: "",
-    address: "",
-  };
+const UpdateEmployees = ({ id }) => {
+  const [, setValues] = useState({});
+  const getDepts = useApi(deptApi.getDepartments);
+  const getShifts = useApi(shiftApi.getAllShifts);
+  const getJob = useApi(jobApi.getJobTitle);
+  const getSingleStaff = useApi(api.getSingleStaff);
+  const { request, data } = useApi(api.updateStaff);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await getDepts.request();
+      } catch (_) {}
+    }
+    fetchData();
+  }, []);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await getShifts.request();
+      } catch (_) {}
+    }
+    fetchData();
+  }, []);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await getJob.request();
+      } catch (_) {}
+    }
+    fetchData();
+  }, []);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const { data } = await getSingleStaff.request(id);
+        console.log("single", data.staff);
+        initialValues = data.staff;
+        initialValues.dateOfBirth = data.staff.dob.split("T")[0];
+        initialValues.joiningDate = data.staff.joiningDate.split("T")[0];
+
+        setValues((prev) => ({ ...prev, ...data.staff }));
+      } catch (_) {}
+    }
+    fetchData();
+  }, []);
+
   const validationSchema = Yup.object({
-    firstName: Yup.string().required("Required"),
-    lastName: Yup.string().required("Required"),
-    phone: Yup.number().required("Required"),
+    name: Yup.string().required("Required"),
+    phoneNo: Yup.number().required("Required"),
     email: Yup.string().required("Required"),
-    joinDate: Yup.date().required("Required").nullable(),
-    department: Yup.string().required("Required"),
-    jobTitle: Yup.string().required("Required"),
-    jobShift: Yup.string().required("Required"),
+    joiningDate: Yup.date().required("Required").nullable(),
+    departmentId: Yup.string().required("Required"),
+    jobTitleId: Yup.string().required("Required"),
+    shiftId: Yup.string().required("Required"),
     dateOfBirth: Yup.date().required("Required").nullable(),
     gender: Yup.string().required("Required"),
     address: Yup.string().required("Required"),
   });
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     console.log("Update Employees data", values);
+    try {
+      await request({
+        ...values,
+        shift: +values.shiftId,
+        jobTitle: +values.jobTitleId,
+        department: +values.departmentId,
+      });
+    } catch (_) {}
   };
 
-    return (
-        <>
-         <Formik
+  return (
+    <>
+      <UpdateEmployeeScreen
+        onSubmit={onSubmit}
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
-        {(formik) => (
-          <section className="Viwe_employee_edit_page">
-  <div className="modal fade"  id="UpdateEmployee" tabindex="-1" role="dialog" aria-labelledby="UpdatEmployeeTitle" aria-hidden="true">
-    <div className="modal-dialog" role="document">
-      <div className="modal-content" style={{ padding: "0px 10px" }}>
-        <div className="modal-header">
-          <h5 className="modal-title" id="UpdateEmployeeTitle">Update Employee</h5>
-          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <section className="create_department_form">
-            <div className="create_department_container">
-                  <Form>
-                  <div class="create_department_form_fields">
-                  <div class="create_employee_field">
-                    <figure>
-                      <img src={loginimg} />
-                      <div class="change_pic">
-                        <label>
-                          {" "}
-                          upload
-                          <input type="file" placeholder="change" />
-                        </label>
-                      </div>
-                    </figure>
+        depts={getDepts.data}
+        shifts={getShifts.data}
+        jobs={getJob.data}
+        data={data}
+      />
+    </>
+  );
+};
 
-                    <div class="create_employee_section">
-                      <div class="profile_name">
-                        <label>
-                          First Name <span class="mandatory"> *</span>
-                        </label>
-                        <FormikControl
-                          control="input"
-                          type="text"
-                          name="firstName"
-                        />
-                        {/* <input type="text" placeholder=""/> */}
-                      </div>
-                      <div class="profile_name">
-                        <label>
-                          Last Name <span class="mandatory"> *</span>
-                        </label>
-                        <FormikControl
-                          control="input"
-                          type="text"
-                          name="lastName"
-                        />
-                        {/* <input type="text" placeholder=""/> */}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="input_field">
-                    <label>
-                      Phone <span class="mandatory"> * </span>
-                    </label>
-                    <FormikControl control="input" type="number" name="phone" />
-                    {/* <input type="number" placeholder=""/> */}
-                  </div>
-                  <div class="input_field create_employee_border_bottom">
-                    <label>
-                      Email <span class="mandatory"> *</span>
-                    </label>
-                    <FormikControl control="input" type="email" name="email" />
-                    {/* <input type="email" placeholder=""/> */}
-                  </div>
-                  <div class="input_field">
-                    <label>
-                      Join Date <span class="mandatory"> *</span>
-                    </label>
-                    <FormikControl
-                      control="input"
-                      type="date"
-                      name="joinDate"
-                    />
-                    {/* <input type="date" placeholder=""/> */}
-                  </div>
-                  <div class="input_field">
-                    <label>
-                      Department <span class="mandatory"> *</span>
-                    </label>
-                    <FormikControl
-                      control="select"
-                      name="department"
-                      options={department}
-                    />
-                    {/* <select><option selected="" disabled="">select Department</option></select> */}
-                  </div>
-                  <div class="input_field">
-                    <label>
-                      Job Title <span class="mandatory"> *</span>
-                    </label>
-                    <FormikControl
-                      control="select"
-                      name="jobTitle"
-                      options={jobTitle}
-                    />
-                    {/* <select>
-                      <option selected="" disabled="">
-                        select Job Title
-                      </option>
-                    </select> */}
-                  </div>
-                  <div class="input_field create_employee_border_bottom">
-                    <label>
-                      Job Shift <span class="mandatory"> *</span>
-                    </label>
-                    <FormikControl
-                      control="select"
-                      name="jobShift"
-                      options={jobShift}
-                    />
-                    {/* <select>
-                      <option selected="" disabled="">
-                        select Shift
-                      </option>
-                    </select> */}
-                  </div>
-                  <div class="input_field">
-                    <label>
-                      Date Of Birth <span class="mandatory"> *</span>
-                    </label>
-                    <FormikControl
-                      control="input"
-                      type="date"
-                      name="dateOfBirth"
-                    />
-                    {/* <input type="date" placeholder=""/> */}
-                  </div>
-                  <div class="input_field">
-                    <label>
-                      Gender <span class="mandatory"> *</span>
-                    </label>
-                     <FormikControl
-                      control="select"
-                      name="gender"
-                      options={gender}
-                    />
-                    {/* <select>
-                      <option selected="" disabled="">
-                        select Gender
-                      </option>
-                    </select> */}
-                  </div>
-                  <div class="input_field">
-                    <label>
-                      {" "}
-                      Address <span class="mandatory"> *</span>
-                    </label>
-                    <FormikControl
-                      control="textarea"
-                      type="textarea"
-                      name="address"
-                    />
-                    {/* <textarea></textarea> */}
-                  </div>
-                  <div class="submit_btn">
-                    <button type="submit">Update</button>
-                  </div>
-                </div>
-                  </Form>
-            </div>
-        </section>
-
-        
-      </div>
-    </div>
-  </div>
-</section>  
-        )}
-        </Formik>
-        </>
-    )
-}
-
-export default UpdateEmployees
+export default UpdateEmployees;
