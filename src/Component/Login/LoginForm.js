@@ -1,41 +1,51 @@
 import React from 'react'
 import './Login.css';
+import { Formik, Form } from "formik";
+import FormikControl from "../FormControl/FormikControl";
 
-const LoginScreen = () => {
+const LoginScreen = ({ onSubmit,validationSchema ,initialValues }) => {
     return (
         <>
+         <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {(formik) => (
             <section class="create_department_section">
             <section class="create_department_form">
               <div class="create_department_container">
-                <form>
+                <Form>
                   <div class="create_department_form_fields">
                     <div class="input_field">
                       <label>
                         Email <span class="mandatory"> *</span>
                       </label>
-                      {/* <FormikControl control="input" type="text" name="dName" /> */}
+                      <FormikControl control="input" type="input" name="email" />
                       
-                      <input type="text" placeholder="" required />
+                      {/* <input type="text" placeholder="" required /> */}
                     </div>
                     <div class="input_field">
                       <label>
                         Password <span class="mandatory"> * </span>
                       </label>
-                      {/* <FormikControl
+                      <FormikControl
                         control="input"
-                        type="number"
-                        name="Phone"
-                      /> */}
-                      <input type="password" placeholder="" required />
+                        type="input"
+                        name="password"
+                      />
+                      {/* <input type="password" placeholder="" required /> */}
                     </div>
                     <div class="submit_btn">
                       <button type="submit">Login</button>
                     </div>
                   </div>
-                </form>
+                </Form>
               </div>
             </section>
           </section> 
+                  )}
+                  </Formik>
         </>
     )
 }
