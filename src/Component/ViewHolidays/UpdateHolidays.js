@@ -5,23 +5,23 @@ import UpdateHolidayScreen from "./UpdateHolidayScreen";
 import * as api from "../../apis/holiday";
 
 let initialValues = {
-  holidayName: "",
-  startTime: "",
-  endTime: "",
+  hollidayName: "",
+  startDate: "",
+  endDate: "",
 };
 
 const UpdateHolidays = ({ id }) => {
-  const [values, setValues] = useState({});
-  const { request, data } = useApi(api.getSingleHoliday);
+  const [, setValues] = useState({});
+  const { request } = useApi(api.getSingleHoliday);
   const updateHoliday = useApi(api.updateHoliday);
   useEffect(() => {
     async function fetchData() {
       try {
         const { data } = await request(id);
-        initialValues = data.holiday;
-        // initialValues.dateOfBirth = data.staff.dob.split("T")[0];
-        // initialValues.joiningDate = data.staff.joiningDate.split("T")[0];
-
+        console.log("holiday", data);
+        initialValues.hollidayName = data.allortment.name;
+        initialValues.startDate = data.allortment.from.split("T")[0];
+        initialValues.endDate = data.allortment.to.split("T")[0];
         setValues((prev) => ({ ...prev, ...data.staff }));
       } catch (_) {}
     }
@@ -29,14 +29,14 @@ const UpdateHolidays = ({ id }) => {
   }, []);
 
   const validationSchema = Yup.object({
-    holidayName: Yup.string().required("Required"),
-    startTime: Yup.date().required("Required"),
-    endTime: Yup.date().required("Required"),
+    hollidayName: Yup.string().required("Required"),
+    startDate: Yup.date().required("Required"),
+    endDate: Yup.date().required("Required"),
   });
   const onSubmit = async (values) => {
     console.log("Update Holidays data", values);
     try {
-      await updateHoliday.request(values);
+      await updateHoliday.request({ id, ...values });
     } catch (_) {}
   };
   return (

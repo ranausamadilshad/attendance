@@ -52,9 +52,8 @@ const UpdateHolidayScreen = ({
                             <FormikControl
                               control="input"
                               type="text"
-                              name="holidayName"
+                              name="hollidayName"
                             />
-                            {/* <input type="text" placeholder="" required /> */}
                           </div>
                           <div class="input_field">
                             <label>
@@ -63,9 +62,8 @@ const UpdateHolidayScreen = ({
                             <FormikControl
                               control="input"
                               type="date"
-                              name="startTime"
+                              name="startDate"
                             />
-                            {/* <input type="date" placeholder="" required /> */}
                           </div>
                           <div class="input_field">
                             <label>
@@ -74,10 +72,14 @@ const UpdateHolidayScreen = ({
                             <FormikControl
                               control="input"
                               type="date"
-                              name="endTime"
+                              name="endDate"
                             />
-                            {/* <input type="date" placeholder="" /> */}
                           </div>
+                          {data && (
+                            <p style={{ color: "green" }}>
+                              Updated Holiday Successfully.
+                            </p>
+                          )}
                           <div class="submit_btn">
                             <button type="submit">Update</button>
                           </div>
