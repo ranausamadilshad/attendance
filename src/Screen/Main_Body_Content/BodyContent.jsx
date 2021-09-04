@@ -17,10 +17,17 @@ import CreateEmployeesPage from '../../Pages/CreateEmployeesPage';
 import ViewEmployeesPage from '../../Pages/ViewEmployeesPage';
 import LeaveAdminPage from '../../Pages/LeaveAdminPage';
 import LeaveEmployeePage from '../../Pages/LeaveEmployeePage';
+import AttendenceAdminPage from '../../Pages/AttendenceAdminPage';
+import AttendanceEmployeePage from '../../Pages/AttendanceEmployeePage';
+import ProfilePage from '../../Pages/ProfilePage';
+import ReportAdminPage from '../../Pages/ReportAdminPage';
+import ReportEmployeePage from '../../Pages/ReportEmployeePage';
+import LoginPage from '../../Pages/LoginPage';
+import AddLeavePage from '../../Pages/AddLeavePage';
 
 
 
-// sidebar_section responsive_nav_bar
+
 
 const BodyContent = ({ sideBar}) => {
     return (
@@ -88,10 +95,27 @@ const BodyContent = ({ sideBar}) => {
            <LeaveEmployeePage/>
           </Route>
         </Switch>
-      
-
-
-
+        <Route path="/attendenceadmin">
+           <AttendenceAdminPage/>
+          </Route>
+          <Route path="/attendenceemployee">
+          <AttendanceEmployeePage/>
+          </Route>
+          <Route path="/profile">
+            <ProfilePage/>
+          </Route>
+          <Route path="/reportadmin">
+            <ReportAdminPage/>
+          </Route>
+          <Route path="/reportemployee">
+            <ReportEmployeePage/>
+          </Route>
+          <Route path="/login">
+            <LoginPage/>
+          </Route>
+          <Route path="/addleave">
+            <AddLeavePage/>
+          </Route>
               </div>    
             </div>
       </section>

@@ -59,6 +59,7 @@ const UpdateDepartmentScreen = ({
                               type="text"
                               name="name"
                             />
+
                             {/* <input type="text" placeholder="" /> */}
                           </div>
                           <div className="input_field">
@@ -70,6 +71,7 @@ const UpdateDepartmentScreen = ({
                               type="number"
                               name="phone"
                             />
+
                             {/* <input type="number" placeholder="" required /> */}
                           </div>
                           <div className="input_field">
@@ -82,6 +84,7 @@ const UpdateDepartmentScreen = ({
                               type="email"
                               name="email"
                             />
+
                             {/* <input type="email" placeholder="" /> */}
                           </div>
                           <div className="input_field">
@@ -96,6 +99,7 @@ const UpdateDepartmentScreen = ({
                               Updated Successfully.
                             </p>
                           )}
+
                           <div className="submit_btn">
                             <button type="submit">Update</button>
                           </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import company_logo from "../../Assets/image/download.png";
 import login_profile_img from "../../Assets/image/login_img.png";
 import "../../Css/Style.css";
+import {Link} from 'react-router-dom'
 
 const Header = ({ sideBar, setSideBar }) => {
   const [Notification, setNotification] = useState(false);
@@ -192,9 +193,9 @@ const handleSidebar=()=>{
                       : "header_login_details_section_click_data"
                   }
                 >
-                  <a href="#">My profile</a>
-                  <a href="#">setting</a>
-                  <a href="#">logout</a>
+                  <Link to="/profile">My profile</Link>
+                  <Link to="#">setting</Link>
+                  <Link to="#">logout</Link>
                 </div>
               </div>
               <div className="responsive_header_login_details">

@@ -93,6 +93,10 @@
 }
 
 @media (max-width:540px) {
+  
+  
+}
+@media (max-width:475px) {
     .view_Job_Tilte_table table{
         position: relative;
         z-index: 1;

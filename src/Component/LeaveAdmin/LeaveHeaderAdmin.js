@@ -8,9 +8,9 @@ const LeaveHeaderAdmin = () => {
               <h1>Leave</h1>
               <span className="body_page_title_detail"><a to='/'>Dashboard</a><span></span><h6>Leave</h6></span>
              </div>
-             <div className="body_page_title_create_btn">
+             {/* <div className="body_page_title_create_btn">
              <a   className="btn btn-primary"> <i class="fas fa-plus"></i> <span> Add Leave</span></a>
-             </div> 
+             </div>  */}
          </div>  
         </>
     )

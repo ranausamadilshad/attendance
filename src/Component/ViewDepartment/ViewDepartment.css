@@ -8,7 +8,9 @@
   margin-bottom: 15px;
   table-layout: auto;
   border-collapse: collapse;
-  }
+
+
+}
   .view_department_table table .table_header{
     box-shadow: 0 0 3px #e5e5e5;
     color: rgb(51, 51, 51) !important;
@@ -89,4 +91,20 @@
 .view_department_do_action a:hover{
     color: #252525;
     text-decoration: none;
+}
+
+@media (min-width:768px) and (max-width:1024px){
+   
+}
+@media (max-width:767px){
+    .view_department_table table{
+        display: block;
+        overflow: scroll;  
+        position: relative;
+        z-index: 1;
+        }
+        .view_department_table table tr th{
+          
+            min-width: 160px;
+        }
 }

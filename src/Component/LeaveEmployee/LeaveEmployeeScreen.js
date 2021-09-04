@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DeleteLeaveEmployee from "./DeleteLeaveEmployee";
 import "./LeaveEmployee.css";
 
 const LeaveEmployeeScreen = () => {
@@ -91,7 +92,8 @@ const LeaveEmployeeScreen = () => {
                       <div className="view_Employee_Leave_do_action">
                         {/* <a href="#"><i className="fas fa-eye"></i><span>View</span></a>
                         <a data-toggle="modal" data-target="#123"><i className="fas fa-pen"></i><span>Edit</span></a> */}
-                        <a data-toggle="modal" data-target="#DeleteDepartment">
+
+                        <a data-toggle="modal" data-target="#DeleteEmployee">
                           <i className="fas fa-trash-alt"></i>
                           <span>Delete</span>
                         </a>
@@ -104,6 +106,7 @@ const LeaveEmployeeScreen = () => {
           </table>
         </div>
       </section>
+      <DeleteLeaveEmployee />
     </>
   );
 };
