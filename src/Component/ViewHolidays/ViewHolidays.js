@@ -14,7 +14,7 @@ const ViewHolidays = () => {
     }
     fetchData();
   }, []);
-  return <>{data && <ViewHolidaysScreen data={data} />}</>;
+  return <>{data && <ViewHolidaysScreen data={data.allortments} />}</>;
 };
 
 export default ViewHolidays;

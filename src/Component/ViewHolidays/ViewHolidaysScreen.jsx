@@ -26,11 +26,11 @@ const ViewHolidaysScreen = ({ data }) => {
               <th class="view_department_action">Actions</th>
             </tr>
 
-            {holidays.map((data) => (
+            {data.map((data) => (
               <tr class="view_holiday_table_body">
-                <td>{data.day}</td>
-                <td>{data.from}</td>
-                <td>{data.to}</td>
+                <td>{data.name}</td>
+                <td>{new Date(data.from).toDateString()}</td>
+                <td>{new Date(data.to).toDateString()}</td>
                 <td>
                   <div class="view_holiday_action_btn view_holiday_action">
                     <i
