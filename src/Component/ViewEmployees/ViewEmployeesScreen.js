@@ -45,17 +45,12 @@ const ViewEmployeesScreen = ({ data }) => {
         <div class="view_created_employee_table">
           <table>
             <tr class="created_employee_table_header">
-              {/* <th>Image</th> */}
               <th>Name</th>
-              {/* <th>Phone</th> */}
               <th>Email</th>
-              {/* <th>Join Date</th> */}
               <th>Department</th>
               <th>Job Title</th>
               <th>Job shift</th>
-              {/* <th>Date Of Birth</th> */}
-              {/* <th>Gender</th> */}
-              {/* <th>Address</th> */}
+
               <th class="view_created_employee_action">Actions</th>
             </tr>
             {data.staffMembers.map((data) => (
@@ -76,13 +71,6 @@ const ViewEmployeesScreen = ({ data }) => {
                     ></i>
                     <div style={{ display: data.id === id ? "block" : "none" }}>
                       <div class="view_created_employee_do_action">
-                        {/* <a
-                          data-toggle="modal"
-                          data-target="#singleEmployeedetail"
-                        >
-                          <i class="fas fa-eye"></i>
-                          <span>Detail</span>
-                        </a> */}
                         <a data-toggle="modal" data-target="#UpdateEmployee">
                           <i class="fas fa-pen"></i>
                           <span>Edit</span>

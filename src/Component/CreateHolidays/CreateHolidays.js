@@ -5,16 +5,16 @@ import useApi from "../../hooks/useApi";
 import * as api from "../../apis/holiday";
 
 const initialValues = {
-  holidayName: "",
-  startTime: "",
-  endTime: "",
+  hollidayName: "",
+  startDate: "",
+  endDate: "",
 };
 const CreateHolidays = () => {
   const { request, data, error } = useApi(api.addHoliday);
   const validationSchema = Yup.object({
-    holidayName: Yup.string().required("Required"),
-    startTime: Yup.date().required("Required"),
-    endTime: Yup.date().required("Required"),
+    hollidayName: Yup.string().required("Required"),
+    startDate: Yup.date().required("Required"),
+    endDate: Yup.date().required("Required"),
   });
   const onSubmit = async (values) => {
     console.log("Create Holidays data", values);

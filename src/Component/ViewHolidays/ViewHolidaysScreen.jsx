@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./ViewHoliday.css";
-import UpdateHolidays from './UpdateHolidays';
+import UpdateHolidays from "./UpdateHolidays";
 import DeleteHolidays from "./DeleteHolidays";
 
-
-const ViewHolidaysScreen = () => {
+const ViewHolidaysScreen = ({ data }) => {
   const [id, setId] = useState("");
   const holidays = [
     { id: 1, day: "Defence day", from: "August,6,2021", to: "August,6,2021" },
@@ -12,7 +11,7 @@ const ViewHolidaysScreen = () => {
     { id: 3, day: "Defence day", from: "August,6,2021", to: "August,6,2021" },
     { id: 4, day: "Pakistan Day", from: "August,6,2021", to: "August,6,2021" },
     { id: 5, day: "Defence day", from: "August,6,2021", to: "August,6,2021" },
-    { id: 6, day: "Pakistan Day", from: "August,6,2021", to: "August,6,2021" }
+    { id: 6, day: "Pakistan Day", from: "August,6,2021", to: "August,6,2021" },
   ];
 
   return (
@@ -28,7 +27,7 @@ const ViewHolidaysScreen = () => {
             </tr>
 
             {holidays.map((data) => (
-              <tr class="view_holiday_table_body" >
+              <tr class="view_holiday_table_body">
                 <td>{data.day}</td>
                 <td>{data.from}</td>
                 <td>{data.to}</td>
@@ -36,10 +35,11 @@ const ViewHolidaysScreen = () => {
                   <div class="view_holiday_action_btn view_holiday_action">
                     <i
                       class="fas fa-ellipsis-v"
-                      onClick={() => {id ? setId('') : setId(data.id)}}
-                     
+                      onClick={() => {
+                        id ? setId("") : setId(data.id);
+                      }}
                     ></i>
-                    <div style={{ display: data.id===id ? "block" : "none" }}>
+                    <div style={{ display: data.id === id ? "block" : "none" }}>
                       <div class="view_department_do_action">
                         <a data-toggle="modal" data-target="#UpdateHolidays">
                           <i class="fas fa-pen"></i>
@@ -58,8 +58,8 @@ const ViewHolidaysScreen = () => {
           </table>
         </div>
       </section>
-      <UpdateHolidays/>
-      <DeleteHolidays/>
+      {id && <UpdateHolidays id={id} />}
+      {id && <DeleteHolidays id={id} />}
     </>
   );
 };

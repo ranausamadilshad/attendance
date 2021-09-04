@@ -1,7 +1,6 @@
 import React from "react";
 import "../CreateDepartment/CreateDepartment.css";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 import FormikControl from "../FormControl/FormikControl";
 
 const CreateHolidaysScreen = ({
@@ -18,7 +17,7 @@ const CreateHolidaysScreen = ({
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {(formik) => (
+        {() => (
           <section class="create_department_section">
             <section class="create_department_form">
               <div class="create_department_container">
@@ -31,9 +30,8 @@ const CreateHolidaysScreen = ({
                       <FormikControl
                         control="input"
                         type="text"
-                        name="holidayName"
+                        name="hollidayName"
                       />
-                      {/* <input type="text" placeholder="" required /> */}
                     </div>
                     <div class="input_field">
                       <label>
@@ -42,9 +40,8 @@ const CreateHolidaysScreen = ({
                       <FormikControl
                         control="input"
                         type="date"
-                        name="startTime"
+                        name="startDate"
                       />
-                      {/* <input type="date" placeholder="" required /> */}
                     </div>
                     <div class="input_field">
                       <label>
@@ -53,10 +50,12 @@ const CreateHolidaysScreen = ({
                       <FormikControl
                         control="input"
                         type="date"
-                        name="endTime"
+                        name="endDate"
                       />
-                      {/* <input type="date" placeholder="" /> */}
                     </div>
+                    <p style={{ color: "green" }}>
+                      {data && "Holiday Created Successfully."}
+                    </p>
                     <div class="submit_btn">
                       <button type="submit">Create</button>
                     </div>
