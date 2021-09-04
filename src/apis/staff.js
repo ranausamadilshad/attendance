@@ -13,6 +13,9 @@ export function getStaff() {
 export function getSingleStaff(data) {
   return api.get(`/staff/${data}`);
 }
+export function uploadAvatar(data) {
+  return api.patch(`/staff/${data}/avatar`);
+}
 export function deleteStaff(data) {
   return api.delete(`/staff/${data}`, config);
 }

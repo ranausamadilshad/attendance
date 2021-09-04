@@ -1,3 +1,4 @@
+import axios from "axios";
 import { setNestedObjectValues } from "formik";
 import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
@@ -22,6 +23,8 @@ let initialValues = {
 };
 
 const UpdateEmployees = ({ id }) => {
+  const [image, setImage] = useState();
+  const [previewImg, setPreviewImg] = useState();
   const [, setValues] = useState({});
   const getDepts = useApi(deptApi.getDepartments);
   const getShifts = useApi(shiftApi.getAllShifts);
@@ -57,7 +60,6 @@ const UpdateEmployees = ({ id }) => {
     async function fetchData() {
       try {
         const { data } = await getSingleStaff.request(id);
-        console.log("single", data.staff);
         initialValues = data.staff;
         initialValues.dateOfBirth = data.staff.dob.split("T")[0];
         initialValues.joiningDate = data.staff.joiningDate.split("T")[0];
@@ -81,15 +83,37 @@ const UpdateEmployees = ({ id }) => {
     address: Yup.string().required("Required"),
   });
 
+  function handleImage(e) {
+    setImage(e.target.files[0]);
+    setPreviewImg(URL.createObjectURL(e.target.files[0]));
+  }
+
+  const uploadAvatar = async () => {
+    console.log("inside image upload", image);
+
+    const formData = new FormData();
+    formData.append("avatar", image);
+    try {
+      const { data } = await axios.patch(
+        `http://localhost:8000/staff/${id}/avatar`,
+        formData
+      );
+      console.log("uploaded image", data);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
   const onSubmit = async (values) => {
     console.log("Update Employees data", values);
     try {
-      await request({
+      const { data } = await request({
         ...values,
         shift: +values.shiftId,
         jobTitle: +values.jobTitleId,
         department: +values.departmentId,
       });
+      data && uploadAvatar();
     } catch (_) {}
   };
 
@@ -103,6 +127,8 @@ const UpdateEmployees = ({ id }) => {
         shifts={getShifts.data}
         jobs={getJob.data}
         data={data}
+        handleImage={handleImage}
+        image={previewImg}
       />
     </>
   );

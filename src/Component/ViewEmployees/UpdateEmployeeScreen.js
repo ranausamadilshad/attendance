@@ -1,6 +1,7 @@
 import { Form, Formik, ErrorMessage, Field } from "formik";
 import React from "react";
 import FormikControl from "../FormControl/FormikControl";
+import loginimg from "../../Assets/image/login_img.png";
 
 const UpdateEmployeeScreen = ({
   initialValues,
@@ -10,6 +11,8 @@ const UpdateEmployeeScreen = ({
   depts,
   jobs,
   data,
+  handleImage,
+  image,
 }) => {
   const gender = [
     { key: "MALE", value: "MALE" },
@@ -23,7 +26,7 @@ const UpdateEmployeeScreen = ({
         onSubmit={onSubmit}
         enableReinitialize
       >
-        {(formik) => (
+        {() => (
           <section className="Viwe_employee_edit_page">
             <div
               className="modal fade"
@@ -52,41 +55,26 @@ const UpdateEmployeeScreen = ({
                     <div className="create_department_container">
                       <Form>
                         <div class="create_department_form_fields">
-                          {/* <div class="create_employee_field">
+                          <div class="create_employee_field">
                             <figure>
-                              <img src={loginimg} />
+                              {image ? (
+                                <img src={image} alt="" />
+                              ) : (
+                                <img src={loginimg} alt="" />
+                              )}
                               <div class="change_pic">
                                 <label>
-                                  {" "}
-                                  upload
-                                  <input type="file" placeholder="change" />
+                                  Upload
+                                  <input
+                                    type="file"
+                                    placeholder="change"
+                                    onChange={handleImage}
+                                    required
+                                  />
                                 </label>
                               </div>
                             </figure>
-
-                            <div class="create_employee_section">
-                              <div class="profile_name">
-                                <label>
-                                  First Name <span class="mandatory"> *</span>
-                                </label>
-                                <FormikControl
-                                  control="input"
-                                  type="text"
-                                  name="firstName"
-                                />
-                              </div>
-                              <div class="profile_name">
-                                <label>
-                                  Last Name <span class="mandatory"> *</span>
-                                </label>
-                                <FormikControl
-                                  control="input"
-                                  type="text"
-                                  name="lastName"
-                                />
-                              </div>
-                            </div>
-                          </div> */}
+                          </div>
                           <div class="input_field">
                             <label>
                               Name <span class="mandatory"> * </span>
