@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import FormikControl from "../FormControl/FormikControl";
 
-const AddLeaveScreen = ({ onSubmit,validationSchema ,initialValues }) => {
+const AddLeaveScreen = ({ onSubmit, validationSchema, initialValues }) => {
   return (
     <>
       <Formik
@@ -20,8 +20,12 @@ const AddLeaveScreen = ({ onSubmit,validationSchema ,initialValues }) => {
                       <label>
                         Leave Category <span class="mandatory"> *</span>
                       </label>
-                      <FormikControl control="input" type="number" name="lCategory" />
-                      
+                      <FormikControl
+                        control="input"
+                        type="number"
+                        name="leaveCategory"
+                      />
+
                       {/* <input type="text" placeholder="" required /> */}
                     </div>
                     <div class="input_field">
@@ -39,27 +43,35 @@ const AddLeaveScreen = ({ onSubmit,validationSchema ,initialValues }) => {
                       <label>
                         Short Description
                         <span class="mandatory"> * </span>
-                     </label>
+                      </label>
                       <FormikControl
                         control="input"
                         type="string"
-                        name="sDescription"
+                        name="shortDescription"
                       />
                       {/* <input type="email" placeholder="" /> */}
                     </div>
                     <div class="input_field">
                       <label>
                         Leave From
-                        <span class="mandatory"> * </span>                    
-                          </label>
-                      <FormikControl control="input" type='date' name="lFrom" />
+                        <span class="mandatory"> * </span>
+                      </label>
+                      <FormikControl
+                        control="input"
+                        type="date"
+                        name="leaveFrom"
+                      />
                     </div>
                     <div class="input_field">
                       <label>
                         Leave To
-                        <span class="mandatory"> * </span>               
-                        </label>
-                      <FormikControl control="input" type='date' name="lTo" />
+                        <span class="mandatory"> * </span>
+                      </label>
+                      <FormikControl
+                        control="input"
+                        type="date"
+                        name="leaveTo"
+                      />
                     </div>
                     <div class="submit_btn">
                       <button type="submit">Create</button>
