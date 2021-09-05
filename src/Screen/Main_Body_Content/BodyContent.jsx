@@ -26,6 +26,7 @@ import LoginPage from "../../Pages/LoginPage";
 import AddLeavePage from "../../Pages/AddLeavePage";
 import LeaveAdmin from "../../Component/LeaveAdmin/LeaveAdmin";
 import AddLeaveCategory from "../../Component/AddLeaveCateogry/AddLeaveCategory";
+import ViewLeaveCategory from "../../Component/ViewLeaveCategory/ViewLeaveCategory";
 
 const BodyContent = ({ sideBar }) => {
   return (
@@ -119,6 +120,9 @@ const BodyContent = ({ sideBar }) => {
             </Route>
             <Route path="/add-leave-category">
               <AddLeaveCategory />
+            </Route>
+            <Route path="/view-leave-categories">
+              <ViewLeaveCategory />
             </Route>
           </div>
         </div>

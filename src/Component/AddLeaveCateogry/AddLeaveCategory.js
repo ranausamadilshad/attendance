@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import useApi from "../../hooks/useApi";
 import AddLeaveCategoryScreen from "./AddLeaveCategoryScreen";
 import * as api from "../../apis/leave-category";
+import BodyHaider from "../BodyHaider/BodyHaider";
+import BodyHaiderPlus from "../BodyHaiderPlus/BodyHaiderPlus";
 
 const initialValues = {
   categoryName: "",
@@ -22,6 +24,12 @@ const AddLeaveCategory = () => {
   console.log("data", data);
   return (
     <>
+      <BodyHaiderPlus
+        main="Leave Category"
+        cname="Leave Category"
+        btnName="View Leave Categories"
+        btnlink="/view-leave-categories"
+      />
       <AddLeaveCategoryScreen
         initialValues={initialValues}
         validationSchema={validationSchema}
