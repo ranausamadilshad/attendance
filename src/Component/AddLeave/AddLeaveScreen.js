@@ -9,7 +9,6 @@ const AddLeaveScreen = ({
   leaveCategory,
   data,
 }) => {
-  console.log("leave ", leaveCategory);
   return (
     <>
       <Formik

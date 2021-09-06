@@ -6,7 +6,7 @@ export function applyForLeave(data) {
 export function updateLeaveCategory(data) {
   return api.patch(`/apply-leave/${data.id}`, { ...data });
 }
-export function getLeaveCategory() {
+export function getAllLeaves() {
   return api.get("/apply-leave");
 }
 export function getSingleLeaveCategory(data) {

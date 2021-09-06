@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DeleteLeaveAdmin from "./DeleteLeaveAdmin";
 import "./LeaveAdmin.css";
 
-const LeaveAdminScreen = () => {
+const LeaveAdminScreen = ({ data }) => {
   const [id, setId] = useState("");
   const [tid, settid] = useState("");
   const holidays = [
@@ -116,29 +116,34 @@ const LeaveAdminScreen = () => {
               <th>Status</th>
               <th className="view_department_action">Actions</th>
             </tr>
-            {holidays.map((data) => (
-              <tr className="admin_Leave_table_body">
-                <td>{data.name}</td>
-                <td>{data.joind}</td>
-                <td>{data.email}</td>
-                <td>{data.phone}</td>
-                <td>{data.jobtitle}</td>
-                <td>{data.jobshift}</td>
-                <td>
-                  <div className="status_selection">
-                    <div
-                      class="status_active dropdown-toggle"
-                      onClick={() => {
-                        tid ? settid("") : settid(data.id);
-                      }}
-                    >
-                      <small>Approved</small>
-                    </div>
-                  
-                      <div class="status_selection_list" style={{ display: data.id === tid ? "block" : "none" }}>
-                        <a class="dropdown-item" href="#">
-                          <i class="fa fa-dot-circle-o text-purple"></i> New
-                        </a>
+            {data &&
+              data.applyLeaves.map((data) => (
+                <tr className="admin_Leave_table_body">
+                  <td>data.name</td>
+                  <td>{data.leaveCategoryId}</td>
+                  <td>{data.from.split("T")[0]}</td>
+                  <td>{data.to.split("T")[0]}</td>
+                  <td>
+                    {(new Date(data.to.split("T")[0]).getTime() -
+                      new Date(data.from.split("T")[0]).getTime()) /
+                      (1000 * 3600 * 24)}
+                  </td>
+                  <td>{data.subject}</td>
+                  <td>
+                    <div className="status_selection">
+                      <div
+                        class="status_active dropdown-toggle"
+                        onClick={() => {
+                          tid ? settid("") : settid(data.id);
+                        }}
+                      >
+                        <small>Approved</small>
+                      </div>
+
+                      <div
+                        class="status_selection_list"
+                        style={{ display: data.id === tid ? "block" : "none" }}
+                      >
                         <a class="dropdown-item" href="#">
                           <i class="fa fa-dot-circle-o text-info"></i> Pending
                         </a>
@@ -155,33 +160,34 @@ const LeaveAdminScreen = () => {
                           <i class="fa fa-dot-circle-o text-danger"></i>{" "}
                           Declined
                         </a>
-                      
-                    </div>
-                  </div>
-                </td>
-
-                <td>
-                  <div className="view_admin_Leave_action_btn view_admin_Leave_action">
-                    <i
-                      className="fas fa-ellipsis-v"
-                      onClick={() => {
-                        id ? setId("") : setId(data.id);
-                      }}
-                    ></i>
-                    <div style={{ display: data.id === id ? "block" : "none" }}>
-                      <div className="view_admin_Leave_do_action">
-                        {/* <a href="#"><i className="fas fa-eye"></i><span>View</span></a>
-                        <a data-toggle="modal" data-target="#123"><i className="fas fa-pen"></i><span>Edit</span></a> */}
-                        <a data-toggle="modal" data-target="#DeleteAdmin">
-                          <i className="fas fa-trash-alt"></i>
-                          <span>Delete</span>
-                        </a>
                       </div>
                     </div>
-                  </div>
-                </td>
-              </tr>
-            ))}
+                  </td>
+
+                  <td>
+                    <div className="view_admin_Leave_action_btn view_admin_Leave_action">
+                      <i
+                        className="fas fa-ellipsis-v"
+                        onClick={() => {
+                          id ? setId("") : setId(data.id);
+                        }}
+                      ></i>
+                      <div
+                        style={{ display: data.id === id ? "block" : "none" }}
+                      >
+                        <div className="view_admin_Leave_do_action">
+                          {/* <a href="#"><i className="fas fa-eye"></i><span>View</span></a>
+                        <a data-toggle="modal" data-target="#123"><i className="fas fa-pen"></i><span>Edit</span></a> */}
+                          <a data-toggle="modal" data-target="#DeleteAdmin">
+                            <i className="fas fa-trash-alt"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              ))}
           </table>
         </div>
       </section>
