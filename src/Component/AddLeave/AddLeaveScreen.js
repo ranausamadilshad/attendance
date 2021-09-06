@@ -1,8 +1,15 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import FormikControl from "../FormControl/FormikControl";
 
-const AddLeaveScreen = ({ onSubmit, validationSchema, initialValues }) => {
+const AddLeaveScreen = ({
+  onSubmit,
+  validationSchema,
+  initialValues,
+  leaveCategory,
+  data,
+}) => {
+  console.log("leave ", leaveCategory);
   return (
     <>
       <Formik
@@ -10,7 +17,7 @@ const AddLeaveScreen = ({ onSubmit, validationSchema, initialValues }) => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {(formik) => (
+        {() => (
           <section class="create_department_section">
             <section class="create_department_form">
               <div class="create_department_container">
@@ -20,13 +27,26 @@ const AddLeaveScreen = ({ onSubmit, validationSchema, initialValues }) => {
                       <label>
                         Leave Category <span class="mandatory"> *</span>
                       </label>
-                      <FormikControl
-                        control="input"
-                        type="number"
+                      <Field as="select" name="leaveCategory">
+                        <>
+                          <option selected disabled value="">
+                            Select
+                          </option>
+                          {leaveCategory &&
+                            leaveCategory.leaveCategories.map((option) => {
+                              return (
+                                <option key={option.id} value={option.id}>
+                                  {option.name}
+                                </option>
+                              );
+                            })}
+                        </>
+                      </Field>
+                      <ErrorMessage
+                        style={{ color: "red" }}
+                        component="div"
                         name="leaveCategory"
                       />
-
-                      {/* <input type="text" placeholder="" required /> */}
                     </div>
                     <div class="input_field">
                       <label>
@@ -73,6 +93,12 @@ const AddLeaveScreen = ({ onSubmit, validationSchema, initialValues }) => {
                         name="leaveTo"
                       />
                     </div>
+                    {data && (
+                      <p style={{ color: "green" }}>
+                        You have successfully applied for Leave. You will be
+                        notified when admin accepts or reject the leave.
+                      </p>
+                    )}
                     <div class="submit_btn">
                       <button type="submit">Create</button>
                     </div>
