@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import company_logo from "../../Assets/image/download.png";
 import login_profile_img from "../../Assets/image/login_img.png";
 import "../../Css/Style.css";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Header = ({ sideBar, setSideBar }) => {
   const [Notification, setNotification] = useState(false);
@@ -10,19 +10,16 @@ const Header = ({ sideBar, setSideBar }) => {
   const [LoginProfileBtn, setLoginProfileBtn] = useState(false);
   const [searchField, setSearchField] = useState(false);
 
-
-const handleSidebar=()=>{
-  if (sideBar) {
-    setSideBar(false);
-    setLoginProfileBtn(false);
-    setSearchField(false);
-    setNotification(false);
-  } else {
-    setSideBar(true);
-  }
-}
-
-
+  const handleSidebar = () => {
+    if (sideBar) {
+      setSideBar(false);
+      setLoginProfileBtn(false);
+      setSearchField(false);
+      setNotification(false);
+    } else {
+      setSideBar(true);
+    }
+  };
 
   const handleChange = () => {
     if (Notification) {
@@ -44,7 +41,7 @@ const handleSidebar=()=>{
     }
   };
 
-  const handleSearchResponsive= () => {
+  const handleSearchResponsive = () => {
     if (searchField) {
       setSearchField(false);
     } else {
@@ -57,7 +54,6 @@ const handleSidebar=()=>{
   return (
     <>
       <header>
-
         <div className="header_section">
           <div className="header_sidebar_control">
             <div className="header_sidebar_control_section">
@@ -81,7 +77,10 @@ const handleSidebar=()=>{
           {/* () => setSideBar(!sideBar) */}
 
           <div className="responsive_header_sidebar_control">
-            <div className="sidebar_controler_btn open_close_nav"   onClick={handleSidebar}>
+            <div
+              className="sidebar_controler_btn open_close_nav"
+              onClick={handleSidebar}
+            >
               <span></span>
               <span></span>
               <span></span>
@@ -102,13 +101,22 @@ const handleSidebar=()=>{
                 </button>
               </div>
               <div class="responsive_header_search_field">
-                   <button>
-                       <i class="fa fa-search"  onClick={handleSearchResponsive}></i>
-                     <div class={searchField ? "header_responsive_search_field toogle_responsive_search_field" : "header_responsive_search_field"}><input type="text" /><button>search</button></div>
-                   </button>
-               </div>
+                <button>
+                  <i class="fa fa-search" onClick={handleSearchResponsive}></i>
+                  <div
+                    class={
+                      searchField
+                        ? "header_responsive_search_field toogle_responsive_search_field"
+                        : "header_responsive_search_field"
+                    }
+                  >
+                    <input type="text" />
+                    <button>search</button>
+                  </div>
+                </button>
+              </div>
               <div className="header_notification_btn">
-                <a  onClick={handleChange}>
+                <a onClick={handleChange}>
                   <i className="far fa-bell"></i>
                   <span>50+</span>
                 </a>
@@ -123,6 +131,7 @@ const handleSidebar=()=>{
                     <p>notifications</p>
                     <button>clear all</button>
                   </div>
+
                   <a href="#">
                     {" "}
                     <div className="header_single_notification_detail">
@@ -174,18 +183,26 @@ const handleSidebar=()=>{
                 </div>
               </div>
               <div className="header_login_details_section">
-                <div
-                  className="header_login_details"
-                  onClick={handleChangeAdmin}
-                >
-                  <figure>
-                    <img src={login_profile_img} />
-                  </figure>
-                  <p>admin</p>
-                  <span>
-                    <i className="fas fa-chevron-down"></i>
-                  </span>
-                </div>
+                {localStorage.getItem("token") ? (
+                  <div
+                    className="header_login_details"
+                    onClick={handleChangeAdmin}
+                  >
+                    <>
+                      <figure>
+                        <img src={login_profile_img} />
+                      </figure>
+                      <p>admin</p>
+                      <span>
+                        <i className="fas fa-chevron-down"></i>
+                      </span>
+                    </>
+                  </div>
+                ) : (
+                  <div className="login-div">
+                    <Link to="/login">Login</Link>
+                  </div>
+                )}
                 <div
                   className={
                     LoginProfileBtn
