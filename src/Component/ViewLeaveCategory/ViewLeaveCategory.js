@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import useApi from "../../hooks/useApi";
-import * as api from "../../apis/jobTitle";
+import * as api from "../../apis/leave-category";
 import ViewLeaveCategoryScreen from "./ViewLeaveCategoryScreen";
 import BodyHaider from "../BodyHaider/BodyHaider";
 
 const ViewLeaveCategory = () => {
-  const { request, data } = useApi(api.getJobTitle);
+  const { request, data } = useApi(api.getLeaveCategory);
   console.log("data", data);
   useEffect(() => {
     async function fetchData() {
@@ -24,7 +24,7 @@ const ViewLeaveCategory = () => {
         btnName="Create Leave Categories"
         btnlink="/add-leave-category"
       />
-      {data && <ViewLeaveCategoryScreen data={data.jobTitles} />}
+      {data && <ViewLeaveCategoryScreen data={data.leaveCategories} />}
     </>
   );
 };

@@ -3,32 +3,30 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "../FormControl/FormikControl";
 import useApi from "../../hooks/useApi";
-import * as api from "../../apis/jobTitle";
+import * as api from "../../apis/leave-category";
 
 let initialValues = {
   name: "",
-  allowedLeaves: "",
 };
 
 const UpdateLeaveCategory = ({ id }) => {
   const [, setValues] = useState({});
-  const { request, data } = useApi(api.updateJobTitle);
-  const getSingleJobTitle = useApi(api.getSingleJobTitle);
+  const { request, data } = useApi(api.updateLeaveCategory);
+  const getSingleLeaveCategory = useApi(api.getSingleLeaveCategory);
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await getSingleJobTitle.request(id);
-        console.log("job", data);
-        initialValues = data.jobTitle;
+        const { data } = await getSingleLeaveCategory.request(id);
+        initialValues = data.leaveCategory;
         setValues((prev) => ({ ...prev, ...data }));
       } catch (_) {}
     }
     fetchData();
   }, [id]);
 
+  console.log("uopdate", data);
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
-    allowedLeaves: Yup.number().required("Required"),
   });
 
   const onSubmit = async (values) => {
@@ -85,21 +83,9 @@ const UpdateLeaveCategory = ({ id }) => {
                               />
                               {/* <input type="text" placeholder="" required /> */}
                             </div>
-                            <div class="input_field">
-                              <label>
-                                Allowed Leaves{" "}
-                                <span class="mandatory"> * </span>
-                              </label>
-                              <FormikControl
-                                control="input"
-                                type="number"
-                                name="allowedLeaves"
-                              />
-                              {/* <input type="number" placeholder="" required /> */}
-                            </div>
                             {data && (
                               <p style={{ color: "green" }}>
-                                Job Updated Succesfully.
+                                Leave Category Updated Succesfully.
                               </p>
                             )}
                             <div class="submit_btn">

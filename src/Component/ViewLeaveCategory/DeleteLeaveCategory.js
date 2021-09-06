@@ -1,9 +1,9 @@
 import React from "react";
 import useApi from "../../hooks/useApi";
-import * as api from "../../apis/jobTitle";
+import * as api from "../../apis/leave-category";
 
 const DeleteLeaveCategory = ({ id }) => {
-  const { request } = useApi(api.deleteJobTitle);
+  const { request } = useApi(api.deleteLeaveCategory);
 
   const handleDelete = async () => {
     try {
@@ -29,7 +29,7 @@ const DeleteLeaveCategory = ({ id }) => {
                 style={{ padding: "1rm 5px !important" }}
               >
                 <h5 className="modal-title" id="DeleteJobTitleTitle">
-                  Delete Job Title
+                  Delete Leave Category
                 </h5>
                 <button
                   type="button"
@@ -50,7 +50,7 @@ const DeleteLeaveCategory = ({ id }) => {
                 }}
               >
                 <p style={{ color: "#6c757d", fontSize: "16px" }}>
-                  Are you sure you want to delete this Job Title?
+                  Are you sure you want to delete this Leave Category?
                 </p>
                 <button className="btn btn-primary" onClick={handleDelete}>
                   Delete

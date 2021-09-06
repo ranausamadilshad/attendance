@@ -5,21 +5,20 @@ import DeleteLeaveCategory from "./DeleteLeaveCategory";
 
 const ViewLeaveCategoryScreen = ({ data }) => {
   const [id, setId] = useState("");
-  console.log("id", id);
   return (
     <>
       <section class="view_Job_Tilte_section">
         <div class="view_Job_Tilte_table">
           <table>
             <tr class="Job_Tilte_table_header">
-              <th>Job Title</th>
-              <th>Allowed Leaves</th>
+              <th>Category Name</th>
+
               <th class="view_department_action">Actions</th>
             </tr>
             {data.map((data) => (
               <tr class="Job_Tilte_table_body">
                 <td>{data.name}</td>
-                <td>{data.allowedLeaves}</td>
+
                 <td>
                   <div class="view_Job_Tilte_action_btn view_Job_Tilte_action">
                     <i
