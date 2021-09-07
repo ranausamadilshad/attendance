@@ -70,8 +70,8 @@ const LeaveAdminScreen = ({
                         Select
                       </option>
                       <option value="PENDING">Pending</option>
-                      <option value="REJECTED">Declined</option>
-                      <option value="ACCEPTED">Approved</option>
+                      <option value="REJECTED">Rejected</option>
+                      <option value="ACCEPTED">Accepted</option>
                     </Field>
                   </div>
                 </div>

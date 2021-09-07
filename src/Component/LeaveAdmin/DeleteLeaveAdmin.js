@@ -20,6 +20,9 @@ const DeleteLeaveAdmin = ({ id }) => {
     console.log("inside form");
     try {
       await leaveStatus.request({ id, leaveStatus: status });
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } catch (_) {}
   }
   console.log("dataaaaa", leaveStatus.data);
