@@ -11,6 +11,9 @@ const ViewDepartmentScreen = ({ data }) => {
           <table>
             <tr class="table_header">
               <th>Department Name</th>
+              <th>Department Email</th>
+              <th>Department Phone</th>
+              <th>Department Address</th>
               <th class="view_department_action">Actions</th>
             </tr>
 
@@ -18,6 +21,9 @@ const ViewDepartmentScreen = ({ data }) => {
               data.map((data) => (
                 <tr class="table_body">
                   <td>{data.name}</td>
+                  <td>{data.email}</td>
+                  <td>{data.phone}</td>
+                  <td>{data.address}</td>
                   <td>
                     <div class="view_department_action_btn view_department_action">
                       <i

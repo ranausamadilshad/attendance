@@ -33,12 +33,13 @@ const UpdateDepartment = ({ id }) => {
       .integer("A phone number can't include a decimal point")
       .required("Required"),
     address: Yup.string().required("Required"),
-    email: Yup.string().required("Required"),
+    email: Yup.string().email("Email must be valid").required("Required"),
   });
 
   const onSubmit = async (values) => {
     try {
       await updateDept.request({ id, ...values, phoneNo: values.phone });
+      window.location.reload();
     } catch (_) {}
   };
   console.log("uopdated data", updateDept.data);

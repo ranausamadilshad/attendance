@@ -19,7 +19,7 @@ const CreateDepartment = () => {
       .integer("A phone number can't include a decimal point")
       .required("Required"),
     address: Yup.string().required("Required"),
-    email: Yup.string().required("Required"),
+    email: Yup.string().email("Email must be valid").required("Required"),
   });
 
   const onSubmit = async (values) => {

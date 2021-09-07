@@ -24,11 +24,6 @@ const LeaveAdmin = () => {
   }, []);
 
   function handleSubmit(values) {
-    console.log(values);
-    console.log(data.applyLeaves[0].from.split("T")[0], values.from);
-
-    console.log(data.applyLeaves[0].from.split("T")[0] === values.from);
-
     values.leaveStatus &&
       setFilteredArray(
         data.applyLeaves.filter(
@@ -49,7 +44,6 @@ const LeaveAdmin = () => {
       );
   }
 
-  console.log("data", filteredArray);
   return (
     <>
       <LeaveAdminScreen
