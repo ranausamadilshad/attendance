@@ -25,11 +25,28 @@ const LeaveAdmin = () => {
 
   function handleSubmit(values) {
     console.log(values);
-    setFilteredArray(
-      data.applyLeaves.filter(
-        (element) => element.leaveStatus === values.leaveStatus
-      )
-    );
+    console.log(data.applyLeaves[0].from.split("T")[0], values.from);
+
+    console.log(data.applyLeaves[0].from.split("T")[0] === values.from);
+
+    values.leaveStatus &&
+      setFilteredArray(
+        data.applyLeaves.filter(
+          (element) => element.leaveStatus === values.leaveStatus
+        )
+      );
+    values.from &&
+      setFilteredArray(
+        data.applyLeaves.filter(
+          (element) => element.from.split("T")[0] === values.from
+        )
+      );
+    values.to &&
+      setFilteredArray(
+        data.applyLeaves.filter(
+          (element) => element.to.split("T")[0] === values.to
+        )
+      );
   }
 
   console.log("data", filteredArray);

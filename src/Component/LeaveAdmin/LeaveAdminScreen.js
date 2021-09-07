@@ -117,7 +117,8 @@ const LeaveAdminScreen = ({
                         <td>
                           {(new Date(data.to.split("T")[0]).getTime() -
                             new Date(data.from.split("T")[0]).getTime()) /
-                            (1000 * 3600 * 24)}
+                            (1000 * 3600 * 24) +
+                            1}
                         </td>
                         <td>{data.subject}</td>
                         <td>
@@ -155,7 +156,8 @@ const LeaveAdminScreen = ({
                           <td>
                             {(new Date(data.to.split("T")[0]).getTime() -
                               new Date(data.from.split("T")[0]).getTime()) /
-                              (1000 * 3600 * 24)}
+                              (1000 * 3600 * 24) +
+                              1}
                           </td>
                           <td>{data.subject}</td>
                           <td>
@@ -168,14 +170,16 @@ const LeaveAdminScreen = ({
 
                           <td>
                             <div className="view_admin_Leave_action_btn view_admin_Leave_action">
-                              <p
-                                className="modal"
+                              <a
+                                style={{ color: "blue", cursor: "pointer" }}
+                                data-toggle="modal"
+                                data-target="#DeleteAdmin"
                                 onClick={() => {
                                   id ? setId("") : setId(data.id);
                                 }}
                               >
                                 Respond
-                              </p>
+                              </a>
                             </div>
                           </td>
                         </tr>
