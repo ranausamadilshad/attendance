@@ -28,12 +28,15 @@ const UpdateJobTitle = ({ id }) => {
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
-    allowedLeaves: Yup.number().required("Required"),
+    allowedLeaves: Yup.number()
+      .min(1, "Allowed Leaves Must be greater than 0.")
+      .required("Required"),
   });
 
   const onSubmit = async (values) => {
     try {
       await request({ id, ...values, jobTitle: values.name });
+      window.location.reload();
     } catch (_) {}
   };
   return (

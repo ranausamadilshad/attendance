@@ -1,110 +1,106 @@
-.view_Job_Tilte_table{
-    float: left;
-    width: 100%;
-    padding-top:50px;
+.view_Job_Tilte_table {
+  float: left;
+  width: 100%;
+  padding-top: 50px;
 }
-.view_Job_Tilte_table table{
-    width: 100%;
+.view_Job_Tilte_table table {
+  width: 100%;
   margin-bottom: 15px;
   table-layout: auto;
   border-collapse: collapse;
-  }
-  .view_Job_Tilte_table table .Job_Tilte_table_header{
-    box-shadow: 0 0 3px #e5e5e5;
-    color: rgb(51, 51, 51) !important;
-    background: #fff;
-  }
-  .view_Job_Tilte_table table tr{
-    box-shadow: 0 0 3px #e5e5e5;
 }
-.view_Job_Tilte_table table .Job_Tilte_table_body{
-    background: #fff;
+.view_Job_Tilte_table table .Job_Tilte_table_header {
+  box-shadow: 0 0 3px #e5e5e5;
+  color: rgb(51, 51, 51) !important;
+  background: #fff;
+}
+.view_Job_Tilte_table table tr {
+  box-shadow: 0 0 3px #e5e5e5;
+}
+.view_Job_Tilte_table table .Job_Tilte_table_body {
+  background: #fff;
 }
 .view_Job_Tilte_table table .Job_Tilte_table_body:nth-of-type(even) {
-    background-color: rgba(0,0,0,.05);
-}
-  
-  .view_Job_Tilte_table table tr th{
-    align-items: center;
-    text-align:left;
-    color: #232323;
-    font-size: 14px;
-    padding: 10px 15px 10px 15px;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.view_Job_Tilte_table table tr td{
-     
-    align-items: center;
-    text-align: left;
-    color: #252525;
-    font-size: 14px;
-    padding: 10px 15px 10px 15px;
-    border-bottom: 1px solid #f0f0f0;
-    -webkit-transition: background 0.3s;
-    transition: background 0.3s;
-   text-transform: capitalize;
+.view_Job_Tilte_table table tr th {
+  align-items: center;
+  text-align: left;
+  color: #232323;
+  font-size: 14px;
+  padding: 10px 15px 10px 15px;
 }
 
-.view_Job_Tilte_action{
-    text-align: right !important;
+.view_Job_Tilte_table table tr td {
+  align-items: center;
+  text-align: left;
+  color: #252525;
+  font-size: 14px;
+  padding: 10px 15px 10px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+  text-transform: capitalize;
 }
 
-
-.view_Job_Tilte_action_btn i{
-   cursor: pointer;
-  font-size:16px ;
+.view_Job_Tilte_action {
+  text-align: right !important;
 }
-.view_Job_Tilte_table table tr .view_Job_Tilte_action_btn{
+
+.view_Job_Tilte_action_btn i {
+  cursor: pointer;
+  font-size: 16px;
+}
+.view_Job_Tilte_table table tr .view_Job_Tilte_action_btn {
+  position: relative;
+  float: right;
+}
+
+.view_Job_Tilte_do_action {
+  position: absolute;
+  width: 115px;
+  background: #ffffff;
+  right: 12px;
+  top: 18px;
+  border: 1px solid #d8d8d8;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 12px 10px;
+  justify-content: center;
+  gap: 10px 0px;
+}
+.view_Job_Tilte_do_action a {
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 400;
+  color: #212529;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0px 10px;
+  cursor: pointer;
+}
+.view_Job_Tilte_do_action a i {
+  font-size: 12px;
+}
+.view_Job_Tilte_do_action a:hover {
+  color: #252525;
+  text-decoration: none;
+}
+
+@media (max-width: 540px) {
+}
+@media (max-width: 475px) {
+  .view_Job_Tilte_table table {
     position: relative;
-    float: right; 
-}
+    z-index: 1;
+    overflow: scroll;
+    display: block;
+  }
 
-.view_Job_Tilte_do_action{
-    position: absolute;
-    width: 115px;
-    background: #FFFFFF;
-    right: 12px;
-    top: 18px;
-    border: 1px solid #D8D8D8;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    padding: 12px 10px;
-    justify-content: center;
-    gap: 10px 0px;  
-}
-.view_Job_Tilte_do_action a{
-   font-size: 14px;
-   text-decoration: none;
-   font-weight: 400;
-   color: #212529;
-   width: 100%;
-   display: flex;
-   align-items: center;
-   gap: 0px 10px;
-   cursor: pointer;
-}
-.view_Job_Tilte_do_action a i{
-    font-size: 12px;
-}
-.view_Job_Tilte_do_action a:hover{
-    color: #252525;
-    text-decoration: none;
-}
-
-@media (max-width:540px) {
-  
-  
-}
-@media (max-width:475px) {
-    .view_Job_Tilte_table table{
-        position: relative;
-        z-index: 1;
-        overflow: scroll;
-        display: block;
-    }
-
-    .view_Job_Tilte_table table tr th {
-        min-width: 150px;
-    }
+  .view_Job_Tilte_table table tr th {
+    min-width: 170px;
+  }
 }

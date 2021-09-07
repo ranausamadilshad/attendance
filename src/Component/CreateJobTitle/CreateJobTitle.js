@@ -13,7 +13,9 @@ const CreateJobTitle = () => {
   const { request, data } = useApi(api.addJobTitle);
   const validationSchema = Yup.object({
     jobTitle: Yup.string().required("Required"),
-    allowedLeaves: Yup.number().required("Required"),
+    allowedLeaves: Yup.number()
+      .min(1, "Allowed Leaves Must be greater than 0.")
+      .required("Required"),
   });
 
   const onSubmit = async (values) => {
