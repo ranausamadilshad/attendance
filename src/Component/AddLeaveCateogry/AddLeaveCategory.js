@@ -19,6 +19,7 @@ const AddLeaveCategory = () => {
   const onSubmit = async (values) => {
     try {
       await request(values);
+      window.location.reload();
     } catch (_) {}
   };
   console.log("data", data);

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { setNestedObjectValues } from "formik";
 import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import * as deptApi from "../../apis/department";
@@ -114,6 +113,7 @@ const UpdateEmployees = ({ id }) => {
         department: +values.departmentId,
       });
       data && uploadAvatar();
+      window.location.reload();
     } catch (_) {}
   };
 

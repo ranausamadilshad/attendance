@@ -48,6 +48,7 @@ const UpdateShift = ({ id }) => {
     shiftName = values.name;
     try {
       await updateShift.request({ id, startTime, endTime, shiftName });
+      window.location.reload();
     } catch (_) {}
   };
   return (
@@ -120,9 +121,11 @@ const UpdateShift = ({ id }) => {
                             />
                             {/* <input type="time" placeholder="" /> */}
                           </div>
-                          <p style={{ color: "green" }}>
-                            {updateShift.data && "Shift Updated Successfully."}
-                          </p>
+                          {updateShift.data && (
+                            <p style={{ color: "green" }}>
+                              Shift Updated Successfully.
+                            </p>
+                          )}
                           {updateShift.error.data && (
                             <p style={{ color: "red" }}>
                               {updateShift.error.data.message}

@@ -30,8 +30,10 @@ const UpdateLeaveCategory = ({ id }) => {
   });
 
   const onSubmit = async (values) => {
+    console.log("values", values);
     try {
-      await request({ id, ...values, jobTitle: values.name });
+      await request({ id, ...values, categoryName: values.name });
+      window.location.reload();
     } catch (_) {}
   };
   return (

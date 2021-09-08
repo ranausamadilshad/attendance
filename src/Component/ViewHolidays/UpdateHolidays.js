@@ -37,6 +37,7 @@ const UpdateHolidays = ({ id }) => {
     console.log("Update Holidays data", values);
     try {
       await updateHoliday.request({ id, ...values });
+      window.location.reload();
     } catch (_) {}
   };
   return (
