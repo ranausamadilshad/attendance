@@ -63,7 +63,7 @@ const EmployeesCreate = () => {
     dateOfBirth: Yup.date().required("Required").nullable(),
     gender: Yup.string().required("Required"),
     address: Yup.string().required("Required"),
-    password: Yup.string().required("Required"),
+    password: Yup.string().min(8).required("Required"),
   });
   const onSubmit = async (values) => {
     try {

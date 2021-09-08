@@ -12,13 +12,13 @@ const ViewLeaveCategoryScreen = ({ data }) => {
           <table>
             <tr class="Job_Tilte_table_header">
               <th>Category Name</th>
-
+              <th>Total Leaves</th>
               <th class="view_department_action">Actions</th>
             </tr>
             {data.map((data) => (
               <tr class="Job_Tilte_table_body">
                 <td>{data.name}</td>
-
+                <td>{data.name}</td>
                 <td>
                   <div class="view_Job_Tilte_action_btn view_Job_Tilte_action">
                     <i

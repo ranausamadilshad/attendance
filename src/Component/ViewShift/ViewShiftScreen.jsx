@@ -20,8 +20,8 @@ const ViewShiftScreen = ({ data }) => {
             {data.map((data) => (
               <tr class="shift_table_body">
                 <td>{data.name}</td>
-                <td>{new Date(data.startDate).toDateString()}</td>
-                <td>{new Date(data.endDate).toDateString()}</td>
+                <td>{data.startDate.split("T")[1].split(".")[0]}</td>
+                <td>{data.endDate.split("T")[1].split(".")[0]}</td>
                 <td>
                   <div class="view_shift_action_btn view_shift_action">
                     <i

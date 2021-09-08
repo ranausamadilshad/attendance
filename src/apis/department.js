@@ -15,3 +15,6 @@ export function getSingleDepartment(data) {
 export function deleteDepartment(data) {
   return api.delete(`/department/${data}`, config);
 }
+export function getDepartmentEmployees(data) {
+  return api.get(`/department/${data}`);
+}

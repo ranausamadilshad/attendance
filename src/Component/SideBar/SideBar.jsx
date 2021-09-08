@@ -15,6 +15,9 @@ const SideBar = ({ sideBar }) => {
   const [dropDown9, setdropdown9] = useState(false);
   const [dropDown10, setdropdown10] = useState(false);
   const [dropDown11, setdropdown11] = useState(false);
+  const [dropDown13, setdropdown13] = useState(false);
+  const [dropDown14, setdropdown14] = useState(false);
+  const [dropDown15, setdropdown15] = useState(false);
 
   const handledropodown = () => {
     if (dropDown) {
@@ -240,6 +243,36 @@ const SideBar = ({ sideBar }) => {
       setdropdown9(false);
       setdropdown(false);
       setdropdown10(false);
+    }
+  };
+
+  const handledropodown13 = () => {
+    if (dropDown13) {
+      setdropdown13(false);
+    } else {
+      setdropdown13(true);
+      setdropdown14(false);
+      setdropdown15(false);
+    }
+  };
+
+  const handledropodown14 = () => {
+    if (dropDown14) {
+      setdropdown14(false);
+    } else {
+      setdropdown14(true);
+      setdropdown13(false);
+      setdropdown15(false);
+    }
+  };
+
+  const handledropodown15 = () => {
+    if (dropDown15) {
+      setdropdown15(false);
+    } else {
+      setdropdown15(true);
+      setdropdown14(false);
+      setdropdown13(false);
     }
   };
 
@@ -640,7 +673,7 @@ const SideBar = ({ sideBar }) => {
                   <Link to="#">
                     <div
                       className="side_bar_single_sub_menu"
-                      onClick={handledropodown11}
+                      onClick={handledropodown13}
                     >
                       <div className="logo_plus_sub_menu">
                         <i className="fas fa-tachometer-alt"></i>{" "}
@@ -648,7 +681,7 @@ const SideBar = ({ sideBar }) => {
                       </div>
                       <div
                         className={
-                          dropDown11
+                          dropDown13
                             ? "animated_icon animated_icon_responsive"
                             : "animated_icon"
                         }
@@ -656,7 +689,7 @@ const SideBar = ({ sideBar }) => {
                         <i className="fas fa-chevron-down"></i>
                       </div>
                     </div>
-                    <object style={{ display: dropDown11 ? "block" : "none" }}>
+                    <object style={{ display: dropDown13 ? "block" : "none" }}>
                       <div className="sidebar_sub_child_menu">
                         <div className="sidebar_sub_child_menu_list">
                           <Link to="/attendenceemployee">Attendance</Link>
@@ -673,7 +706,7 @@ const SideBar = ({ sideBar }) => {
                   <Link to="#">
                     <div
                       className="side_bar_single_sub_menu"
-                      onClick={handledropodown11}
+                      onClick={handledropodown14}
                     >
                       <div className="logo_plus_sub_menu">
                         <i className="fas fa-tachometer-alt"></i>{" "}
@@ -681,7 +714,7 @@ const SideBar = ({ sideBar }) => {
                       </div>
                       <div
                         className={
-                          dropDown11
+                          dropDown14
                             ? "animated_icon animated_icon_responsive"
                             : "animated_icon"
                         }
@@ -689,7 +722,7 @@ const SideBar = ({ sideBar }) => {
                         <i className="fas fa-chevron-down"></i>
                       </div>
                     </div>
-                    <object style={{ display: dropDown11 ? "block" : "none" }}>
+                    <object style={{ display: dropDown14 ? "block" : "none" }}>
                       <div className="sidebar_sub_child_menu">
                         <div className="sidebar_sub_child_menu_list">
                           <Link to="/reportemployee"> Report</Link>
@@ -705,7 +738,7 @@ const SideBar = ({ sideBar }) => {
                   <Link to="#">
                     <div
                       className="side_bar_single_sub_menu"
-                      onClick={handledropodown11}
+                      onClick={handledropodown15}
                     >
                       <div className="logo_plus_sub_menu">
                         <i className="fas fa-tachometer-alt"></i>{" "}
@@ -713,7 +746,7 @@ const SideBar = ({ sideBar }) => {
                       </div>
                       <div
                         className={
-                          dropDown11
+                          dropDown15
                             ? "animated_icon animated_icon_responsive"
                             : "animated_icon"
                         }
@@ -721,7 +754,7 @@ const SideBar = ({ sideBar }) => {
                         <i className="fas fa-chevron-down"></i>
                       </div>
                     </div>
-                    <object style={{ display: dropDown11 ? "block" : "none" }}>
+                    <object style={{ display: dropDown15 ? "block" : "none" }}>
                       <div className="sidebar_sub_child_menu">
                         <div className="sidebar_sub_child_menu_list">
                           <Link to="/leaveemployees">Leave</Link>
