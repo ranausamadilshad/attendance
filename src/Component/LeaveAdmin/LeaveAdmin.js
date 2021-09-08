@@ -22,6 +22,7 @@ const LeaveAdmin = () => {
     }
     fetchData();
   }, []);
+  console.log("leaves", data);
 
   function handleSubmit(values) {
     values.leaveStatus &&

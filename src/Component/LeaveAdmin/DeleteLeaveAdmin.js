@@ -74,6 +74,7 @@ const DeleteLeaveAdmin = ({ id }) => {
                       name="status"
                       value="ACCEPTED"
                       onChange={({ target }) => setStatus(target.value)}
+                      required
                     />
                     <label>Accept</label>
                   </div>
@@ -83,6 +84,7 @@ const DeleteLeaveAdmin = ({ id }) => {
                       name="status"
                       value="REJECTED"
                       onChange={({ target }) => setStatus(target.value)}
+                      required
                     />
                     <label>Reject</label>
                   </div>

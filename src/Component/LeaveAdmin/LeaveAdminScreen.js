@@ -10,7 +10,6 @@ const LeaveAdminScreen = ({
   filteredArray,
 }) => {
   const [id, setId] = useState("");
-  const [tid, settid] = useState("");
 
   return (
     <>
@@ -111,7 +110,7 @@ const LeaveAdminScreen = ({
                     data.applyLeaves.map((data) => (
                       <tr className="admin_Leave_table_body">
                         <td>data.name</td>
-                        <td>{data.leaveCategoryId}</td>
+                        <td>{data.leaveCategory.name}</td>
                         <td>{data.from.split("T")[0]}</td>
                         <td>{data.to.split("T")[0]}</td>
                         <td>

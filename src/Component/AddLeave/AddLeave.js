@@ -41,6 +41,7 @@ const AddLeave = () => {
         ...values,
         leaveCategory: +values.leaveCategory,
       });
+      window.location.reload();
     } catch (_) {}
   };
   return (
