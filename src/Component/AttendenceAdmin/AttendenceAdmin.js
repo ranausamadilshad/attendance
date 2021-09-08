@@ -15,7 +15,7 @@ const AttendenceAdmin = () => {
         await employees.request();
       } catch (_) {}
     }
-    fetchData();
+    // fetchData();
   }, [selected]);
   const { request, data } = useApi(api.getDepartments);
   useEffect(() => {

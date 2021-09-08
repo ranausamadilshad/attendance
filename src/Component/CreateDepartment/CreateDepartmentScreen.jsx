@@ -55,9 +55,11 @@ const CreateDepartmentScreen = ({
                       </label>
                       <FormikControl control="textarea" name="address" />
                     </div>
-                    <p style={{ color: "green" }}>
-                      {data && "Department Created Successfully."}
-                    </p>
+                    {data && (
+                      <p style={{ color: "green" }}>
+                        Department Created Successfully.
+                      </p>
+                    )}
                     <div className="submit_btn">
                       <button type="submit">Create</button>
                     </div>

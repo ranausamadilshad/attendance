@@ -56,9 +56,11 @@ const CreateShiftScreen = ({
                         type="time"
                         name="endTime"
                       />
-                      <p style={{ color: "green" }}>
-                        {data && "Shift Created Successfully."}
-                      </p>
+                      {data && (
+                        <p style={{ color: "green" }}>
+                          Shift Created Successfully.
+                        </p>
+                      )}
                       {error.data && (
                         <p style={{ color: "red" }}>{error.data.message}</p>
                       )}

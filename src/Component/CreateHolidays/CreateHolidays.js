@@ -20,6 +20,7 @@ const CreateHolidays = () => {
     console.log("Create Holidays data", values);
     try {
       await request(values);
+      window.location.reload();
     } catch (_) {}
   };
   return (

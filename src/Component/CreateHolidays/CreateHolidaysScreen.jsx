@@ -53,9 +53,11 @@ const CreateHolidaysScreen = ({
                         name="endDate"
                       />
                     </div>
-                    <p style={{ color: "green" }}>
-                      {data && "Holiday Created Successfully."}
-                    </p>
+                    {data && (
+                      <p style={{ color: "green" }}>
+                        Holiday Created Successfully.
+                      </p>
+                    )}
                     <div class="submit_btn">
                       <button type="submit">Create</button>
                     </div>

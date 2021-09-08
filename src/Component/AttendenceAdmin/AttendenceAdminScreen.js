@@ -27,7 +27,9 @@ const AttendenceAdminScreen = ({ data, setSelected }) => {
           <div className="attendence_activity_employee_filter_box">
             <label>Employee Name</label>
             <select>
-              <option selected disabled value="select"></option>
+              <option selected disabled value="select">
+                Select
+              </option>
             </select>
           </div>
           <div className="attendence_activity_employee_filter_box">

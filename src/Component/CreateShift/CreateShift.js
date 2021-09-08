@@ -24,6 +24,7 @@ const CreateShift = () => {
         endTime: values.endTime + ":00",
         startTime: values.startTime + ":00",
       });
+      window.location.reload();
     } catch (_) {}
   };
 
