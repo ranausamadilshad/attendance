@@ -582,7 +582,7 @@ const SideBar = ({ sideBar }) => {
                       <div className="sidebar_sub_child_menu">
                         <div className="sidebar_sub_child_menu_list">
                           <Link to="/leaveadmin">Leave(Admin)</Link>
-                          <Link to="/leaveemployees">Leave(Employee)</Link>
+                          {/* <Link to="/leaveemployees">Leave(Employee)</Link> */}
                         </div>
                       </div>
                     </object>
