@@ -5,7 +5,7 @@ import useApi from "../../hooks/useApi";
 
 const ViewEmployees = () => {
   const { request, data } = useApi(api.getStaff);
-  console.log("data", data);
+  // console.log("data", data);
   useEffect(() => {
     async function fetchData() {
       try {

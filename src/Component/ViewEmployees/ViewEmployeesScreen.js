@@ -3,41 +3,10 @@ import "./ViewEmployees.css";
 import "../CreateDepartment/CreateDepartment.css";
 import UpdateEmployees from "./UpdateEmployees";
 import DeleteEmployees from "./DeleteEmployees";
-import ViewEmplyeeDetails from "./ViewEmplyeeDetails";
 
 const ViewEmployeesScreen = ({ data }) => {
   console.log("staff", data);
   const [id, setId] = useState("");
-  const holidays = [
-    {
-      id: 1,
-      name: "Defence day",
-      phone: "09",
-      joind: "09",
-      email: "Defence day",
-      department: "Defence day",
-      jobtitle: "Defence day",
-      dateofbirth: "8/9/1990",
-      jobshift: "Defence day",
-      gender: "Defence day",
-      address: "Defence day",
-      image: "Defence day",
-    },
-    {
-      id: 2,
-      name: "Pakistan Day",
-      phone: "09",
-      joind: "09",
-      email: "Defence day",
-      department: "Defence day",
-      jobtitle: "Defence day",
-      dateofbirth: "8/9/1999",
-      jobshift: "Defence day",
-      gender: "Defence day",
-      address: "Defence day",
-      image: "Defence day",
-    },
-  ];
 
   return (
     <>
@@ -57,9 +26,9 @@ const ViewEmployeesScreen = ({ data }) => {
               <tr class="created_employee_table_body">
                 <td>{data.name}</td>
                 <td>{data.email}</td>
-                <td>{data.department}</td>
-                <td>{data.jobtitle}</td>
-                <td>{data.jobshift}</td>
+                <td>{data.department.name}</td>
+                <td>{data.jobTitle.name}</td>
+                <td>{data.shift.name}</td>
 
                 <td>
                   <div class="view_created_employee_action_btn view_created_employee_action">
