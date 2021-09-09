@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
 import AttendenceAdminScreen from "./AttendenceAdminScreen";
 import useApi from "../../hooks/useApi";
-import * as api from "../../apis/department";
+import * as api from "../../apis/staff";
+import * as deptApi from "../../apis/department";
+import * as attendanceApi from "../../apis/attendance";
+
+const initialValues = {
+  employee: "",
+};
 
 const AttendenceAdmin = () => {
   const [selected, setSelected] = useState("");
-  const employees = useApi(api.getDepartmentEmployees);
+  const [staff, setStaff] = useState();
+  const employees = useApi(api.getStaffOfDepartment);
+  const singleEmployee = useApi(api.getSingleStaff);
+  const attendance = useApi(attendanceApi.markAttendance);
+  const updateAttendance = useApi(attendanceApi.updateAttendance);
+  const { request, data } = useApi(deptApi.getDepartments);
 
   useEffect(() => {
-    console.log(selected);
-
     async function fetchData() {
       try {
-        await employees.request();
+        await employees.request(selected);
       } catch (_) {}
     }
-    // fetchData();
+    fetchData();
   }, [selected]);
-  const { request, data } = useApi(api.getDepartments);
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -26,11 +35,44 @@ const AttendenceAdmin = () => {
     }
     fetchData();
   }, []);
-  console.log("data", data);
+
+  const onSubmit = async (values) => {
+    setStaff(+values.employee);
+    try {
+      await singleEmployee.request(values.employee);
+    } catch (_) {}
+  };
+
+  const markAttendanceIn = async () => {
+    try {
+      await attendance.request({ staff });
+      console.log("attendace", attendance.data);
+    } catch (_) {}
+  };
+
+  const markAttendanceOut = async () => {
+    try {
+      const { data } = await updateAttendance.request({ staff });
+      console.log("update attendace", data);
+    } catch (_) {}
+  };
 
   return (
     <>
-      {data && <AttendenceAdminScreen data={data} setSelected={setSelected} />}
+      {data && (
+        <AttendenceAdminScreen
+          data={data}
+          setSelected={setSelected}
+          onSubmit={onSubmit}
+          initialValues={initialValues}
+          employeesData={employees.data}
+          singleEmp={singleEmployee.data}
+          markAttendanceIn={markAttendanceIn}
+          markAttendanceOut={markAttendanceOut}
+          attendanceData={attendance.data}
+          updateAttendance={updateAttendance.data}
+        />
+      )}
     </>
   );
 };

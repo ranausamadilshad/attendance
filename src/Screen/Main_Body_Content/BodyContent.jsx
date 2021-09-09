@@ -24,7 +24,6 @@ import ReportAdminPage from "../../Pages/ReportAdminPage";
 import ReportEmployeePage from "../../Pages/ReportEmployeePage";
 import LoginPage from "../../Pages/LoginPage";
 import AddLeavePage from "../../Pages/AddLeavePage";
-import LeaveAdmin from "../../Component/LeaveAdmin/LeaveAdmin";
 import AddLeaveCategory from "../../Component/AddLeaveCateogry/AddLeaveCategory";
 import ViewLeaveCategory from "../../Component/ViewLeaveCategory/ViewLeaveCategory";
 
