@@ -13,7 +13,6 @@ const AttendenceAdminScreen = ({
   markAttendanceIn,
   markAttendanceOut,
   updateAttendance,
-  getAttendance,
 }) => {
   return (
     <>
@@ -89,8 +88,12 @@ const AttendenceAdminScreen = ({
                 </div>
 
                 <div className="daily_attendence_activity_punch_btn">
-                  <button onClick={markAttendanceIn}>Punch In</button>
-                  <button onClick={markAttendanceOut}>Punch Out</button>
+                  <button onClick={markAttendanceIn} disabled={!!!singleEmp}>
+                    Punch In
+                  </button>
+                  <button onClick={markAttendanceOut} disabled={!!!singleEmp}>
+                    Punch Out
+                  </button>
                 </div>
 
                 <div className="daily_attendence_activity_box_footer">
