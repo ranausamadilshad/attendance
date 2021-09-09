@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import company_logo from "../../Assets/image/download.png";
 import login_profile_img from "../../Assets/image/login_img.png";
 import "../../Css/Style.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Header = ({ sideBar, setSideBar }) => {
+  const history = useHistory();
   const [Notification, setNotification] = useState(false);
 
   const [LoginProfileBtn, setLoginProfileBtn] = useState(false);
@@ -51,6 +52,12 @@ const Header = ({ sideBar, setSideBar }) => {
     }
   };
 
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("isAdmin");
+    history.push("/login");
+  };
+
   return (
     <>
       <header>
@@ -58,7 +65,7 @@ const Header = ({ sideBar, setSideBar }) => {
           <div className="header_sidebar_control">
             <div className="header_sidebar_control_section">
               <div className="header_company_logo">
-                <img src={company_logo} />
+                <img src={company_logo} alt="" />
               </div>
               <div
                 className="sidebar_controler_btn open_close_nav"
@@ -94,96 +101,106 @@ const Header = ({ sideBar, setSideBar }) => {
 
           <div className="header_details">
             <div className="header_detail_section">
-              <div className="header_search_field">
-                <input type="text" />
-                <button>
-                  <i className="fa fa-search"></i>
-                </button>
-              </div>
-              <div class="responsive_header_search_field">
-                <button>
-                  <i class="fa fa-search" onClick={handleSearchResponsive}></i>
-                  <div
-                    class={
-                      searchField
-                        ? "header_responsive_search_field toogle_responsive_search_field"
-                        : "header_responsive_search_field"
-                    }
-                  >
+              {sessionStorage.getItem("token") && (
+                <>
+                  <div className="header_search_field">
                     <input type="text" />
-                    <button>search</button>
+                    <button>
+                      <i className="fa fa-search"></i>
+                    </button>
                   </div>
-                </button>
-              </div>
-              <div className="header_notification_btn">
-                <a onClick={handleChange}>
-                  <i className="far fa-bell"></i>
-                  <span>50+</span>
-                </a>
-                <div
-                  className={
-                    Notification
-                      ? "header_notification_click_detail notificationpannel"
-                      : "header_notification_click_detail"
-                  }
-                >
-                  <div className="header_notification_click_detail_head">
-                    <p>notifications</p>
-                    <button>clear all</button>
+                  <div class="responsive_header_search_field">
+                    <button>
+                      <i
+                        class="fa fa-search"
+                        onClick={handleSearchResponsive}
+                      ></i>
+                      <div
+                        class={
+                          searchField
+                            ? "header_responsive_search_field toogle_responsive_search_field"
+                            : "header_responsive_search_field"
+                        }
+                      >
+                        <input type="text" />
+                        <button>search</button>
+                      </div>
+                    </button>
                   </div>
+                  <div className="header_notification_btn">
+                    <a onClick={handleChange}>
+                      <i className="far fa-bell"></i>
+                      <span>50+</span>
+                    </a>
+                    <div
+                      className={
+                        Notification
+                          ? "header_notification_click_detail notificationpannel"
+                          : "header_notification_click_detail"
+                      }
+                    >
+                      <div className="header_notification_click_detail_head">
+                        <p>notifications</p>
+                        <button>clear all</button>
+                      </div>
 
-                  <a href="#">
-                    {" "}
-                    <div className="header_single_notification_detail">
-                      <div className="header_single_notification_data">
-                        <img src={login_profile_img} />
-                        <div className="header_single_notification_time">
-                          <span>
-                            Lesley Grauer added new task Hospital Administration
-                          </span>
-                          <p>4 minut ago</p>
+                      <a href="#">
+                        {" "}
+                        <div className="header_single_notification_detail">
+                          <div className="header_single_notification_data">
+                            <img src={login_profile_img} />
+                            <div className="header_single_notification_time">
+                              <span>
+                                Lesley Grauer added new task Hospital
+                                Administration
+                              </span>
+                              <p>4 minut ago</p>
+                            </div>
+                          </div>
                         </div>
+                      </a>
+
+                      <a href="#">
+                        {" "}
+                        <div className="header_single_notification_detail">
+                          <div className="header_single_notification_data">
+                            <img src={login_profile_img} />
+                            <div className="header_single_notification_time">
+                              <span>
+                                Lesley Grauer added new task Hospital
+                                Administration
+                              </span>
+                              <p>4 minut ago</p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+
+                      <a href="#">
+                        {" "}
+                        <div className="header_single_notification_detail">
+                          <div className="header_single_notification_data">
+                            <img src={login_profile_img} />
+                            <div className="header_single_notification_time">
+                              <span>
+                                Lesley Grauer added new task Hospital
+                                Administration
+                              </span>
+                              <p>4 minut ago</p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+
+                      <div className="header_notification_click_detail_footer">
+                        <a href="#">view all notifications</a>
                       </div>
                     </div>
-                  </a>
-
-                  <a href="#">
-                    {" "}
-                    <div className="header_single_notification_detail">
-                      <div className="header_single_notification_data">
-                        <img src={login_profile_img} />
-                        <div className="header_single_notification_time">
-                          <span>
-                            Lesley Grauer added new task Hospital Administration
-                          </span>
-                          <p>4 minut ago</p>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-
-                  <a href="#">
-                    {" "}
-                    <div className="header_single_notification_detail">
-                      <div className="header_single_notification_data">
-                        <img src={login_profile_img} />
-                        <div className="header_single_notification_time">
-                          <span>
-                            Lesley Grauer added new task Hospital Administration
-                          </span>
-                          <p>4 minut ago</p>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-
-                  <div className="header_notification_click_detail_footer">
-                    <a href="#">view all notifications</a>
                   </div>
-                </div>
-              </div>
+                </>
+              )}
               <div className="header_login_details_section">
-                {localStorage.getItem("token") ? (
+                {sessionStorage.getItem("token") ? (
                   <div
                     className="header_login_details"
                     onClick={handleChangeAdmin}
@@ -212,7 +229,7 @@ const Header = ({ sideBar, setSideBar }) => {
                 >
                   <Link to="/profile">My profile</Link>
                   <Link to="#">setting</Link>
-                  <Link to="#">logout</Link>
+                  <Link onClick={handleLogout}>logout</Link>
                 </div>
               </div>
               <div className="responsive_header_login_details">

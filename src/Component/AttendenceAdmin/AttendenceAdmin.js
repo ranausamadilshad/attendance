@@ -69,7 +69,7 @@ const AttendenceAdmin = () => {
           singleEmp={singleEmployee.data}
           markAttendanceIn={markAttendanceIn}
           markAttendanceOut={markAttendanceOut}
-          attendanceData={attendance.data}
+          attendanceData={attendance}
           updateAttendance={updateAttendance.data}
         />
       )}

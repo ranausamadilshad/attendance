@@ -286,7 +286,7 @@ const SideBar = ({ sideBar }) => {
         }
       >
         <div className="sidebar_main_wrapper">
-          {localStorage.getItem("isAdmin") === "true" && (
+          {sessionStorage.getItem("isAdmin") === "true" && (
             <div className="sidebar_main_heading_section">
               <div className="sidebar_main_heading">
                 <span className="sidebar_menu_title">Main</span>
@@ -664,10 +664,15 @@ const SideBar = ({ sideBar }) => {
               </div>
             </div>
           )}
-          {localStorage.getItem("isAdmin") === "false" && (
+          {sessionStorage.getItem("isAdmin") === "false" && (
             <>
               <div className="sidebar_main_heading">
-                <span className="sidebar_menu_title">Main</span>
+                <Link to="/">
+                  <span className="sidebar_menu_title">Dashboard</span>
+                </Link>
+              </div>
+              <div className="sidebar_main_heading">
+                <span className="sidebar_menu_title">Attendance</span>
 
                 <div className="sidebar_sub_menu">
                   <Link to="#">

@@ -7,7 +7,7 @@ import Home2 from "./Pages/Home2";
 function App() {
   return (
     <>
-      <Router>{localStorage.getItem("token") ? <Home /> : <Home2 />}</Router>
+      <Router>{sessionStorage.getItem("token") ? <Home /> : <Home2 />}</Router>
     </>
   );
 }

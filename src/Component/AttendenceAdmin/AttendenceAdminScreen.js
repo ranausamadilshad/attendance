@@ -131,11 +131,11 @@ const AttendenceAdminScreen = ({
                   {!updateAttendance ? (
                     <div className="daily_attendence_activity_single_module">
                       <span>Punch In at</span>
-                      {attendanceData ? (
+                      {attendanceData.data ? (
                         <span>
                           <i className="far fa-clock"></i>{" "}
                           {
-                            attendanceData.attendence.timeIn
+                            attendanceData.data.attendence.timeIn
                               .split("T")[1]
                               .split(".")[0]
                           }

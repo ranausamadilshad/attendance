@@ -1,18 +1,18 @@
-import React from 'react'
-import './Login.css';
+import React from "react";
+import "./Login.css";
 import { Formik, Form } from "formik";
 import FormikControl from "../FormControl/FormikControl";
 
-const LoginScreen = ({ onSubmit,validationSchema ,initialValues }) => {
-    return (
-        <>
-         <Formik
+const LoginScreen = ({ onSubmit, validationSchema, initialValues, error }) => {
+  return (
+    <>
+      <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         {(formik) => (
-            <section class="create_department_section">
+          <section class="create_department_section">
             <section class="create_department_form">
               <div class="create_department_container">
                 <Form>
@@ -21,8 +21,12 @@ const LoginScreen = ({ onSubmit,validationSchema ,initialValues }) => {
                       <label>
                         Email <span class="mandatory"> *</span>
                       </label>
-                      <FormikControl control="input" type="input" name="email" />
-                      
+                      <FormikControl
+                        control="input"
+                        type="input"
+                        name="email"
+                      />
+
                       {/* <input type="text" placeholder="" required /> */}
                     </div>
                     <div class="input_field">
@@ -35,6 +39,11 @@ const LoginScreen = ({ onSubmit,validationSchema ,initialValues }) => {
                         name="password"
                       />
                       {/* <input type="password" placeholder="" required /> */}
+                      {error && (
+                        <p style={{ color: "red" }}>
+                          {error.data && error.data.message}
+                        </p>
+                      )}
                     </div>
                     <div class="submit_btn">
                       <button type="submit">Login</button>
@@ -43,11 +52,11 @@ const LoginScreen = ({ onSubmit,validationSchema ,initialValues }) => {
                 </Form>
               </div>
             </section>
-          </section> 
-                  )}
-                  </Formik>
-        </>
-    )
-}
+          </section>
+        )}
+      </Formik>
+    </>
+  );
+};
 
-export default LoginScreen
+export default LoginScreen;

@@ -1,15 +1,22 @@
-import React from 'react';
-import AdminHeader from '../Component/AdminHeader/AdminHeader';
-import AdminDashboard from '../Component/Admin_Dashboard/AdminDashboard';
-
+import React, { useEffect } from "react";
+import AdminHeader from "../Component/AdminHeader/AdminHeader";
+import AdminDashboard from "../Component/Admin_Dashboard/AdminDashboard";
 
 const AdminDashboardPage = () => {
-    return (
-        <> 
-        <AdminHeader main='Dashboard' cname="Admin"/>
-        <AdminDashboard/>  
-        </>
-    )
-}
+  useEffect(() => {
+    if (window.localStorage) {
+      if (!localStorage.getItem("secondLoad")) {
+        localStorage["secondLoad"] = true;
+        window.location.reload();
+      } else localStorage.removeItem("secondLoad");
+    }
+  }, []);
+  return (
+    <>
+      <AdminHeader main="Dashboard" cname="Admin" />
+      <AdminDashboard />
+    </>
+  );
+};
 
-export default AdminDashboardPage
+export default AdminDashboardPage;
