@@ -17,12 +17,14 @@ const CreateJobTitle = () => {
       .min(1, "Allowed Leaves Must be greater than 0.")
       .required("Required"),
   });
-
+  console.log("created job title", data);
   const onSubmit = async (values) => {
     try {
       await request({ ...values });
       window.location.reload();
-    } catch (_) {}
+    } catch (error) {
+      console.log(error.response);
+    }
   };
   return (
     <>

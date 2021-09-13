@@ -19,7 +19,7 @@ const ViewJobTitleScreen = ({ data }) => {
             {data.map((data) => (
               <tr class="Job_Tilte_table_body">
                 <td>{data.name}</td>
-                <td>{data.allowedLeaves}</td>
+                <td>{data.allowed_leaves}</td>
                 <td>
                   <div class="view_Job_Tilte_action_btn view_Job_Tilte_action">
                     <i

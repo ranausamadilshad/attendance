@@ -8,16 +8,13 @@ const LeaveAdminScreen = ({
   initialValues,
   handleSubmit,
   filteredArray,
+  leaveCatData,
 }) => {
   const [id, setId] = useState("");
-
+  console.log("leaveCat", leaveCatData);
   return (
     <>
-      <Formik
-        initialValues={initialValues}
-        // validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         {() => (
           <Form>
             <section className="view_admin_Leave_section">
@@ -55,9 +52,10 @@ const LeaveAdminScreen = ({
                       <option value="" selected disabled>
                         Select
                       </option>
-                      <option value="PENDING">Pending</option>
-                      <option value="DECLINED">Declined</option>
-                      <option value="APPROVED">Approved</option>
+                      {leaveCatData &&
+                        leaveCatData.leaveCategories.map((leave) => (
+                          <option value={leave.id}>{leave.name}</option>
+                        ))}
                     </Field>
                   </div>
                 </div>
@@ -149,7 +147,7 @@ const LeaveAdminScreen = ({
                       filteredArray.map((data) => (
                         <tr className="admin_Leave_table_body">
                           <td>data.name</td>
-                          <td>{data.leaveCategoryId}</td>
+                          <td>{data.leaveCategory.name}</td>
                           <td>{data.from.split("T")[0]}</td>
                           <td>{data.to.split("T")[0]}</td>
                           <td>

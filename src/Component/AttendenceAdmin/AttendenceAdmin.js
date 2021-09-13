@@ -42,6 +42,7 @@ const AttendenceAdmin = () => {
       await singleEmployee.request(values.employee);
     } catch (_) {}
   };
+  console.log("employee data", singleEmployee.data);
 
   const markAttendanceIn = async () => {
     try {
@@ -54,6 +55,19 @@ const AttendenceAdmin = () => {
     try {
       const { data } = await updateAttendance.request({ staff });
       console.log("update attendace", data);
+    } catch (_) {}
+  };
+  const markLeave = async () => {
+    try {
+      // const { data } = await updateAttendance.request({ staff });
+      console.log("mark leave", data);
+    } catch (_) {}
+  };
+
+  const markAbsent = async () => {
+    try {
+      // const { data } = await updateAttendance.request({ staff });
+      console.log("mark absent", data);
     } catch (_) {}
   };
 
@@ -70,7 +84,9 @@ const AttendenceAdmin = () => {
           markAttendanceIn={markAttendanceIn}
           markAttendanceOut={markAttendanceOut}
           attendanceData={attendance}
-          updateAttendance={updateAttendance.data}
+          updateAttendance={updateAttendance}
+          markAbsent={markAbsent}
+          markLeave={markLeave}
         />
       )}
     </>

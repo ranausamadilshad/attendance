@@ -13,6 +13,8 @@ const AttendenceAdminScreen = ({
   markAttendanceIn,
   markAttendanceOut,
   updateAttendance,
+  markAbsent,
+  markLeave,
 }) => {
   return (
     <>
@@ -91,20 +93,32 @@ const AttendenceAdminScreen = ({
                   <button onClick={markAttendanceIn} disabled={!!!singleEmp}>
                     Punch In
                   </button>
+
                   <button onClick={markAttendanceOut} disabled={!!!singleEmp}>
                     Punch Out
                   </button>
                 </div>
+                {attendanceData.error && (
+                  <p style={{ color: "red" }}>
+                    {attendanceData.error.data &&
+                      attendanceData.error.data.message}
+                  </p>
+                )}
+                {updateAttendance.error && (
+                  <p style={{ color: "red" }}>
+                    {updateAttendance.error.data &&
+                      updateAttendance.error.data.message}
+                  </p>
+                )}
 
-                <div className="daily_attendence_activity_box_footer">
-                  <div className="daily_attendence_break_overtime_box">
-                    <span>Break</span>
-                    <span>1.30 hour</span>
-                  </div>
-                  <div className="daily_attendence_break_overtime_box">
-                    <span>OverTime</span>
-                    <span>1.30 hour</span>
-                  </div>
+                <div className="daily_attendence_activity_punch_btn">
+                  <button onClick={markAbsent} disabled={!!!singleEmp}>
+                    Absent
+                  </button>
+
+                  <button onClick={markLeave} disabled={!!!singleEmp}>
+                    On Leave
+                  </button>
                 </div>
               </div>
               <div className="daily_attendence_activity_box_detail">
@@ -131,7 +145,7 @@ const AttendenceAdminScreen = ({
                   <h4>Today Activity</h4>
                 </div>
                 <div className="daily_attendence_activity_module">
-                  {!updateAttendance ? (
+                  {!updateAttendance.data ? (
                     <div className="daily_attendence_activity_single_module">
                       <span>Punch In at</span>
                       {attendanceData.data ? (
@@ -152,11 +166,11 @@ const AttendenceAdminScreen = ({
                   ) : (
                     <div className="daily_attendence_activity_single_module">
                       <span>Punch In at</span>
-                      {updateAttendance ? (
+                      {updateAttendance.data ? (
                         <span>
                           <i className="far fa-clock"></i>{" "}
                           {
-                            updateAttendance.attendence.timeIn
+                            updateAttendance.data.attendence.timeIn
                               .split("T")[1]
                               .split(".")[0]
                           }
@@ -170,11 +184,11 @@ const AttendenceAdminScreen = ({
                   )}
                   <div className="daily_attendence_activity_single_module">
                     <span>Punch Out at</span>
-                    {updateAttendance ? (
+                    {updateAttendance.data ? (
                       <span>
                         <i className="far fa-clock"></i>{" "}
                         {
-                          updateAttendance.attendence.timeOut
+                          updateAttendance.data.attendence.timeOut
                             .split("T")[1]
                             .split(".")[0]
                         }

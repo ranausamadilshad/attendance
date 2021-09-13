@@ -73,7 +73,7 @@ const EmployeesCreate = () => {
         jobTitle: +values.jobTitle,
         department: +values.department,
       });
-      // window.location.reload();
+      window.location.reload();
     } catch (_) {}
   };
   return (

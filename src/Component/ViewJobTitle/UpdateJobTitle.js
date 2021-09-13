@@ -7,7 +7,7 @@ import * as api from "../../apis/jobTitle";
 
 let initialValues = {
   name: "",
-  allowedLeaves: "",
+  allowed_leaves: "",
 };
 
 const UpdateJobTitle = ({ id }) => {
@@ -25,17 +25,22 @@ const UpdateJobTitle = ({ id }) => {
     }
     fetchData();
   }, [id]);
+  console.log("submitted returned", data);
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
-    allowedLeaves: Yup.number()
+    allowed_leaves: Yup.number()
       .min(1, "Allowed Leaves Must be greater than 0.")
       .required("Required"),
   });
 
   const onSubmit = async (values) => {
     try {
-      await request({ id, ...values, jobTitle: values.name });
+      await request({
+        id,
+        allowedLeaves: values.allowed_leaves,
+        jobTitle: values.name,
+      });
       window.location.reload();
     } catch (_) {}
   };
@@ -96,7 +101,7 @@ const UpdateJobTitle = ({ id }) => {
                               <FormikControl
                                 control="input"
                                 type="number"
-                                name="allowedLeaves"
+                                name="allowed_leaves"
                               />
                               {/* <input type="number" placeholder="" required /> */}
                             </div>

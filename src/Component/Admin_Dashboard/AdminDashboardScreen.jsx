@@ -44,7 +44,7 @@ const AdminDashboardScreen = ({ data }) => {
           </div>
         </div>
       </div>
-      <div style={{ width: "50%" }}>
+      <div>
         <section class="view_created_employee_section">
           <div class="view_created_employee_table">
             <table>
