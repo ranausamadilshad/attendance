@@ -13,6 +13,7 @@ const UpdateLeaveCategory = ({ id }) => {
   const [, setValues] = useState({});
   const { request, data } = useApi(api.updateLeaveCategory);
   const getSingleLeaveCategory = useApi(api.getSingleLeaveCategory);
+  console.log("leave category", getSingleLeaveCategory.data);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -24,7 +25,6 @@ const UpdateLeaveCategory = ({ id }) => {
     fetchData();
   }, [id]);
 
-  console.log("uopdate", data);
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
   });
@@ -32,7 +32,7 @@ const UpdateLeaveCategory = ({ id }) => {
   const onSubmit = async (values) => {
     console.log("values", values);
     try {
-      await request({ id, ...values, categoryName: values.name });
+      await request({ id, ...values });
       window.location.reload();
     } catch (_) {}
   };

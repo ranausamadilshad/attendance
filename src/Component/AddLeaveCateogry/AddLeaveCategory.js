@@ -7,13 +7,13 @@ import BodyHaider from "../BodyHaider/BodyHaider";
 import BodyHaiderPlus from "../BodyHaiderPlus/BodyHaiderPlus";
 
 const initialValues = {
-  categoryName: "",
+  name: "",
 };
 
 const AddLeaveCategory = () => {
   const { request, data } = useApi(api.addLeaveCategory);
   const validationSchema = Yup.object({
-    categoryName: Yup.string().required("Required"),
+    name: Yup.string().required("Required"),
   });
 
   const onSubmit = async (values) => {

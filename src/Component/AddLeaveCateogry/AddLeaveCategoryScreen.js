@@ -25,7 +25,7 @@ const AddLeaveCategoryScreen = ({
                       <label>
                         Leave Category <span class="mandatory"> *</span>
                       </label>
-                      <FormikControl control="input" name="categoryName" />
+                      <FormikControl control="input" name="name" />
                     </div>
                     {data && (
                       <p style={{ color: "green" }}>
