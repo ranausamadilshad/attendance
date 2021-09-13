@@ -13,7 +13,7 @@ const CreateDepartmentScreen = ({
     <>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         {() => (
@@ -35,7 +35,7 @@ const CreateDepartmentScreen = ({
                       <FormikControl
                         control="input"
                         type="number"
-                        name="phoneNo"
+                        name="phone"
                       />
                     </div>
                     <div className="input_field">

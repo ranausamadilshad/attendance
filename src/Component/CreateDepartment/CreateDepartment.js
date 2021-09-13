@@ -8,13 +8,13 @@ const initialValues = {
   email: "",
   name: "",
   address: "",
-  phoneNo: "",
+  phone: "",
 };
 const CreateDepartment = () => {
   const { request, data, error } = useApi(deptApi.addDepartment);
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
-    phoneNo: Yup.number()
+    phone: Yup.number()
       .positive("A phone number can't start with a minus")
       .integer("A phone number can't include a decimal point")
       .required("Required"),
