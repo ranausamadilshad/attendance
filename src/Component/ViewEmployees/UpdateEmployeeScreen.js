@@ -77,18 +77,22 @@ const UpdateEmployeeScreen = ({
                           </div>
                           <div class="input_field">
                             <label>
-                              Name <span class="mandatory"> * </span>
+                              First Name <span class="mandatory"> * </span>
                             </label>
-                            <FormikControl control="input" name="name" />
+                            <FormikControl control="input" name="first_name" />
                           </div>
                           <div class="input_field">
                             <label>
-                              Phone <span class="mandatory"> * </span>
+                              Last Name <span class="mandatory"> * </span>
                             </label>
+                            <FormikControl control="input" name="last_name" />
+                          </div>
+                          <div class="input_field">
+                            <label>Phone</label>
                             <FormikControl
                               control="input"
                               type="number"
-                              name="phoneNo"
+                              name="phone"
                             />
                           </div>
                           <div class="input_field create_employee_border_bottom">
@@ -109,16 +113,14 @@ const UpdateEmployeeScreen = ({
                             <FormikControl
                               control="input"
                               type="date"
-                              name="joiningDate"
+                              name="joining_date"
                             />
                             {/* <input type="date" placeholder=""/> */}
                           </div>
                           <div class="input_field">
-                            <label>
-                              Department <span class="mandatory"> *</span>
-                            </label>
+                            <label>Department</label>
 
-                            <Field as="select" name="departmentId">
+                            <Field as="select" name="department">
                               <>
                                 <option selected disabled value="">
                                   Select
@@ -136,14 +138,12 @@ const UpdateEmployeeScreen = ({
                             <ErrorMessage
                               style={{ color: "red" }}
                               component="div"
-                              name="departmentId"
+                              name="department"
                             />
                           </div>
                           <div class="input_field">
-                            <label>
-                              Job Title <span class="mandatory"> *</span>
-                            </label>
-                            <Field as="select" name="jobTitleId">
+                            <label>Job Title</label>
+                            <Field as="select" name="job_title">
                               <>
                                 <option selected disabled value="">
                                   Select
@@ -161,10 +161,10 @@ const UpdateEmployeeScreen = ({
                             <ErrorMessage
                               style={{ color: "red" }}
                               component="div"
-                              name="jobTitleId"
+                              name="job_title"
                             />
                           </div>
-                          <div class="input_field create_employee_border_bottom">
+                          {/* <div class="input_field create_employee_border_bottom">
                             <label>
                               Job Shift <span class="mandatory"> *</span>
                             </label>
@@ -186,7 +186,7 @@ const UpdateEmployeeScreen = ({
                               component="div"
                               name="shiftId"
                             />
-                          </div>
+                          </div> */}
                           <div class="input_field">
                             <label>
                               Date Of Birth <span class="mandatory"> *</span>
@@ -194,7 +194,7 @@ const UpdateEmployeeScreen = ({
                             <FormikControl
                               control="input"
                               type="date"
-                              name="dateOfBirth"
+                              name="dob"
                             />
                           </div>
                           <div class="input_field">
@@ -208,10 +208,7 @@ const UpdateEmployeeScreen = ({
                             />
                           </div>
                           <div class="input_field">
-                            <label>
-                              {" "}
-                              Address <span class="mandatory"> *</span>
-                            </label>
+                            <label> Address</label>
                             <FormikControl
                               control="textarea"
                               type="textarea"

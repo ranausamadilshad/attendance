@@ -44,7 +44,7 @@ const AdminDashboardScreen = ({ data }) => {
           </div>
         </div>
       </div>
-      <div>
+      {/* <div>
         <section class="view_created_employee_section">
           <div class="view_created_employee_table">
             <table>
@@ -64,7 +64,7 @@ const AdminDashboardScreen = ({ data }) => {
             </table>
           </div>
         </section>
-      </div>
+      </div> */}
     </>
   );
 };

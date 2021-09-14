@@ -17,7 +17,7 @@ const validationSchema = Yup.object({
 
 const Login = () => {
   const history = useHistory();
-  const { request, error } = useApi(api.login);
+  const { request, error, data } = useApi(api.login);
   useEffect(() => {
     if (window.localStorage) {
       if (!localStorage.getItem("firstLoad")) {
@@ -30,8 +30,9 @@ const Login = () => {
   const onSubmit = async (values) => {
     try {
       const { data } = await request(values);
-      sessionStorage.setItem("token", data.user.token);
-      sessionStorage.setItem("isAdmin", data.user.isAdmin);
+      console.log("data", data);
+      sessionStorage.setItem("token", data.staff.token);
+      // sessionStorage.setItem("isAdmin", data.user.isAdmin);
       history.push("/");
     } catch (_) {}
   };

@@ -9,14 +9,15 @@ import useApi from "../../hooks/useApi";
 import UpdateEmployeeScreen from "./UpdateEmployeeScreen";
 
 let initialValues = {
-  name: "",
-  phoneNo: "",
+  first_name: "",
+  last_name: "",
+  phone: "",
   email: "",
-  joiningDate: "",
-  departmentId: "",
-  jobTitleId: "",
-  shiftId: "",
-  dateOfBirth: "",
+  joining_date: "",
+  department: "",
+  job_title: "",
+
+  dob: "",
   gender: "",
   address: "",
 };
@@ -39,14 +40,14 @@ const UpdateEmployees = ({ id }) => {
     }
     fetchData();
   }, []);
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        await getShifts.request();
-      } catch (_) {}
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       await getShifts.request();
+  //     } catch (_) {}
+  //   }
+  //   fetchData();
+  // }, []);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -59,9 +60,10 @@ const UpdateEmployees = ({ id }) => {
     async function fetchData() {
       try {
         const { data } = await getSingleStaff.request(id);
+        console.log("single employee", data);
         initialValues = data.staff;
-        initialValues.dateOfBirth = data.staff.dob.split("T")[0];
-        initialValues.joiningDate = data.staff.joiningDate.split("T")[0];
+        initialValues.dob = data.staff.dob.split("T")[0];
+        initialValues.joining_date = data.staff.joining_date.split("T")[0];
 
         setValues((prev) => ({ ...prev, ...data.staff }));
       } catch (_) {}
@@ -70,16 +72,16 @@ const UpdateEmployees = ({ id }) => {
   }, []);
 
   const validationSchema = Yup.object({
-    name: Yup.string().required("Required"),
-    phoneNo: Yup.number().required("Required"),
+    first_name: Yup.string().required("Required"),
+    last_name: Yup.string().required("Required"),
+    phone: Yup.number().notRequired(),
     email: Yup.string().required("Required"),
-    joiningDate: Yup.date().required("Required").nullable(),
-    departmentId: Yup.string().required("Required"),
-    jobTitleId: Yup.string().required("Required"),
-    shiftId: Yup.string().required("Required"),
-    dateOfBirth: Yup.date().required("Required").nullable(),
+    joining_date: Yup.date().required("Required"),
+    department: Yup.string().notRequired(),
+    job_title: Yup.string().notRequired(),
+    dob: Yup.date().required("Required"),
     gender: Yup.string().required("Required"),
-    address: Yup.string().required("Required"),
+    address: Yup.string().notRequired(),
   });
 
   function handleImage(e) {
@@ -108,9 +110,11 @@ const UpdateEmployees = ({ id }) => {
     try {
       const { data } = await request({
         ...values,
-        shift: +values.shiftId,
-        jobTitle: +values.jobTitleId,
-        department: +values.departmentId,
+
+        firstName: values.first_name,
+        lastName: values.last_name,
+        joiningDate: values.joining_date,
+        jobTitle: values.job_title,
       });
       data && uploadAvatar();
       window.location.reload();

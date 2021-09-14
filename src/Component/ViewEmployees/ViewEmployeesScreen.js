@@ -7,6 +7,7 @@ import DeleteEmployees from "./DeleteEmployees";
 const ViewEmployeesScreen = ({ data }) => {
   console.log("staff", data);
   const [id, setId] = useState("");
+  console.log("id", id);
 
   return (
     <>
@@ -18,17 +19,15 @@ const ViewEmployeesScreen = ({ data }) => {
               <th>Email</th>
               <th>Department</th>
               <th>Job Title</th>
-              <th>Job shift</th>
 
               <th class="view_created_employee_action">Actions</th>
             </tr>
             {data.staffMembers.map((data) => (
               <tr class="created_employee_table_body">
-                <td>{data.name}</td>
+                <td>{data.first_name + " " + data.last_name}</td>
                 <td>{data.email}</td>
-                <td>{data.department.name}</td>
-                <td>{data.jobTitle.name}</td>
-                <td>{data.shift.name}</td>
+                <td>{data.department ? data.department : "Nil"}</td>
+                <td>{data.job_title ? data.job_title : "Nil"}</td>
 
                 <td>
                   <div class="view_created_employee_action_btn view_created_employee_action">
