@@ -110,8 +110,8 @@ const LeaveAdminScreen = ({
                         className="admin_Leave_table_body"
                         onClick={() => setStaffId(data.id)}
                       >
-                        <td>data.name</td>
-                        <td>{data.leaveCategory.name}</td>
+                        <td>{data.staff_name}</td>
+                        <td>{data.category}</td>
                         <td>{data.from.split("T")[0]}</td>
                         <td>{data.to.split("T")[0]}</td>
                         <td>
@@ -124,7 +124,7 @@ const LeaveAdminScreen = ({
                         <td>
                           <div className="status_selection">
                             <div class="status_active">
-                              <small>{data.leaveStatus}</small>
+                              <small>{data.leave_status}</small>
                             </div>
                           </div>
                         </td>

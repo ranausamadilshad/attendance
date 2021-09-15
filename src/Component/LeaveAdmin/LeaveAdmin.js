@@ -53,6 +53,8 @@ const LeaveAdmin = () => {
     fetchData();
   }, []);
 
+  console.log("data", data);
+
   function handleSubmit(values) {
     console.log("values", data.applyLeaves);
     values.leaveStatus &&
