@@ -54,8 +54,8 @@ const AttendenceAdminScreen = ({
                     {employeesData &&
                       employeesData.staffMembers.map((data) => (
                         <>
-                          <option value={data.id}>
-                            {data.first_name + " " + data.last_name}
+                          <option value={data.staff_id}>
+                            {data.staff_name}
                           </option>
                         </>
                       ))}
