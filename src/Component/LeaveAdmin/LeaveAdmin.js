@@ -17,8 +17,9 @@ const LeaveAdmin = () => {
   const [staffId, setStaffId] = useState("");
   const { request, data } = useApi(api.getAllLeaves);
   const leaveCat = useApi(leaveCategory.getLeaveCategory);
-  const getEmployeeLeaveDetails = useApi(staffApi.getEmployeeLeaveDetails);
+  const leaveDetails = useApi(staffApi.getEmployeeLeaveDetails);
   const [filteredArray, setFilteredArray] = useState();
+  console.log("data", data);
 
   //Get all leaves that employee have applied for. (for admin)
 
@@ -36,7 +37,7 @@ const LeaveAdmin = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        await getEmployeeLeaveDetails.request(staffId);
+        await leaveDetails.request(staffId);
       } catch (_) {}
     }
     staffId && fetchData();
@@ -53,7 +54,7 @@ const LeaveAdmin = () => {
     fetchData();
   }, []);
 
-  console.log("data", data);
+  console.log("staff Id", staffId);
 
   function handleSubmit(values) {
     console.log("values", data.applyLeaves);
@@ -92,6 +93,7 @@ const LeaveAdmin = () => {
         filteredArray={filteredArray}
         leaveCatData={leaveCat.data}
         setStaffId={setStaffId}
+        staffId={staffId}
       />
     </>
   );

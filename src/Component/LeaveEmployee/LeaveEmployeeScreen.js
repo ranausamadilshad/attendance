@@ -47,8 +47,8 @@ const LeaveEmployeeScreen = ({ data, leaveData }) => {
               data.applyLeaves.map((data) => (
                 <tr className="Employee_Leave_table_body">
                   <td>{data.category}</td>
-                  <td>{data.from.split("T")[0]}</td>
-                  <td>{data.to.split("T")[0]}</td>
+                  <td>{new Date(data.from).toLocaleDateString()}</td>
+                  <td>{new Date(data.to).toLocaleDateString()}</td>
                   <td>
                     {(new Date(data.to.split("T")[0]).getTime() -
                       new Date(data.from.split("T")[0]).getTime()) /

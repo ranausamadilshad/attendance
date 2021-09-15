@@ -23,6 +23,7 @@ export function getStaffOfDepartment(data) {
   return api.get(`/staff/attendence/${data}`, config);
 }
 export function getEmployeeLeaveDetails(data) {
+  console.log("id", data);
   return api.get(`/staff/view-leave-status/${data}`, config);
 }
 export function getAllLeaves() {

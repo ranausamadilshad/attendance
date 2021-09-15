@@ -6,15 +6,12 @@ export function markAttendance(data) {
 export function updateAttendance(data) {
   return api.patch(`/attendence`, { ...data }, config);
 }
+export function markAbsent(data) {
+  return api.post(`/attendence/absent`, { ...data }, config);
+}
+export function markLeave(data) {
+  return api.post(`/attendence/leave`, { ...data }, config);
+}
 export function getAttendance() {
   return api.get("/attendence", config);
-}
-export function getSingleLeave(data) {
-  return api.get(`/attendence`);
-}
-export function deleteLeaveCategory(data) {
-  return api.delete(`/attendence`, config);
-}
-export function updateLeaveStatus(data) {
-  return api.patch(`/attendence`, { ...data });
 }

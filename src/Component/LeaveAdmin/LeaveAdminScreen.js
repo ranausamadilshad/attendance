@@ -10,6 +10,7 @@ const LeaveAdminScreen = ({
   filteredArray,
   leaveCatData,
   setStaffId,
+  staffId,
 }) => {
   const [id, setId] = useState("");
   return (
@@ -21,15 +22,15 @@ const LeaveAdminScreen = ({
               <div className="admin_leave_calculation_box">
                 <div className="admin_leave_calculation_box_detail">
                   <span>Total Leave</span>
-                  <small>12</small>
+                  <small>{staffId ? "12" : "--"}</small>
                 </div>
                 <div className="admin_leave_calculation_box_detail">
                   <span>Leave's Made</span>
-                  <small>3</small>
+                  <small>{staffId ? "12" : "--"}</small>
                 </div>
                 <div className="admin_leave_calculation_box_detail">
                   <span>Remaning Leave</span>
-                  <small>4</small>
+                  <small>{staffId ? "12" : "--"}</small>
                 </div>
                 <div className="admin_leave_calculation_box_detail">
                   <span>Leave History</span>
@@ -112,8 +113,8 @@ const LeaveAdminScreen = ({
                       >
                         <td>{data.staff_name}</td>
                         <td>{data.category}</td>
-                        <td>{data.from.split("T")[0]}</td>
-                        <td>{data.to.split("T")[0]}</td>
+                        <td>{new Date(data.from).toLocaleDateString()}</td>
+                        <td>{new Date(data.to).toLocaleDateString()}</td>
                         <td>
                           {(new Date(data.to.split("T")[0]).getTime() -
                             new Date(data.from.split("T")[0]).getTime()) /

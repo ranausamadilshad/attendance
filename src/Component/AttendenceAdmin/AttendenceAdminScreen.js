@@ -146,7 +146,7 @@ const AttendenceAdminScreen = ({
                   </div>
                 </div>
               </div>
-              {/* <div className="daily_attendence_activity_box_detail">
+              <div className="daily_attendence_activity_box_detail">
                 <div className="daily_attendence_activity_box_header">
                   <h4>Today Activity</h4>
                 </div>
@@ -157,11 +157,7 @@ const AttendenceAdminScreen = ({
                       {attendanceData.data ? (
                         <span>
                           <i className="far fa-clock"></i>{" "}
-                          {
-                            attendanceData.data.attendence.timeIn
-                              .split("T")[1]
-                              .split(".")[0]
-                          }
+                          {attendanceData.data.attendence.time_in}
                         </span>
                       ) : (
                         <span>
@@ -175,11 +171,7 @@ const AttendenceAdminScreen = ({
                       {updateAttendance.data ? (
                         <span>
                           <i className="far fa-clock"></i>{" "}
-                          {
-                            updateAttendance.data.attendence.timeIn
-                              .split("T")[1]
-                              .split(".")[0]
-                          }
+                          {updateAttendance.data.attendence.time_in}
                         </span>
                       ) : (
                         <span>
@@ -193,11 +185,7 @@ const AttendenceAdminScreen = ({
                     {updateAttendance.data ? (
                       <span>
                         <i className="far fa-clock"></i>{" "}
-                        {
-                          updateAttendance.data.attendence.timeOut
-                            .split("T")[1]
-                            .split(".")[0]
-                        }
+                        {updateAttendance.data.attendence.time_out}
                       </span>
                     ) : (
                       <span>
@@ -206,7 +194,7 @@ const AttendenceAdminScreen = ({
                     )}
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           </section>
         )}

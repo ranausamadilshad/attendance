@@ -22,7 +22,7 @@ const LeaveEmployee = () => {
     }
     fetchData();
   }, []);
-  console.log("data", leaveDetails.data);
+  console.log("data", data);
   return (
     <div>
       <LeaveEmployeeScreen data={data} leaveData={leaveDetails.data} />

@@ -16,6 +16,8 @@ const AttendenceAdmin = () => {
   const singleEmployee = useApi(api.getSingleStaff);
   const attendance = useApi(attendanceApi.markAttendance);
   const updateAttendance = useApi(attendanceApi.updateAttendance);
+  const absent = useApi(attendanceApi.markAbsent);
+  const leave = useApi(attendanceApi.markLeave);
   const { request, data } = useApi(deptApi.getDepartments);
 
   useEffect(() => {
@@ -36,11 +38,13 @@ const AttendenceAdmin = () => {
     fetchData();
   }, []);
 
-  console.log("employees", employees.data);
+  // console.log("employ", singleEmployee.data);
 
   const onSubmit = async (values) => {
     setStaff(+values.employee);
+    // console.log("staff", staff);
     try {
+      await singleEmployee.request(+values.employee);
     } catch (_) {}
   };
 
@@ -49,6 +53,7 @@ const AttendenceAdmin = () => {
       await attendance.request({ staff });
     } catch (_) {}
   };
+  console.log("mark in", attendance.data);
 
   const markAttendanceOut = async () => {
     try {
@@ -58,15 +63,15 @@ const AttendenceAdmin = () => {
 
   const markLeave = async () => {
     try {
-      // const { data } = await updateAttendance.request({ staff });
-      console.log("mark leave", data);
+      const { data } = await leave.request({ staff });
+      // console.log("mark leave", data);
     } catch (_) {}
   };
 
   const markAbsent = async () => {
     try {
-      // const { data } = await updateAttendance.request({ staff });
-      console.log("mark absent", data);
+      const { data } = await absent.request({ staff });
+      // console.log("mark absent", data);
     } catch (_) {}
   };
 
