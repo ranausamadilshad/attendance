@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DeleteLeaveEmployee from "./DeleteLeaveEmployee";
 import "./LeaveEmployee.css";
 
-const LeaveEmployeeScreen = () => {
+const LeaveEmployeeScreen = ({ data }) => {
   const [id, setId] = useState("");
   const holidays = [
     {
@@ -67,20 +67,24 @@ const LeaveEmployeeScreen = () => {
               <th>Num Of Days</th>
               <th>Reason</th>
               <th>Status</th>
-              <th>Approved By</th>
-              <th className="view_department_action">Actions</th>
-            </tr>
-            {holidays.map((data) => (
-              <tr className="Employee_Leave_table_body">
-                <td>{data.name}</td>
-                <td>{data.joind}</td>
-                <td>{data.email}</td>
-                <td>{data.phone}</td>
-                <td>{data.jobtitle}</td>
-                <td>{data.jobshift}</td>
-                <td>{data.gender}</td>
 
+              {/* <th className="view_department_action">Actions</th> */}
+            </tr>
+            {data.applyLeaves.map((data) => (
+              <tr className="Employee_Leave_table_body">
+                <td>{data.category}</td>
+                <td>{data.from.split("T")[0]}</td>
+                <td>{data.to.split("T")[0]}</td>
                 <td>
+                  {(new Date(data.to.split("T")[0]).getTime() -
+                    new Date(data.from.split("T")[0]).getTime()) /
+                    (1000 * 3600 * 24) +
+                    1}
+                </td>
+                <td>{data.subject}</td>
+                <td>{data.leave_status}</td>
+
+                {/* <td>
                   <div className="view_Employee_Leave_action_btn view_Employee_Leave_action">
                     <i
                       className="fas fa-ellipsis-v"
@@ -90,8 +94,7 @@ const LeaveEmployeeScreen = () => {
                     ></i>
                     <div style={{ display: data.id === id ? "block" : "none" }}>
                       <div className="view_Employee_Leave_do_action">
-                        {/* <a href="#"><i className="fas fa-eye"></i><span>View</span></a>
-                        <a data-toggle="modal" data-target="#123"><i className="fas fa-pen"></i><span>Edit</span></a> */}
+                        
 
                         <a data-toggle="modal" data-target="#DeleteEmployee">
                           <i className="fas fa-trash-alt"></i>
@@ -100,7 +103,7 @@ const LeaveEmployeeScreen = () => {
                       </div>
                     </div>
                   </div>
-                </td>
+                </td> */}
               </tr>
             ))}
           </table>

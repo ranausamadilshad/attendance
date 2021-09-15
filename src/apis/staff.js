@@ -25,3 +25,7 @@ export function getStaffOfDepartment(data) {
 export function getEmployeeLeaveDetails(data) {
   return api.get(`/staff/view-leave-status/${data}`, config);
 }
+export function getAllLeaves() {
+  const id = sessionStorage.getItem("staffId");
+  return api.get(`/apply-leave/${id}/all`, config);
+}

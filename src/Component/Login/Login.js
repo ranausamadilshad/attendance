@@ -33,6 +33,7 @@ const Login = () => {
       console.log("data", data);
       sessionStorage.setItem("token", data.staff.token);
       sessionStorage.setItem("isAdmin", data.staff.is_admin);
+      sessionStorage.setItem("staffId", data.staff.id);
       history.push("/");
     } catch (_) {}
   };
