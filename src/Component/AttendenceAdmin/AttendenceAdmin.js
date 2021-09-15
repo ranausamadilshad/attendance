@@ -37,6 +37,9 @@ const AttendenceAdmin = () => {
     }
     fetchData();
   }, []);
+  console.log("error", attendance.error);
+  console.log("update error", updateAttendance.error);
+  console.log("update data", updateAttendance.data);
 
   // console.log("employ", singleEmployee.data);
 
@@ -63,14 +66,14 @@ const AttendenceAdmin = () => {
 
   const markLeave = async () => {
     try {
-      const { data } = await leave.request({ staff });
+      await leave.request({ staff });
       // console.log("mark leave", data);
     } catch (_) {}
   };
 
   const markAbsent = async () => {
     try {
-      const { data } = await absent.request({ staff });
+      await absent.request({ staff });
       // console.log("mark absent", data);
     } catch (_) {}
   };
@@ -91,6 +94,8 @@ const AttendenceAdmin = () => {
           updateAttendance={updateAttendance}
           markAbsent={markAbsent}
           markLeave={markLeave}
+          absentData={absent.data}
+          leaveData={leave.data}
         />
       )}
     </>

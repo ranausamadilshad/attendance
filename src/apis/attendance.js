@@ -15,3 +15,6 @@ export function markLeave(data) {
 export function getAttendance() {
   return api.get("/attendence", config);
 }
+export function getStaffAttendance(data) {
+  return api.get(`/attendence/stats/${data}`, config);
+}

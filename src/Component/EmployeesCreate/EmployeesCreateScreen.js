@@ -141,7 +141,7 @@ const EmployeesCreateScreen = ({
                       name="address"
                     />
                   </div>
-                  {data && (
+                  {data && Object.entries(data).length > 0 && (
                     <p style={{ color: "green" }}>Staff Created Successfully</p>
                   )}
                   <div class="submit_btn">

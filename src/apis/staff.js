@@ -1,7 +1,6 @@
 import { api, config } from "./api";
 
 export function addStaff(data) {
-  console.log("data", data);
   return api.post("/staff", { ...data });
 }
 export function updateStaff(data) {

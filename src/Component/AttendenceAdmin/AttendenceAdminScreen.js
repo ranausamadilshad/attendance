@@ -15,6 +15,8 @@ const AttendenceAdminScreen = ({
   updateAttendance,
   markAbsent,
   markLeave,
+  absentData,
+  leaveData,
 }) => {
   return (
     <>
@@ -80,11 +82,11 @@ const AttendenceAdminScreen = ({
                       singleEmp.staff.last_name}
                   </h1>
                 )}
-                {!singleEmp ? (
+                {/* {!singleEmp ? (
                   <span>Employee Designation</span>
                 ) : (
                   <span>DataBase Designer</span>
-                )}
+                )} */}
               </div>
             </div>
 
@@ -92,7 +94,7 @@ const AttendenceAdminScreen = ({
               <div className="daily_attendence_activity_box_detail">
                 <div className="daily_attendence_activity_box_header">
                   <h4>Timesheet</h4>
-                  <h5>wed, 11th Mar 2019</h5>
+                  <h5>{new Date().toLocaleDateString()}</h5>
                 </div>
 
                 <div className="daily_attendence_activity_punch_btn">
@@ -112,6 +114,12 @@ const AttendenceAdminScreen = ({
                 )}
                 {updateAttendance.error && (
                   <p style={{ color: "red" }}>
+                    {updateAttendance.error.data &&
+                      updateAttendance.error.data.message}
+                  </p>
+                )}
+                {absentData && (
+                  <p style={{ color: "green" }}>
                     {updateAttendance.error.data &&
                       updateAttendance.error.data.message}
                   </p>
@@ -151,10 +159,12 @@ const AttendenceAdminScreen = ({
                   <h4>Today Activity</h4>
                 </div>
                 <div className="daily_attendence_activity_module">
-                  {!updateAttendance.data ? (
+                  {!updateAttendance.data ||
+                  Object.entries(updateAttendance.data).length <= 0 ? (
                     <div className="daily_attendence_activity_single_module">
                       <span>Punch In at</span>
-                      {attendanceData.data ? (
+                      {attendanceData.data &&
+                      Object.entries(attendanceData.data).length > 0 ? (
                         <span>
                           <i className="far fa-clock"></i>{" "}
                           {attendanceData.data.attendence.time_in}
@@ -168,7 +178,8 @@ const AttendenceAdminScreen = ({
                   ) : (
                     <div className="daily_attendence_activity_single_module">
                       <span>Punch In at</span>
-                      {updateAttendance.data ? (
+                      {updateAttendance.data &&
+                      Object.entries(updateAttendance.data).length > 0 ? (
                         <span>
                           <i className="far fa-clock"></i>{" "}
                           {updateAttendance.data.attendence.time_in}
@@ -182,7 +193,8 @@ const AttendenceAdminScreen = ({
                   )}
                   <div className="daily_attendence_activity_single_module">
                     <span>Punch Out at</span>
-                    {updateAttendance.data ? (
+                    {updateAttendance.data &&
+                    Object.entries(updateAttendance.data).length > 0 ? (
                       <span>
                         <i className="far fa-clock"></i>{" "}
                         {updateAttendance.data.attendence.time_out}

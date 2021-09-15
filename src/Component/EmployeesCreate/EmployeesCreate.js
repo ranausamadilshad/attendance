@@ -26,6 +26,7 @@ const EmployeesCreate = () => {
   const getJob = useApi(jobApi.getJobTitle);
 
   console.log("error", error);
+  console.log("data", data);
 
   useEffect(() => {
     async function fetchData() {
@@ -59,13 +60,12 @@ const EmployeesCreate = () => {
     jobTitle: Yup.string().required("Required"),
   });
   const onSubmit = async (values) => {
-    console.log("values", values);
     try {
-      await request(values);
+      const data = await request(values);
       window.location.reload();
     } catch (_) {}
   };
-
+  console.log("employee error");
   return (
     <>
       <EmployeesCreateScreen
