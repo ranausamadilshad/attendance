@@ -9,9 +9,9 @@ const LeaveAdminScreen = ({
   handleSubmit,
   filteredArray,
   leaveCatData,
+  setStaffId,
 }) => {
   const [id, setId] = useState("");
-  console.log("leaveCat", leaveCatData);
   return (
     <>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
@@ -106,7 +106,10 @@ const LeaveAdminScreen = ({
                   {!filteredArray &&
                     data &&
                     data.applyLeaves.map((data) => (
-                      <tr className="admin_Leave_table_body">
+                      <tr
+                        className="admin_Leave_table_body"
+                        onClick={() => setStaffId(data.id)}
+                      >
                         <td>data.name</td>
                         <td>{data.leaveCategory.name}</td>
                         <td>{data.from.split("T")[0]}</td>
@@ -145,7 +148,10 @@ const LeaveAdminScreen = ({
                   {filteredArray &&
                     (filteredArray.length > 0 ? (
                       filteredArray.map((data) => (
-                        <tr className="admin_Leave_table_body">
+                        <tr
+                          className="admin_Leave_table_body"
+                          onClick={() => setStaffId(data.id)}
+                        >
                           <td>data.name</td>
                           <td>{data.leaveCategory.name}</td>
                           <td>{data.from.split("T")[0]}</td>

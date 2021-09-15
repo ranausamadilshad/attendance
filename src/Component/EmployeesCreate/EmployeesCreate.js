@@ -16,12 +16,16 @@ const initialValues = {
   gender: "",
   address: "",
   password: "",
+  department: "",
+  jobTitle: "",
 };
 
 const EmployeesCreate = () => {
   const { request, data, error } = useApi(api.addStaff);
   const getDepts = useApi(deptApi.getDepartments);
   const getJob = useApi(jobApi.getJobTitle);
+
+  console.log("error", error);
 
   useEffect(() => {
     async function fetchData() {
@@ -44,16 +48,21 @@ const EmployeesCreate = () => {
   const validationSchema = Yup.object({
     firstName: Yup.string().required("Required"),
     lastName: Yup.string().required("Required"),
-    email: Yup.string().required("Required"),
+    email: Yup.string().email().required("Required"),
     joiningDate: Yup.date().required("Required"),
     dob: Yup.date().required("Required"),
     gender: Yup.string().required("Required"),
     password: Yup.string().min(8).required("Required"),
+    address: Yup.string().required("Required"),
+    department: Yup.string().required("Required"),
+    phone: Yup.number().required("Required"),
+    jobTitle: Yup.string().required("Required"),
   });
   const onSubmit = async (values) => {
+    console.log("values", values);
     try {
       await request(values);
-      // window.location.reload();
+      window.location.reload();
     } catch (_) {}
   };
 

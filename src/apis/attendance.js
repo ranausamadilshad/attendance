@@ -4,7 +4,7 @@ export function markAttendance(data) {
   return api.post("/attendence", { ...data }, config);
 }
 export function updateAttendance(data) {
-  return api.patch(`/attendence/lol`, { ...data }, config);
+  return api.patch(`/attendence`, { ...data }, config);
 }
 export function getAttendance() {
   return api.get("/attendence", config);

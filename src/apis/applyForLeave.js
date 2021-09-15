@@ -1,6 +1,7 @@
 import { api, config } from "./api";
 
 export function applyForLeave(data) {
+  console.log("data", data);
   return api.post("/apply-leave", { ...data }, config);
 }
 export function updateLeaveCategory(data) {

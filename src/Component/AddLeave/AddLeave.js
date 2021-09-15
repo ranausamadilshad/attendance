@@ -8,9 +8,9 @@ import * as leaveCategoryApi from "../../apis/leave-category";
 const initialValues = {
   leaveCategory: "",
   subject: "",
-  shortDescription: "",
-  leaveFrom: "",
-  leaveTo: "",
+  description: "",
+  fromDate: "",
+  toDate: "",
 };
 
 const AddLeave = () => {
@@ -29,19 +29,16 @@ const AddLeave = () => {
   const validationSchema = Yup.object({
     subject: Yup.string().required("Required"),
     leaveCategory: Yup.number().required("Required"),
-    shortDescription: Yup.string().required("Required"),
-    leaveFrom: Yup.date().required("Required"),
-    leaveTo: Yup.date().required("Required"),
+    description: Yup.string().required("Required"),
+    fromDate: Yup.date().required("Required"),
+    toDate: Yup.date().required("Required"),
   });
 
+  console.log("dataaaa", data);
   const onSubmit = async (values) => {
-    console.log("values", values);
     try {
-      await request({
-        ...values,
-        leaveCategory: +values.leaveCategory,
-      });
-      window.location.reload();
+      await request(values);
+      // window.location.reload();
     } catch (_) {}
   };
   return (

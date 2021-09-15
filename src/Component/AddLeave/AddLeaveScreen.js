@@ -66,7 +66,7 @@ const AddLeaveScreen = ({
                       <FormikControl
                         control="input"
                         type="string"
-                        name="shortDescription"
+                        name="description"
                       />
                       {/* <input type="email" placeholder="" /> */}
                     </div>
@@ -78,7 +78,7 @@ const AddLeaveScreen = ({
                       <FormikControl
                         control="input"
                         type="date"
-                        name="leaveFrom"
+                        name="fromDate"
                       />
                     </div>
                     <div class="input_field">
@@ -89,7 +89,7 @@ const AddLeaveScreen = ({
                       <FormikControl
                         control="input"
                         type="date"
-                        name="leaveTo"
+                        name="toDate"
                       />
                     </div>
                     {data && (

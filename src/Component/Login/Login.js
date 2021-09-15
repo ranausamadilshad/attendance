@@ -32,7 +32,7 @@ const Login = () => {
       const { data } = await request(values);
       console.log("data", data);
       sessionStorage.setItem("token", data.staff.token);
-      // sessionStorage.setItem("isAdmin", data.user.isAdmin);
+      sessionStorage.setItem("isAdmin", data.staff.is_admin);
       history.push("/");
     } catch (_) {}
   };

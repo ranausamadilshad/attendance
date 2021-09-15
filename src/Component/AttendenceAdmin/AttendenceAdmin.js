@@ -36,27 +36,26 @@ const AttendenceAdmin = () => {
     fetchData();
   }, []);
 
+  console.log("employees", employees.data);
+
   const onSubmit = async (values) => {
     setStaff(+values.employee);
     try {
-      await singleEmployee.request(values.employee);
     } catch (_) {}
   };
-  console.log("employee data", singleEmployee.data);
 
   const markAttendanceIn = async () => {
     try {
       await attendance.request({ staff });
-      console.log("attendace", attendance.data);
     } catch (_) {}
   };
 
   const markAttendanceOut = async () => {
     try {
-      const { data } = await updateAttendance.request({ staff });
-      console.log("update attendace", data);
+      await updateAttendance.request({ staff });
     } catch (_) {}
   };
+
   const markLeave = async () => {
     try {
       // const { data } = await updateAttendance.request({ staff });

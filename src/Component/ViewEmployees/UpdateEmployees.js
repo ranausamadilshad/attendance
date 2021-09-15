@@ -16,7 +16,6 @@ let initialValues = {
   joining_date: "",
   department: "",
   job_title: "",
-
   dob: "",
   gender: "",
   address: "",
@@ -74,14 +73,14 @@ const UpdateEmployees = ({ id }) => {
   const validationSchema = Yup.object({
     first_name: Yup.string().required("Required"),
     last_name: Yup.string().required("Required"),
-    phone: Yup.number().notRequired(),
+    phone: Yup.number().required(),
     email: Yup.string().required("Required"),
     joining_date: Yup.date().required("Required"),
-    department: Yup.string().notRequired(),
-    job_title: Yup.string().notRequired(),
+    department: Yup.string().required(),
+    job_title: Yup.string().required(),
     dob: Yup.date().required("Required"),
     gender: Yup.string().required("Required"),
-    address: Yup.string().notRequired(),
+    address: Yup.string().required(),
   });
 
   function handleImage(e) {
@@ -110,7 +109,7 @@ const UpdateEmployees = ({ id }) => {
     try {
       const { data } = await request({
         ...values,
-
+        phone: !values.phone ? null : values.phone,
         firstName: values.first_name,
         lastName: values.last_name,
         joiningDate: values.joining_date,

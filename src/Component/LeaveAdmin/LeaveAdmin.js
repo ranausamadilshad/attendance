@@ -3,6 +3,7 @@ import useApi from "../../hooks/useApi";
 import LeaveAdminScreen from "./LeaveAdminScreen";
 import * as api from "../../apis/applyForLeave";
 import * as leaveCategory from "../../apis/leave-category";
+import * as staffApi from "../../apis/staff";
 
 const initialValues = {
   employeeName: "",
@@ -13,9 +14,14 @@ const initialValues = {
 };
 
 const LeaveAdmin = () => {
+  const [staffId, setStaffId] = useState("");
   const { request, data } = useApi(api.getAllLeaves);
   const leaveCat = useApi(leaveCategory.getLeaveCategory);
+  const getEmployeeLeaveDetails = useApi(staffApi.getEmployeeLeaveDetails);
   const [filteredArray, setFilteredArray] = useState();
+
+  //Get all leaves that employee have applied for. (for admin)
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -24,6 +30,19 @@ const LeaveAdmin = () => {
     }
     fetchData();
   }, []);
+
+  //Get employee Leave Details
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await getEmployeeLeaveDetails.request(staffId);
+      } catch (_) {}
+    }
+    staffId && fetchData();
+  }, [staffId]);
+
+  //get all leave categories. (Needed for filtering leaves based on category)
 
   useEffect(() => {
     async function fetchData() {
@@ -70,6 +89,7 @@ const LeaveAdmin = () => {
         handleSubmit={handleSubmit}
         filteredArray={filteredArray}
         leaveCatData={leaveCat.data}
+        setStaffId={setStaffId}
       />
     </>
   );

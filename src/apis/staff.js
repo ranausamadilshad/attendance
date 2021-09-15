@@ -20,5 +20,8 @@ export function deleteStaff(data) {
   return api.delete(`/staff/${data}`, config);
 }
 export function getStaffOfDepartment(data) {
-  return api.get(`/staff/dept/${data}`, config);
+  return api.get(`/staff/department/${data}`, config);
+}
+export function getEmployeeLeaveDetails(data) {
+  return api.get(`/staff/view-leave-status/${data}`, config);
 }

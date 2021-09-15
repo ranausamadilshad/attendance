@@ -1,7 +1,7 @@
 import React from "react";
 import "./EmployeesCreate.css";
 import "../CreateDepartment/CreateDepartment.css";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import FormikControl from "../FormControl/FormikControl";
 
 const EmployeesCreateScreen = ({
@@ -89,6 +89,11 @@ const EmployeesCreateScreen = ({
                           })}
                       </>
                     </Field>
+                    <ErrorMessage
+                      component="div"
+                      name="department"
+                      style={{ color: "red" }}
+                    />
                   </div>
                   <div class="input_field">
                     <label>Job Title</label>
@@ -107,6 +112,11 @@ const EmployeesCreateScreen = ({
                           })}
                       </>
                     </Field>
+                    <ErrorMessage
+                      component="div"
+                      name="jobTitle"
+                      style={{ color: "red" }}
+                    />
                   </div>
 
                   <div class="input_field">
