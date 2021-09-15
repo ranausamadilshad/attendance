@@ -37,7 +37,8 @@ const AttendenceAdmin = () => {
     }
     fetchData();
   }, []);
-  console.log("error", attendance.error);
+  console.log("attendence error", attendance.error);
+  console.log("attendence data", attendance.data);
   console.log("update error", updateAttendance.error);
   console.log("update data", updateAttendance.data);
 
@@ -56,7 +57,6 @@ const AttendenceAdmin = () => {
       await attendance.request({ staff });
     } catch (_) {}
   };
-  console.log("mark in", attendance.data);
 
   const markAttendanceOut = async () => {
     try {

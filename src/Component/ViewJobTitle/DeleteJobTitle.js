@@ -8,7 +8,7 @@ const DeleteJobTitle = ({ id }) => {
   const handleDelete = async () => {
     try {
       await request(id);
-      window.location.reload();
+      // window.location.reload();
     } catch (_) {}
   };
   return (

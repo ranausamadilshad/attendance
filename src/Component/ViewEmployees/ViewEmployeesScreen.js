@@ -7,7 +7,6 @@ import DeleteEmployees from "./DeleteEmployees";
 const ViewEmployeesScreen = ({ data }) => {
   console.log("staff", data);
   const [id, setId] = useState("");
-  console.log("id", id);
 
   return (
     <>

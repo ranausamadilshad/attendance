@@ -57,29 +57,40 @@ const LeaveAdmin = () => {
   console.log("staff Id", staffId);
 
   function handleSubmit(values) {
-    console.log("values", data.applyLeaves);
+    console.log("data", data.applyLeaves);
+    console.log("values", values);
+    values.employeeName &&
+      setFilteredArray(
+        data.applyLeaves.filter((element) =>
+          element.staff_name.includes(values.employeeName)
+        )
+      );
     values.leaveStatus &&
       setFilteredArray(
         data.applyLeaves.filter(
-          (element) => element.leaveStatus === values.leaveStatus
+          (element) => element.leave_status === values.leaveStatus
         )
       );
     values.leaveType &&
       setFilteredArray(
         data.applyLeaves.filter(
-          (element) => element.leaveCategoryId === +values.leaveType
+          (element) => element.category === values.leaveType
         )
       );
     values.from &&
       setFilteredArray(
         data.applyLeaves.filter(
-          (element) => element.from.split("T")[0] === values.from
+          (element) =>
+            new Date(element.from).toLocaleDateString() ===
+            new Date(values.from).toLocaleDateString()
         )
       );
     values.to &&
       setFilteredArray(
         data.applyLeaves.filter(
-          (element) => element.to.split("T")[0] === values.to
+          (element) =>
+            new Date(element.to).toLocaleDateString() ===
+            new Date(values.to).toLocaleDateString()
         )
       );
   }

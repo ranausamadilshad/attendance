@@ -3,11 +3,11 @@ import useApi from "../../hooks/useApi";
 import * as api from "../../apis/staff";
 const DeleteEmployees = ({ id }) => {
   const { request } = useApi(api.deleteStaff);
-
+  console.log("id", id);
   const handleDelete = async () => {
     try {
-      await request(id);
-      window.location.reload();
+      const { data } = await request(id);
+      data && window.location.reload();
     } catch (_) {}
   };
   return (

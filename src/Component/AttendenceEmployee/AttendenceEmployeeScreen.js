@@ -2,6 +2,7 @@ import React from "react";
 import "./AttendenceEmployee.css";
 
 const AttendenceEmployeeScreen = ({ data }) => {
+  console.log("attendence data", data);
   let hours = "00";
   let minutes = "00";
 
@@ -11,6 +12,7 @@ const AttendenceEmployeeScreen = ({ data }) => {
   if (data.stats[0].checkin_late_time.minutes) {
     minutes = data.stats[0].checkin_late_time.minutes;
   }
+  console.log("time", hours, minutes);
   return (
     <>
       <section className="daily_attendence_activity_section">
@@ -43,14 +45,14 @@ const AttendenceEmployeeScreen = ({ data }) => {
                 <span>Late</span>
                 <span>{hours + ":" + minutes + ":00"}</span>
               </div>
-              <div className="daily_attendence_activity_single_module">
+              {/* <div className="daily_attendence_activity_single_module">
                 <span>Overtime</span>
                 <span>
                   {data.stats[0].over_time === null
                     ? "--"
                     : data.stats[0].over_time}
                 </span>
-              </div>
+              </div> */}
               <div className="daily_attendence_activity_single_module">
                 <span>working hour</span>
                 <span>8 hour</span>
