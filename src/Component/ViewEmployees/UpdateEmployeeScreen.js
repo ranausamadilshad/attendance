@@ -55,7 +55,7 @@ const UpdateEmployeeScreen = ({
                     <div className="create_department_container">
                       <Form>
                         <div class="create_department_form_fields">
-                          <div class="create_employee_field">
+                          {/* <div class="create_employee_field">
                             <figure>
                               {image ? (
                                 <img src={image} alt="" />
@@ -74,7 +74,7 @@ const UpdateEmployeeScreen = ({
                                 </label>
                               </div>
                             </figure>
-                          </div>
+                          </div> */}
                           <div class="input_field">
                             <label>
                               First Name <span class="mandatory"> * </span>

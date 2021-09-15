@@ -1,7 +1,7 @@
 import { api, config } from "./api";
 
 export function addDepartment(data) {
-  return api.post("/department", { ...data });
+  return api.post("/department", { ...data }, config);
 }
 export function updateDepartment(data) {
   return api.patch(`/department/${data.id}`, { ...data }, config);
