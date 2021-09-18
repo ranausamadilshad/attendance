@@ -41,6 +41,8 @@ const AttendenceAdmin = () => {
   console.log("attendence data", attendance.data);
   console.log("update error", updateAttendance.error);
   console.log("update data", updateAttendance.data);
+  console.log("absent error", absent.error);
+  console.log("absent data", absent.data);
 
   // console.log("employ", singleEmployee.data);
 
@@ -94,8 +96,8 @@ const AttendenceAdmin = () => {
           updateAttendance={updateAttendance}
           markAbsent={markAbsent}
           markLeave={markLeave}
-          absentData={absent.data}
-          leaveData={leave.data}
+          absentData={absent}
+          leaveData={leave}
         />
       )}
     </>

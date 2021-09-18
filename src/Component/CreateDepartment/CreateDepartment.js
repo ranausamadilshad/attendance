@@ -26,10 +26,11 @@ const CreateDepartment = () => {
     console.log("Create Department data", values);
     try {
       const data = await request({ ...values });
-      window.location.reload();
+      // window.location.reload();
       console.log("returned", data);
     } catch (_) {}
   };
+  console.log("error", error);
   return (
     <>
       <CreateDepartmentScreen

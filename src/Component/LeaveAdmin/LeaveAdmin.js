@@ -54,7 +54,7 @@ const LeaveAdmin = () => {
     fetchData();
   }, []);
 
-  console.log("staff Id", staffId);
+  console.log("leave details", leaveDetails.data);
 
   function handleSubmit(values) {
     console.log("data", data.applyLeaves);
@@ -94,7 +94,6 @@ const LeaveAdmin = () => {
         )
       );
   }
-  console.log("filtered array", filteredArray);
   return (
     <>
       <LeaveAdminScreen
@@ -105,6 +104,7 @@ const LeaveAdmin = () => {
         leaveCatData={leaveCat.data}
         setStaffId={setStaffId}
         staffId={staffId}
+        leaveDetails={leaveDetails.data}
       />
     </>
   );

@@ -106,6 +106,16 @@ const AttendenceAdminScreen = ({
                     Punch Out
                   </button>
                 </div>
+
+                <div className="daily_attendence_activity_punch_btn">
+                  <button onClick={markAbsent} disabled={!!!singleEmp}>
+                    Absent
+                  </button>
+
+                  <button onClick={markLeave} disabled={!!!singleEmp}>
+                    On Leave
+                  </button>
+                </div>
                 {attendanceData.error && (
                   <p style={{ color: "red" }}>
                     {attendanceData.error.data &&
@@ -118,22 +128,19 @@ const AttendenceAdminScreen = ({
                       updateAttendance.error.data.message}
                   </p>
                 )}
-                {absentData && (
-                  <p style={{ color: "green" }}>
-                    {updateAttendance.error.data &&
-                      updateAttendance.error.data.message}
+                {absentData.error && (
+                  <p style={{ color: "red" }}>
+                    {absentData.error.data && absentData.error.data.message}
                   </p>
                 )}
-
-                <div className="daily_attendence_activity_punch_btn">
-                  <button onClick={markAbsent} disabled={!!!singleEmp}>
-                    Absent
-                  </button>
-
-                  <button onClick={markLeave} disabled={!!!singleEmp}>
-                    On Leave
-                  </button>
-                </div>
+                {leaveData.error && (
+                  <p style={{ color: "red" }}>
+                    {leaveData.error.data && leaveData.error.data.message}
+                  </p>
+                )}
+                {absentData.data && (
+                  <p style={{ color: "green" }}>Marked Absent</p>
+                )}
               </div>
               <div className="daily_attendence_activity_box_detail">
                 <div className="daily_attendence_activity_box_header">

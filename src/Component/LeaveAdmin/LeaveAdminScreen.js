@@ -11,6 +11,7 @@ const LeaveAdminScreen = ({
   leaveCatData,
   setStaffId,
   staffId,
+  leaveDetails,
 }) => {
   const [id, setId] = useState("");
   return (
@@ -22,15 +23,26 @@ const LeaveAdminScreen = ({
               <div className="admin_leave_calculation_box">
                 <div className="admin_leave_calculation_box_detail">
                   <span>Total Leave</span>
-                  <small>{staffId ? "12" : "--"}</small>
+                  <small>
+                    {leaveDetails
+                      ? leaveDetails.leaveStatus.allowed_leaves
+                      : "--"}
+                  </small>
                 </div>
                 <div className="admin_leave_calculation_box_detail">
                   <span>Leave's Made</span>
-                  <small>{staffId ? "12" : "--"}</small>
+                  <small>
+                    {leaveDetails ? leaveDetails.leaveStatus.leaves : "--"}
+                  </small>
                 </div>
                 <div className="admin_leave_calculation_box_detail">
                   <span>Remaning Leave</span>
-                  <small>{staffId ? "12" : "--"}</small>
+                  <small>
+                    {leaveDetails
+                      ? leaveDetails.leaveStatus.allowed_leaves -
+                        +leaveDetails.leaveStatus.leaves
+                      : "--"}
+                  </small>
                 </div>
                 <div className="admin_leave_calculation_box_detail">
                   <span>Leave History</span>
@@ -109,7 +121,7 @@ const LeaveAdminScreen = ({
                     data.applyLeaves.map((data) => (
                       <tr
                         className="admin_Leave_table_body"
-                        onClick={() => setStaffId(data.id)}
+                        onClick={() => setStaffId(data.staff_id)}
                       >
                         <td>{data.staff_name}</td>
                         <td>{data.category}</td>
