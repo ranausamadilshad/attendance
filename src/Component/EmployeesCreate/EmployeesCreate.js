@@ -61,8 +61,8 @@ const EmployeesCreate = () => {
   });
   const onSubmit = async (values) => {
     try {
-      const data = await request(values);
-      window.location.reload();
+      const { data } = await request(values);
+      data && window.location.reload();
     } catch (_) {}
   };
   console.log("employee error");
@@ -75,6 +75,7 @@ const EmployeesCreate = () => {
         depts={getDepts.data}
         jobs={getJob.data}
         data={data}
+        error={error}
       />
     </>
   );

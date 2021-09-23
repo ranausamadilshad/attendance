@@ -87,14 +87,14 @@ const UpdateEmployeeScreen = ({
                             </label>
                             <FormikControl control="input" name="last_name" />
                           </div>
-                          <div class="input_field">
+                          {/* <div class="input_field">
                             <label>Phone</label>
                             <FormikControl
                               control="input"
                               type="number"
                               name="phone"
                             />
-                          </div>
+                          </div> */}
                           <div class="input_field create_employee_border_bottom">
                             <label>
                               Email <span class="mandatory"> *</span>
@@ -106,7 +106,7 @@ const UpdateEmployeeScreen = ({
                             />
                             {/* <input type="email" placeholder=""/> */}
                           </div>
-                          <div class="input_field">
+                          {/* <div class="input_field">
                             <label>
                               Join Date <span class="mandatory"> *</span>
                             </label>
@@ -115,8 +115,7 @@ const UpdateEmployeeScreen = ({
                               type="date"
                               name="joining_date"
                             />
-                            {/* <input type="date" placeholder=""/> */}
-                          </div>
+                          </div> */}
                           <div class="input_field">
                             <label>Department</label>
 
@@ -187,7 +186,7 @@ const UpdateEmployeeScreen = ({
                               name="shiftId"
                             />
                           </div> */}
-                          <div class="input_field">
+                          {/* <div class="input_field">
                             <label>
                               Date Of Birth <span class="mandatory"> *</span>
                             </label>
@@ -196,7 +195,7 @@ const UpdateEmployeeScreen = ({
                               type="date"
                               name="dob"
                             />
-                          </div>
+                          </div> */}
                           <div class="input_field">
                             <label>
                               Gender <span class="mandatory"> *</span>

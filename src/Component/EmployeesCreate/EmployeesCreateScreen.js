@@ -11,6 +11,7 @@ const EmployeesCreateScreen = ({
   depts,
   jobs,
   data,
+  error,
 }) => {
   const gender = [
     { key: "MALE", value: "MALE" },
@@ -143,6 +144,11 @@ const EmployeesCreateScreen = ({
                   </div>
                   {data && Object.entries(data).length > 0 && (
                     <p style={{ color: "green" }}>Staff Created Successfully</p>
+                  )}
+                  {error && (
+                    <p style={{ color: "red" }}>
+                      {error.data && error.data.message}
+                    </p>
                   )}
                   <div class="submit_btn">
                     <button type="submit">Create</button>

@@ -37,14 +37,14 @@ const AttendenceAdmin = () => {
     }
     fetchData();
   }, []);
-  console.log("attendence error", attendance.error);
-  console.log("attendence data", attendance.data);
-  console.log("update error", updateAttendance.error);
-  console.log("update data", updateAttendance.data);
-  console.log("absent error", absent.error);
-  console.log("absent data", absent.data);
+  // console.log("attendence error", attendance.error);
+  // console.log("attendence data", attendance.data);
+  // console.log("update error", updateAttendance.error);
+  // console.log("update data", updateAttendance.data);
+  // console.log("absent error", absent.error);
+  // console.log("absent data", absent.data);
 
-  // console.log("employ", singleEmployee.data);
+  console.log("employ", singleEmployee.data);
 
   const onSubmit = async (values) => {
     setStaff(+values.employee);
@@ -68,14 +68,17 @@ const AttendenceAdmin = () => {
 
   const markLeave = async () => {
     try {
-      await leave.request({ staff });
+      await leave.request({ staffId: staff });
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
       // console.log("mark leave", data);
     } catch (_) {}
   };
 
   const markAbsent = async () => {
     try {
-      await absent.request({ staff });
+      await absent.request({ staffId: staff });
       // console.log("mark absent", data);
     } catch (_) {}
   };

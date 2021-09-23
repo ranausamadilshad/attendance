@@ -38,6 +38,7 @@ const CreateDepartment = () => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         data={data}
+        error={error}
       />
     </>
   );

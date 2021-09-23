@@ -7,6 +7,7 @@ const CreateDepartmentScreen = ({
   initialValues,
   onSubmit,
   validationSchema,
+  error,
   data,
 }) => {
   return (
@@ -55,7 +56,7 @@ const CreateDepartmentScreen = ({
                       </label>
                       <FormikControl control="textarea" name="address" />
                     </div>
-                    {data && (
+                    {!error && data && (
                       <p style={{ color: "green" }}>
                         Department Created Successfully.
                       </p>

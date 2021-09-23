@@ -98,21 +98,33 @@ const AttendenceAdminScreen = ({
                 </div>
 
                 <div className="daily_attendence_activity_punch_btn">
-                  <button onClick={markAttendanceIn} disabled={!!!singleEmp}>
+                  <button
+                    onClick={() => markAttendanceIn(singleEmp.staff.id)}
+                    disabled={!!!singleEmp}
+                  >
                     Punch In
                   </button>
 
-                  <button onClick={markAttendanceOut} disabled={!!!singleEmp}>
+                  <button
+                    onClick={() => markAttendanceOut(singleEmp.staff.id)}
+                    disabled={!!!singleEmp}
+                  >
                     Punch Out
                   </button>
                 </div>
 
                 <div className="daily_attendence_activity_punch_btn">
-                  <button onClick={markAbsent} disabled={!!!singleEmp}>
+                  <button
+                    onClick={() => markAbsent(singleEmp.staff.id)}
+                    disabled={!!!singleEmp}
+                  >
                     Absent
                   </button>
 
-                  <button onClick={markLeave} disabled={!!!singleEmp}>
+                  <button
+                    onClick={() => markLeave(singleEmp.staff.id)}
+                    disabled={!!!singleEmp}
+                  >
                     On Leave
                   </button>
                 </div>
@@ -141,8 +153,11 @@ const AttendenceAdminScreen = ({
                 {absentData.data && (
                   <p style={{ color: "green" }}>Marked Absent</p>
                 )}
+                {leaveData.data && (
+                  <p style={{ color: "green" }}>Leave Marked</p>
+                )}
               </div>
-              <div className="daily_attendence_activity_box_detail">
+              {/* <div className="daily_attendence_activity_box_detail">
                 <div className="daily_attendence_activity_box_header">
                   <h4>Statistics</h4>
                 </div>
@@ -160,7 +175,7 @@ const AttendenceAdminScreen = ({
                     <span>8 hour</span>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="daily_attendence_activity_box_detail">
                 <div className="daily_attendence_activity_box_header">
                   <h4>Today Activity</h4>
