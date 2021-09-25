@@ -17,6 +17,7 @@ const AttendenceAdminScreen = ({
   markLeave,
   absentData,
   leaveData,
+  convertTo12Hours,
 }) => {
   return (
     <>
@@ -74,7 +75,7 @@ const AttendenceAdminScreen = ({
             <div className="daily_attendence_activity_employee">
               <div className="daily_attendence_activity_employee_name">
                 {!singleEmp ? (
-                  <h1>Employee</h1>
+                  <h1>Employee Name</h1>
                 ) : (
                   <h1>
                     {singleEmp.staff.first_name +
@@ -82,11 +83,6 @@ const AttendenceAdminScreen = ({
                       singleEmp.staff.last_name}
                   </h1>
                 )}
-                {/* {!singleEmp ? (
-                  <span>Employee Designation</span>
-                ) : (
-                  <span>DataBase Designer</span>
-                )} */}
               </div>
             </div>
 
@@ -188,8 +184,10 @@ const AttendenceAdminScreen = ({
                       {attendanceData.data &&
                       Object.entries(attendanceData.data).length > 0 ? (
                         <span>
-                          <i className="far fa-clock"></i>{" "}
-                          {attendanceData.data.attendence.time_in}
+                          <i className="far fa-clock"></i>
+                          {convertTo12Hours(
+                            attendanceData.data.attendence.time_in
+                          )}
                         </span>
                       ) : (
                         <span>
@@ -204,7 +202,9 @@ const AttendenceAdminScreen = ({
                       Object.entries(updateAttendance.data).length > 0 ? (
                         <span>
                           <i className="far fa-clock"></i>{" "}
-                          {updateAttendance.data.attendence.time_in}
+                          {convertTo12Hours(
+                            updateAttendance.data.attendence.time_in
+                          )}
                         </span>
                       ) : (
                         <span>
@@ -219,7 +219,9 @@ const AttendenceAdminScreen = ({
                     Object.entries(updateAttendance.data).length > 0 ? (
                       <span>
                         <i className="far fa-clock"></i>{" "}
-                        {updateAttendance.data.attendence.time_out}
+                        {convertTo12Hours(
+                          updateAttendance.data.attendence.time_out
+                        )}
                       </span>
                     ) : (
                       <span>

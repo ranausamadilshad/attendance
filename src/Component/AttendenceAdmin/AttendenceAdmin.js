@@ -37,18 +37,9 @@ const AttendenceAdmin = () => {
     }
     fetchData();
   }, []);
-  // console.log("attendence error", attendance.error);
-  // console.log("attendence data", attendance.data);
-  // console.log("update error", updateAttendance.error);
-  // console.log("update data", updateAttendance.data);
-  // console.log("absent error", absent.error);
-  // console.log("absent data", absent.data);
-
-  console.log("employ", singleEmployee.data);
 
   const onSubmit = async (values) => {
     setStaff(+values.employee);
-    // console.log("staff", staff);
     try {
       await singleEmployee.request(+values.employee);
     } catch (_) {}
@@ -72,15 +63,22 @@ const AttendenceAdmin = () => {
       setTimeout(() => {
         window.location.reload();
       }, 2000);
-      // console.log("mark leave", data);
     } catch (_) {}
   };
 
   const markAbsent = async () => {
     try {
       await absent.request({ staffId: staff });
-      // console.log("mark absent", data);
     } catch (_) {}
+  };
+  const convertTo12Hours = (timeString) => {
+    const timeString12hr = new Date(
+      "1970-01-01T" + timeString + "Z"
+    ).toLocaleTimeString(
+      {},
+      { timeZone: "UTC", hour12: true, hour: "numeric", minute: "numeric" }
+    );
+    return timeString12hr;
   };
 
   return (
@@ -101,6 +99,7 @@ const AttendenceAdmin = () => {
           markLeave={markLeave}
           absentData={absent}
           leaveData={leave}
+          convertTo12Hours={convertTo12Hours}
         />
       )}
     </>
