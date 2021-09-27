@@ -288,7 +288,7 @@ const SideBar = ({ sideBar }) => {
         <div className="sidebar_main_wrapper">
           {sessionStorage.getItem("isAdmin") === "true" && (
             <div className="sidebar_main_heading_section">
-              <div className="sidebar_main_heading">
+              {/* <div className="sidebar_main_heading">
                 <span className="sidebar_menu_title">Main</span>
 
                 <div className="sidebar_sub_menu">
@@ -350,7 +350,7 @@ const SideBar = ({ sideBar }) => {
                     </object>
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
               <div className="sidebar_main_heading">
                 <span className="sidebar_menu_title">Configuration</span>
@@ -414,7 +414,7 @@ const SideBar = ({ sideBar }) => {
                     </object>
                   </Link>
 
-                  <Link to="#">
+                  {/* <Link to="#">
                     <div
                       className="side_bar_single_sub_menu"
                       onClick={handledropodown4}
@@ -469,7 +469,7 @@ const SideBar = ({ sideBar }) => {
                         </div>
                       </div>
                     </object>
-                  </Link>
+                  </Link> */}
 
                   <Link to="#">
                     <div
@@ -492,13 +492,13 @@ const SideBar = ({ sideBar }) => {
                     <object style={{ display: dropDown6 ? "block" : "none" }}>
                       <div className="sidebar_sub_child_menu">
                         <div className="sidebar_sub_child_menu_list">
-                          <Link to="/add-leave-category">Leave Setting</Link>
+                          <Link to="/add-leave-category">Leave Category</Link>
                         </div>
                       </div>
                     </object>
                   </Link>
 
-                  <Link to="#">
+                  {/* <Link to="#">
                     <div
                       className="side_bar_single_sub_menu"
                       onClick={handledropodown7}
@@ -523,7 +523,7 @@ const SideBar = ({ sideBar }) => {
                         </div>
                       </div>
                     </object>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
 
@@ -618,17 +618,17 @@ const SideBar = ({ sideBar }) => {
                         <div className="sidebar_sub_child_menu_list">
                           {/* <Link to="#">Mark Attendence</Link> */}
                           <Link to="/attendenceadmin"> Attendence(Admin)</Link>
-                          <Link to="/attendenceemployee">
+                          {/* <Link to="/attendenceemployee">
                             {" "}
                             Attendence(Employee)
-                          </Link>
+                          </Link> */}
                         </div>
                       </div>
                     </object>
                   </Link>
                 </div>
               </div>
-              <div className="sidebar_main_heading">
+              {/* <div className="sidebar_main_heading">
                 <span className="sidebar_menu_title">Report</span>
 
                 <div className="sidebar_sub_menu">
@@ -661,7 +661,7 @@ const SideBar = ({ sideBar }) => {
                     </object>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           )}
           {sessionStorage.getItem("isAdmin") === "false" && (
@@ -698,14 +698,14 @@ const SideBar = ({ sideBar }) => {
                       <div className="sidebar_sub_child_menu">
                         <div className="sidebar_sub_child_menu_list">
                           <Link to="/attendenceemployee">Attendance</Link>
-                          <Link to="">Attendance Rules</Link>
+                          {/* <Link to="">Attendance Rules</Link> */}
                         </div>
                       </div>
                     </object>
                   </Link>
                 </div>
               </div>
-              <div className="sidebar_main_heading">
+              {/* <div className="sidebar_main_heading">
                 <span className="sidebar_menu_title">Report</span>
                 <div className="sidebar_sub_menu">
                   <Link to="#">
@@ -736,7 +736,7 @@ const SideBar = ({ sideBar }) => {
                     </object>
                   </Link>
                 </div>
-              </div>
+              </div> */}
               <div className="sidebar_main_heading">
                 <span className="sidebar_menu_title">Leaves</span>
                 <div className="sidebar_sub_menu">

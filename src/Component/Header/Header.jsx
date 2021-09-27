@@ -209,7 +209,7 @@ const Header = ({ sideBar, setSideBar }) => {
                       <figure>
                         <img src={login_profile_img} />
                       </figure>
-                      <p>admin</p>
+                      <p>User</p>
                       <span>
                         <i className="fas fa-chevron-down"></i>
                       </span>
@@ -227,8 +227,8 @@ const Header = ({ sideBar, setSideBar }) => {
                       : "header_login_details_section_click_data"
                   }
                 >
-                  <Link to="/profile">My profile</Link>
-                  <Link to="#">setting</Link>
+                  {/* <Link to="/profile">My profile</Link>
+                  <Link to="#">setting</Link> */}
                   <Link onClick={handleLogout}>logout</Link>
                 </div>
               </div>
@@ -243,8 +243,8 @@ const Header = ({ sideBar, setSideBar }) => {
                       : "header_login_details_section_click_data"
                   }
                 >
-                  <a href="#">My profile</a>
-                  <a href="#">setting</a>
+                  {/* <a href="#">My profile</a>
+                  <a href="#">setting</a> */}
                   <a href="#">logout</a>
                 </div>
               </div>
